@@ -1,0 +1,4268 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: KurumiFake <kurumiisshidowife@gmail.com>
+Date: Sun, 21 Aug 2022 12:01:12 +0700
+Subject: [PATCH] remove stuffs
+
+we dont use such old versions so
+
+diff --git a/bedwars-plugin/pom.xml b/bedwars-plugin/pom.xml
+index 881810d1..b14bbecc 100644
+--- a/bedwars-plugin/pom.xml
++++ b/bedwars-plugin/pom.xml
+@@ -132,36 +132,16 @@
+             <artifactId>bedwars-api</artifactId>
+             <version>${project.version}</version>
+         </dependency>
+-        <dependency>
+-            <groupId>com.andrei1058.bedwars</groupId>
+-            <artifactId>versionsupport_1_8_R3</artifactId>
+-            <version>${project.version}</version>
+-        </dependency>
+         <dependency>
+             <groupId>com.andrei1058.bedwars</groupId>
+             <artifactId>resetadapter-slime</artifactId>
+             <version>${project.version}</version>
+         </dependency>
+-        <dependency>
+-            <groupId>com.andrei1058.bedwars</groupId>
+-            <artifactId>versionsupport_1_12_R1</artifactId>
+-            <version>${project.version}</version>
+-        </dependency>
+         <dependency>
+             <groupId>com.andrei1058.bedwars</groupId>
+             <artifactId>versionsupport_v1_16_R3</artifactId>
+             <version>${project.version}</version>
+         </dependency>
+-        <dependency>
+-            <groupId>com.andrei1058.bedwars</groupId>
+-            <artifactId>versionsupport_v1_17_R1</artifactId>
+-            <version>${project.version}</version>
+-        </dependency>
+-        <dependency>
+-            <groupId>com.andrei1058.bedwars</groupId>
+-            <artifactId>versionsupport_v1_18_R1</artifactId>
+-            <version>${project.version}</version>
+-        </dependency>
+         <dependency>
+             <groupId>com.andrei1058.bedwars</groupId>
+             <artifactId>versionsupport-common</artifactId>
+diff --git a/bedwars-plugin/src/main/java/com/andrei1058/bedwars/BedWars.java b/bedwars-plugin/src/main/java/com/andrei1058/bedwars/BedWars.java
+index bfcd271e..fdcf9b4c 100644
+--- a/bedwars-plugin/src/main/java/com/andrei1058/bedwars/BedWars.java
++++ b/bedwars-plugin/src/main/java/com/andrei1058/bedwars/BedWars.java
+@@ -671,16 +671,6 @@ public class BedWars extends JavaPlugin {
+     }
+ 
+     public static String getForCurrentVersion(String v18, String v12, String v13) {
+-        switch (getServerVersion()) {
+-            case "v1_8_R3":
+-                return v18;
+-            case "v1_9_R1":
+-            case "v1_9_R2":
+-            case "v1_10_R1":
+-            case "v1_11_R1":
+-            case "v1_12_R1":
+-                return v12;
+-        }
+         return v13;
+     }
+ 
+diff --git a/bedwars-plugin/src/main/java/com/andrei1058/bedwars/commands/bedwars/subcmds/sensitive/setup/AutoCreateTeams.java b/bedwars-plugin/src/main/java/com/andrei1058/bedwars/commands/bedwars/subcmds/sensitive/setup/AutoCreateTeams.java
+index 1ba80681..62dd91ea 100644
+--- a/bedwars-plugin/src/main/java/com/andrei1058/bedwars/commands/bedwars/subcmds/sensitive/setup/AutoCreateTeams.java
++++ b/bedwars-plugin/src/main/java/com/andrei1058/bedwars/commands/bedwars/subcmds/sensitive/setup/AutoCreateTeams.java
+@@ -227,15 +227,6 @@ public class AutoCreateTeams extends SubCommand {
+      * Check if server version is 1.13 or higher
+      */
+     public static boolean is13Higher() {
+-        switch (BedWars.getServerVersion()) {
+-            case "v1_8_R3":
+-            case "v1_9_R1":
+-            case "v1_9_R2":
+-            case "v1_10_R1":
+-            case "v1_11_R1":
+-            case "v1_12_R1":
+-                return false;
+-        }
+         return true;
+     }
+ 
+diff --git a/pom.xml b/pom.xml
+index 447964f5..4746c70f 100644
+--- a/pom.xml
++++ b/pom.xml
+@@ -101,12 +101,8 @@
+         <module>bedwars-plugin</module>
+         <module>bedwars-api</module>
+         <module>resetadapter_slime</module>
+-        <module>versionsupport_1_8_R3</module>
+-        <module>versionsupport_1_12_R1</module>
+         <module>versionsupport_common</module>
+         <module>versionsupport_v1_16_R3</module>
+-        <module>versionsupport_v1_17_R1</module>
+-        <module>versionsupport_v1_18_R1</module>
+     </modules>
+ 
+     <distributionManagement>
+diff --git a/versionsupport_1_12_R1/pom.xml b/versionsupport_1_12_R1/pom.xml
+deleted file mode 100644
+index 7a36bbe1..00000000
+--- a/versionsupport_1_12_R1/pom.xml
++++ /dev/null
+@@ -1,50 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project xmlns="http://maven.apache.org/POM/4.0.0"
+-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+-    <modelVersion>4.0.0</modelVersion>
+-
+-    <artifactId>versionsupport_1_12_R1</artifactId>
+-    <version>${project.parent.version}</version>
+-
+-    <parent>
+-        <artifactId>BedWars1058</artifactId>
+-        <groupId>com.andrei1058.bedwars</groupId>
+-        <version>22.3-SNAPSHOT</version>
+-    </parent>
+-
+-    <dependencies>
+-        <dependency>
+-            <groupId>com.andrei1058.bedwars</groupId>
+-            <artifactId>bedwars-api</artifactId>
+-            <version>${project.version}</version>
+-            <type>jar</type>
+-            <scope>provided</scope>
+-        </dependency>
+-        <dependency>
+-            <groupId>com.andrei1058.bedwars</groupId>
+-            <artifactId>versionsupport-common</artifactId>
+-            <version>${project.version}</version>
+-            <type>jar</type>
+-            <scope>provided</scope>
+-        </dependency>
+-        <dependency>
+-            <groupId>org.spigotmc</groupId>
+-            <artifactId>spigot</artifactId>
+-            <version>1.12.2-R0.1-SNAPSHOT</version>
+-            <type>jar</type>
+-            <scope>provided</scope>
+-        </dependency>
+-    </dependencies>
+-
+-    <build>
+-        <plugins>
+-            <plugin>
+-                <artifactId>maven-deploy-plugin</artifactId>
+-                <configuration>
+-                    <skip>true</skip>
+-                </configuration>
+-            </plugin>
+-        </plugins>
+-    </build>
+-</project>
+\ No newline at end of file
+diff --git a/versionsupport_1_12_R1/src/main/java/com/andrei1058/bedwars/support/version/v1_12_R1/IGolem.java b/versionsupport_1_12_R1/src/main/java/com/andrei1058/bedwars/support/version/v1_12_R1/IGolem.java
+deleted file mode 100644
+index b1d43352..00000000
+--- a/versionsupport_1_12_R1/src/main/java/com/andrei1058/bedwars/support/version/v1_12_R1/IGolem.java
++++ /dev/null
+@@ -1,114 +0,0 @@
+-/*
+- * BedWars1058 - A bed wars mini-game.
+- * Copyright (C) 2021 Andrei Dascălu
+- *
+- * This program is free software: you can redistribute it and/or modify
+- * it under the terms of the GNU General Public License as published by
+- * the Free Software Foundation, either version 3 of the License, or
+- * (at your option) any later version.
+- *
+- * This program is distributed in the hope that it will be useful,
+- * but WITHOUT ANY WARRANTY; without even the implied warranty of
+- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- * GNU General Public License for more details.
+- *
+- * You should have received a copy of the GNU General Public License
+- * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+- *
+- * Contact e-mail: andrew.dascalu@gmail.com
+- */
+-
+-package com.andrei1058.bedwars.support.version.v1_12_R1;
+-
+-import com.andrei1058.bedwars.api.arena.team.ITeam;
+-import com.andrei1058.bedwars.api.language.Language;
+-import com.andrei1058.bedwars.api.language.Messages;
+-import com.andrei1058.bedwars.support.version.common.VersionCommon;
+-import com.google.common.collect.Sets;
+-import net.minecraft.server.v1_12_R1.*;
+-import org.apache.commons.lang3.StringUtils;
+-import org.bukkit.Location;
+-import org.bukkit.craftbukkit.v1_12_R1.CraftWorld;
+-import org.bukkit.craftbukkit.v1_12_R1.entity.CraftLivingEntity;
+-import org.bukkit.entity.LivingEntity;
+-import org.bukkit.event.entity.CreatureSpawnEvent;
+-
+-import java.lang.reflect.Field;
+-@SuppressWarnings("ALL")
+-public class IGolem extends EntityIronGolem {
+-
+-    private ITeam team;
+-
+-    private IGolem(World world, ITeam team) {
+-        super(world);
+-        this.team = team;
+-        try {
+-            Field bField = PathfinderGoalSelector.class.getDeclaredField("b");
+-            bField.setAccessible(true);
+-            Field cField = PathfinderGoalSelector.class.getDeclaredField("c");
+-            cField.setAccessible(true);
+-            bField.set(this.goalSelector, Sets.newLinkedHashSet());
+-            bField.set(this.targetSelector, Sets.newLinkedHashSet());
+-            cField.set(this.goalSelector, Sets.newLinkedHashSet());
+-            cField.set(this.targetSelector, Sets.newLinkedHashSet());
+-        } catch (IllegalAccessException | NoSuchFieldException e1) {
+-            e1.printStackTrace();
+-        }
+-        this.setSize(1.4F, 2.9F);
+-        ((Navigation)this.getNavigation()).a(true);
+-        this.goalSelector.a(1, new PathfinderGoalFloat(this));
+-        this.goalSelector.a(2, new PathfinderGoalMeleeAttack(this, 1.5D, false));
+-        this.targetSelector.a(1, new PathfinderGoalHurtByTarget(this, true));
+-        this.goalSelector.a(3, new PathfinderGoalRandomStroll(this, 1D));
+-        this.goalSelector.a(4, new PathfinderGoalRandomLookaround(this));
+-        this.targetSelector.a(2, new PathfinderGoalNearestAttackableTarget(this, EntityHuman.class, 20, true, false, player -> {
+-            return ((EntityHuman)player).isAlive() && !team.wasMember(((EntityHuman)player).getUniqueID()) && !team.getArena().isReSpawning(((EntityHuman)player).getUniqueID())
+-                    && !team.getArena().isSpectator(((EntityHuman)player).getUniqueID());
+-        }));
+-        this.targetSelector.a(3, new PathfinderGoalNearestAttackableTarget(this, IGolem.class, 20, true, false, golem -> {
+-            return ((IGolem)golem).getTeam() != team;
+-        }));
+-        this.targetSelector.a(4, new PathfinderGoalNearestAttackableTarget(this, Silverfish.class, 20, true, false, sf -> {
+-            return ((Silverfish)sf).getTeam() != team;
+-        }));
+-    }
+-
+-    public ITeam getTeam() {
+-        return team;
+-    }
+-
+-    public static LivingEntity spawn(Location loc, ITeam bedWarsTeam, double speed, double health, int despawn) {
+-        WorldServer mcWorld = ((CraftWorld)loc.getWorld()).getHandle();
+-        IGolem customEnt = new IGolem(mcWorld, bedWarsTeam);
+-        customEnt.setLocation(loc.getX(), loc.getY(), loc.getZ(), loc.getYaw(), loc.getPitch());
+-        ((CraftLivingEntity)customEnt.getBukkitEntity()).setRemoveWhenFarAway(false);
+-        customEnt.setCustomNameVisible(true);
+-        customEnt.getAttributeInstance(GenericAttributes.maxHealth).setValue(health);
+-        customEnt.getAttributeInstance(GenericAttributes.MOVEMENT_SPEED).setValue(speed);
+-        customEnt.setCustomName(Language.getDefaultLanguage().m(Messages.SHOP_UTILITY_NPC_IRON_GOLEM_NAME)
+-                .replace("{despawn}", String.valueOf(despawn)
+-                        .replace("{health}", StringUtils.repeat(Language.getDefaultLanguage().m(Messages.FORMATTING_DESPAWNABLE_UTILITY_NPC_HEALTH)+" ", 10))
+-                        .replace("{TeamColor}", bedWarsTeam.getColor().chat().toString())));
+-        mcWorld.addEntity(customEnt, CreatureSpawnEvent.SpawnReason.CUSTOM);
+-        return (LivingEntity) customEnt.getBukkitEntity();
+-    }
+-
+-    @Override
+-    protected MinecraftKey J() {
+-        return null;
+-    }
+-
+-    @Override
+-    public void die() {
+-        super.die();
+-        team = null;
+-        VersionCommon.api.getVersionSupport().getDespawnablesList().remove(this.getUniqueID());
+-    }
+-
+-    @Override
+-    public void die(DamageSource damagesource) {
+-        super.die(damagesource);
+-        team = null;
+-        VersionCommon.api.getVersionSupport().getDespawnablesList().remove(this.getUniqueID());
+-    }
+-}
+diff --git a/versionsupport_1_12_R1/src/main/java/com/andrei1058/bedwars/support/version/v1_12_R1/Silverfish.java b/versionsupport_1_12_R1/src/main/java/com/andrei1058/bedwars/support/version/v1_12_R1/Silverfish.java
+deleted file mode 100644
+index 16fb7265..00000000
+--- a/versionsupport_1_12_R1/src/main/java/com/andrei1058/bedwars/support/version/v1_12_R1/Silverfish.java
++++ /dev/null
+@@ -1,168 +0,0 @@
+-/*
+- * BedWars1058 - A bed wars mini-game.
+- * Copyright (C) 2021 Andrei Dascălu
+- *
+- * This program is free software: you can redistribute it and/or modify
+- * it under the terms of the GNU General Public License as published by
+- * the Free Software Foundation, either version 3 of the License, or
+- * (at your option) any later version.
+- *
+- * This program is distributed in the hope that it will be useful,
+- * but WITHOUT ANY WARRANTY; without even the implied warranty of
+- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- * GNU General Public License for more details.
+- *
+- * You should have received a copy of the GNU General Public License
+- * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+- *
+- * Contact e-mail: andrew.dascalu@gmail.com
+- */
+-
+-package com.andrei1058.bedwars.support.version.v1_12_R1;
+-
+-import com.andrei1058.bedwars.api.arena.team.ITeam;
+-import com.andrei1058.bedwars.api.language.Language;
+-import com.andrei1058.bedwars.api.language.Messages;
+-import com.andrei1058.bedwars.support.version.common.VersionCommon;
+-import com.google.common.collect.Sets;
+-import net.minecraft.server.v1_12_R1.*;
+-import org.apache.commons.lang.StringUtils;
+-import org.bukkit.Location;
+-import org.bukkit.craftbukkit.v1_12_R1.CraftWorld;
+-import org.bukkit.craftbukkit.v1_12_R1.entity.CraftLivingEntity;
+-import org.bukkit.craftbukkit.v1_12_R1.event.CraftEventFactory;
+-import org.bukkit.entity.LivingEntity;
+-import org.bukkit.event.entity.CreatureSpawnEvent;
+-
+-import java.lang.reflect.Field;
+-import java.util.Random;
+-
+-@SuppressWarnings("ALL")
+-public class Silverfish extends EntitySilverfish {
+-
+-    private ITeam team;
+-
+-    @SuppressWarnings("WeakerAccess")
+-    public Silverfish(World world, ITeam team) {
+-        super(world);
+-        try {
+-            Field bField = PathfinderGoalSelector.class.getDeclaredField("b");
+-            bField.setAccessible(true);
+-            Field cField = PathfinderGoalSelector.class.getDeclaredField("c");
+-            cField.setAccessible(true);
+-            bField.set(this.goalSelector, Sets.newLinkedHashSet());
+-            bField.set(this.targetSelector, Sets.newLinkedHashSet());
+-            cField.set(this.goalSelector, Sets.newLinkedHashSet());
+-            cField.set(this.targetSelector, Sets.newLinkedHashSet());
+-        } catch (IllegalAccessException | NoSuchFieldException e1) {
+-            e1.printStackTrace();
+-        }
+-        this.team = team;
+-        this.goalSelector.a(1, new PathfinderGoalFloat(this));
+-        this.goalSelector.a(2, new PathfinderGoalMeleeAttack(this,1.9D, false));
+-        this.targetSelector.a(1, new PathfinderGoalHurtByTarget(this, true));
+-        this.goalSelector.a(3, new PathfinderGoalRandomStroll(this, 2D));
+-        this.targetSelector.a(2, new PathfinderGoalNearestAttackableTarget(this, EntityHuman.class, 20, true, false, player -> {
+-            return ((EntityHuman)player).isAlive() && !team.wasMember(((EntityHuman)player).getUniqueID()) && !team.getArena().isReSpawning(((EntityHuman)player).getUniqueID())
+-                    && !team.getArena().isSpectator(((EntityHuman)player).getUniqueID());
+-        }));
+-        this.targetSelector.a(3, new PathfinderGoalNearestAttackableTarget(this, IGolem.class, 20, true, false, golem -> {
+-            return ((IGolem)golem).getTeam() != team;
+-        }));
+-        this.targetSelector.a(4, new PathfinderGoalNearestAttackableTarget(this, Silverfish.class, 20, true, false, sf -> {
+-            return ((Silverfish)sf).getTeam() != team;
+-        }));
+-    }
+-
+-    public ITeam getTeam() {
+-        return team;
+-    }
+-
+-    @SuppressWarnings("WeakerAccess")
+-    static class PathfinderGoalSilverfishHideInBlock extends PathfinderGoalRandomStroll {
+-        private EnumDirection h;
+-        private boolean i;
+-
+-        public PathfinderGoalSilverfishHideInBlock(EntitySilverfish entitysilverfish) {
+-            super(entitysilverfish, 1.0D, 10);
+-            this.a(1);
+-        }
+-
+-        public boolean a() {
+-            if (this.a.getGoalTarget() != null) {
+-                return false;
+-            } else if (!this.a.getNavigation().o()) {
+-                return false;
+-            } else {
+-                Random random = this.a.getRandom();
+-                if (this.a.world.getGameRules().getBoolean("mobGriefing") && random.nextInt(10) == 0) {
+-                    this.h = EnumDirection.a(random);
+-                    BlockPosition blockposition = (new BlockPosition(this.a.locX, this.a.locY + 0.5D, this.a.locZ)).shift(this.h);
+-                    IBlockData iblockdata = this.a.world.getType(blockposition);
+-                    if (BlockMonsterEggs.x(iblockdata)) {
+-                        this.i = true;
+-                        return true;
+-                    }
+-                }
+-
+-                this.i = false;
+-                return super.a();
+-            }
+-        }
+-
+-        public boolean b() {
+-            return !this.i && super.b();
+-        }
+-
+-        public void c() {
+-            if (!this.i) {
+-                super.c();
+-            } else {
+-                World world = this.a.world;
+-                BlockPosition blockposition = (new BlockPosition(this.a.locX, this.a.locY + 0.5D, this.a.locZ)).shift(this.h);
+-                IBlockData iblockdata = world.getType(blockposition);
+-                if (BlockMonsterEggs.x(iblockdata)) {
+-                    if (CraftEventFactory.callEntityChangeBlockEvent(this.a, blockposition, Blocks.MONSTER_EGG, Block.getId(BlockMonsterEggs.getById(iblockdata.getBlock().toLegacyData(iblockdata)))).isCancelled()) {
+-                        return;
+-                    }
+-
+-                    world.setTypeAndData(blockposition, Blocks.MONSTER_EGG.getBlockData().set(BlockMonsterEggs.VARIANT, BlockMonsterEggs.EnumMonsterEggVarient.a(iblockdata)), 3);
+-                    this.a.doSpawnEffect();
+-                    this.a.die();
+-                }
+-            }
+-
+-        }
+-    }
+-
+-    public static LivingEntity spawn(Location loc, ITeam team, double speed, double health, int despawn, double damage) {
+-        WorldServer mcWorld = ((CraftWorld)loc.getWorld()).getHandle();
+-        Silverfish customEnt = new Silverfish(mcWorld, team);
+-        customEnt.setLocation(loc.getX(), loc.getY(), loc.getZ(), loc.getYaw(), loc.getPitch());
+-        customEnt.getAttributeInstance(GenericAttributes.maxHealth).setValue(health);
+-        customEnt.getAttributeInstance(GenericAttributes.MOVEMENT_SPEED).setValue(speed);
+-        customEnt.getAttributeInstance(GenericAttributes.ATTACK_DAMAGE).setValue(damage);
+-        ((CraftLivingEntity)customEnt.getBukkitEntity()).setRemoveWhenFarAway(false);
+-        customEnt.setCustomName(Language.getDefaultLanguage().m(Messages.SHOP_UTILITY_NPC_IRON_GOLEM_NAME)
+-                .replace("{despawn}", String.valueOf(despawn)
+-                        .replace("{health}", StringUtils.repeat(Language.getDefaultLanguage().m(Messages.FORMATTING_DESPAWNABLE_UTILITY_NPC_HEALTH)+" ", 10))
+-                        .replace("{TeamColor}", team.getColor().chat().toString())));
+-        customEnt.setCustomNameVisible(true);
+-        mcWorld.addEntity(customEnt, CreatureSpawnEvent.SpawnReason.CUSTOM);
+-        return (LivingEntity) customEnt.getBukkitEntity();
+-    }
+-
+-    @Override
+-    public void die() {
+-        super.die();
+-        team = null;
+-        VersionCommon.api.getVersionSupport().getDespawnablesList().remove(this.getUniqueID());
+-    }
+-
+-    @Override
+-    public void die(DamageSource damagesource) {
+-        super.die(damagesource);
+-        team = null;
+-        VersionCommon.api.getVersionSupport().getDespawnablesList().remove(this.getUniqueID());
+-    }
+-}
+diff --git a/versionsupport_1_12_R1/src/main/java/com/andrei1058/bedwars/support/version/v1_12_R1/v1_12_R1.java b/versionsupport_1_12_R1/src/main/java/com/andrei1058/bedwars/support/version/v1_12_R1/v1_12_R1.java
+deleted file mode 100644
+index 7b746263..00000000
+--- a/versionsupport_1_12_R1/src/main/java/com/andrei1058/bedwars/support/version/v1_12_R1/v1_12_R1.java
++++ /dev/null
+@@ -1,709 +0,0 @@
+-/*
+- * BedWars1058 - A bed wars mini-game.
+- * Copyright (C) 2021 Andrei Dascălu
+- *
+- * This program is free software: you can redistribute it and/or modify
+- * it under the terms of the GNU General Public License as published by
+- * the Free Software Foundation, either version 3 of the License, or
+- * (at your option) any later version.
+- *
+- * This program is distributed in the hope that it will be useful,
+- * but WITHOUT ANY WARRANTY; without even the implied warranty of
+- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- * GNU General Public License for more details.
+- *
+- * You should have received a copy of the GNU General Public License
+- * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+- *
+- * Contact e-mail: andrew.dascalu@gmail.com
+- */
+-
+-package com.andrei1058.bedwars.support.version.v1_12_R1;
+-
+-import com.andrei1058.bedwars.api.arena.IArena;
+-import com.andrei1058.bedwars.api.arena.shop.ShopHolo;
+-import com.andrei1058.bedwars.api.arena.team.ITeam;
+-import com.andrei1058.bedwars.api.arena.team.TeamColor;
+-import com.andrei1058.bedwars.api.entity.Despawnable;
+-import com.andrei1058.bedwars.api.events.player.PlayerKillEvent;
+-import com.andrei1058.bedwars.api.exceptions.InvalidEffectException;
+-import com.andrei1058.bedwars.api.language.Language;
+-import com.andrei1058.bedwars.api.language.Messages;
+-import com.andrei1058.bedwars.api.server.VersionSupport;
+-import com.andrei1058.bedwars.support.version.common.VersionCommon;
+-import net.minecraft.server.v1_12_R1.Item;
+-import net.minecraft.server.v1_12_R1.*;
+-import org.bukkit.Color;
+-import org.bukkit.Location;
+-import org.bukkit.Particle;
+-import org.bukkit.block.Bed;
+-import org.bukkit.block.BlockState;
+-import org.bukkit.command.Command;
+-import org.bukkit.craftbukkit.v1_12_R1.CraftServer;
+-import org.bukkit.craftbukkit.v1_12_R1.entity.CraftFireball;
+-import org.bukkit.craftbukkit.v1_12_R1.entity.CraftLivingEntity;
+-import org.bukkit.craftbukkit.v1_12_R1.entity.CraftPlayer;
+-import org.bukkit.craftbukkit.v1_12_R1.entity.CraftTNTPrimed;
+-import org.bukkit.craftbukkit.v1_12_R1.inventory.CraftItemStack;
+-import org.bukkit.entity.*;
+-import org.bukkit.event.inventory.InventoryEvent;
+-import org.bukkit.inventory.meta.ItemMeta;
+-import org.bukkit.inventory.meta.SkullMeta;
+-import org.bukkit.plugin.Plugin;
+-import org.bukkit.potion.PotionEffectType;
+-import org.bukkit.scoreboard.Team;
+-import org.bukkit.util.Vector;
+-
+-import java.lang.reflect.Field;
+-import java.util.List;
+-import java.util.logging.Level;
+-
+-@SuppressWarnings("unused")
+-public class v1_12_R1 extends VersionSupport {
+-
+-    public v1_12_R1(Plugin plugin, String name) {
+-        super(plugin, name);
+-        try {
+-            setEggBridgeEffect("MOBSPAWNER_FLAMES");
+-        } catch (InvalidEffectException e) {
+-            e.printStackTrace();
+-        }
+-    }
+-
+-    @Override
+-    public String getTag(org.bukkit.inventory.ItemStack itemStack, String key) {
+-        net.minecraft.server.v1_12_R1.ItemStack i = CraftItemStack.asNMSCopy(itemStack);
+-        NBTTagCompound tag = i.getTag();
+-        return tag == null ? null : tag.hasKey(key) ? tag.getString(key) : null;
+-    }
+-
+-    @Override
+-    public void registerVersionListeners() {
+-        new VersionCommon(this);
+-    }
+-
+-    @Override
+-    public void registerCommand(String name, Command clasa) {
+-        ((CraftServer) getPlugin().getServer()).getCommandMap().register(name, clasa);
+-    }
+-
+-    @Override
+-    public void sendTitle(Player p, String title, String subtitle, int fadeIn, int stay, int fadeOut) {
+-        if (title != null) {
+-            if (!title.isEmpty()) {
+-                IChatBaseComponent bc = IChatBaseComponent.ChatSerializer.a("{\"text\": \"" + title + "\"}");
+-                PacketPlayOutTitle tit = new PacketPlayOutTitle(PacketPlayOutTitle.EnumTitleAction.TITLE, bc);
+-                PacketPlayOutTitle length = new PacketPlayOutTitle(fadeIn, stay, fadeOut);
+-                ((CraftPlayer) p).getHandle().playerConnection.sendPacket(tit);
+-                ((CraftPlayer) p).getHandle().playerConnection.sendPacket(length);
+-            }
+-        }
+-        if (subtitle != null) {
+-            IChatBaseComponent bc = IChatBaseComponent.ChatSerializer.a("{\"text\": \"" + subtitle + "\"}");
+-            PacketPlayOutTitle tit = new PacketPlayOutTitle(PacketPlayOutTitle.EnumTitleAction.SUBTITLE, bc);
+-            PacketPlayOutTitle length = new PacketPlayOutTitle(fadeIn, stay, fadeOut);
+-            ((CraftPlayer) p).getHandle().playerConnection.sendPacket(tit);
+-            ((CraftPlayer) p).getHandle().playerConnection.sendPacket(length);
+-        }
+-    }
+-
+-    public void spawnSilverfish(Location loc, ITeam bedWarsTeam, double speed, double health, int despawn, double damage) {
+-        new Despawnable(Silverfish.spawn(loc, bedWarsTeam, speed, health, despawn, damage), bedWarsTeam, despawn,
+-                Messages.SHOP_UTILITY_NPC_SILVERFISH_NAME, PlayerKillEvent.PlayerKillCause.SILVERFISH_FINAL_KILL, PlayerKillEvent.PlayerKillCause.SILVERFISH);
+-    }
+-
+-    @Override
+-    public void spawnIronGolem(Location loc, ITeam bedWarsTeam, double speed, double health, int despawn) {
+-        new Despawnable(IGolem.spawn(loc, bedWarsTeam, speed, health, despawn), bedWarsTeam, despawn, Messages.SHOP_UTILITY_NPC_IRON_GOLEM_NAME,
+-                PlayerKillEvent.PlayerKillCause.IRON_GOLEM_FINAL_KILL, PlayerKillEvent.PlayerKillCause.IRON_GOLEM);
+-    }
+-
+-    @Override
+-    public void playAction(Player p, String text) {
+-        org.bukkit.craftbukkit.v1_12_R1.entity.CraftPlayer cPlayer = (CraftPlayer) p;
+-        net.minecraft.server.v1_12_R1.IChatBaseComponent cbc = IChatBaseComponent.ChatSerializer.a("{\"text\": \"" + text + "\"}");
+-        PacketPlayOutChat ppoc = new PacketPlayOutChat(cbc, ChatMessageType.GAME_INFO);
+-        cPlayer.getHandle().playerConnection.sendPacket(ppoc);
+-    }
+-
+-    @Override
+-    public boolean isBukkitCommandRegistered(String name) {
+-        return ((CraftServer) getPlugin().getServer()).getCommandMap().getCommand(name) != null;
+-    }
+-
+-    @Override
+-    public org.bukkit.inventory.ItemStack getItemInHand(Player p) {
+-        return p.getInventory().getItemInMainHand();
+-    }
+-
+-    @Override
+-    public void hideEntity(org.bukkit.entity.Entity e, Player p) {
+-        PacketPlayOutEntityDestroy packet = new PacketPlayOutEntityDestroy(e.getEntityId());
+-        ((CraftPlayer) p).getHandle().playerConnection.sendPacket(packet);
+-
+-    }
+-
+-    @Override
+-    public void minusAmount(Player p, org.bukkit.inventory.ItemStack i, int amount) {
+-        if (i.getAmount() - amount <= 0) {
+-            if(p.getInventory().getItemInOffHand().equals(i)) {
+-                p.getInventory().setItemInOffHand(null);
+-            } else {
+-                p.getInventory().removeItem(i);
+-            }
+-            return;
+-        }
+-        i.setAmount(i.getAmount() - amount);
+-        p.updateInventory();
+-    }
+-
+-    @Override
+-    public void setSource(TNTPrimed tnt, Player owner) {
+-        EntityLiving nmsEntityLiving = (((CraftLivingEntity) owner).getHandle());
+-        EntityTNTPrimed nmsTNT = (((CraftTNTPrimed) tnt).getHandle());
+-        try {
+-            Field sourceField = EntityTNTPrimed.class.getDeclaredField("source");
+-            sourceField.setAccessible(true);
+-            sourceField.set(nmsTNT, nmsEntityLiving);
+-        } catch (Exception ex) {
+-            ex.printStackTrace();
+-        }
+-    }
+-
+-    @Override
+-    public boolean isArmor(org.bukkit.inventory.ItemStack itemStack) {
+-        if (CraftItemStack.asNMSCopy(itemStack) == null) return false;
+-        if (CraftItemStack.asNMSCopy(itemStack).getItem() == null) return false;
+-        return CraftItemStack.asNMSCopy(itemStack).getItem() instanceof ItemArmor;
+-    }
+-
+-    @Override
+-    public boolean isTool(org.bukkit.inventory.ItemStack itemStack) {
+-        if (CraftItemStack.asNMSCopy(itemStack) == null) return false;
+-        if (CraftItemStack.asNMSCopy(itemStack).getItem() == null) return false;
+-        return CraftItemStack.asNMSCopy(itemStack).getItem() instanceof ItemTool;
+-    }
+-
+-    @Override
+-    public boolean isSword(org.bukkit.inventory.ItemStack itemStack) {
+-        if (CraftItemStack.asNMSCopy(itemStack) == null) return false;
+-        if (CraftItemStack.asNMSCopy(itemStack).getItem() == null) return false;
+-        return CraftItemStack.asNMSCopy(itemStack).getItem() instanceof ItemSword;
+-    }
+-
+-    @Override
+-    public boolean isAxe(org.bukkit.inventory.ItemStack itemStack) {
+-        if (CraftItemStack.asNMSCopy(itemStack).getItem() == null) return false;
+-        return CraftItemStack.asNMSCopy(itemStack).getItem() instanceof ItemAxe;
+-    }
+-
+-    @Override
+-    public boolean isBow(org.bukkit.inventory.ItemStack itemStack) {
+-        if (CraftItemStack.asNMSCopy(itemStack) == null) return false;
+-        if (CraftItemStack.asNMSCopy(itemStack).getItem() == null) return false;
+-        return CraftItemStack.asNMSCopy(itemStack).getItem() instanceof ItemBow;
+-    }
+-
+-    @Override
+-    public boolean isProjectile(org.bukkit.inventory.ItemStack itemStack) {
+-        if (CraftItemStack.asNMSCopy(itemStack) == null) return false;
+-        if (CraftItemStack.asNMSCopy(itemStack).getItem() == null) return false;
+-        return CraftItemStack.asNMSCopy(itemStack).getItem() instanceof IProjectile;
+-    }
+-
+-    @Override
+-    public boolean isInvisibilityPotion(org.bukkit.inventory.ItemStack itemStack) {
+-        if (!itemStack.getType().equals(org.bukkit.Material.POTION)) return false;
+-
+-        org.bukkit.inventory.meta.PotionMeta pm = (org.bukkit.inventory.meta.PotionMeta) itemStack.getItemMeta();
+-
+-        return pm.hasCustomEffects() && pm.hasCustomEffect(org.bukkit.potion.PotionEffectType.INVISIBILITY);
+-    }
+-
+-    @Override
+-    public void registerEntities() {
+-        registerEntity("Silverfish2", 60, Silverfish.class);
+-        registerEntity("IGolem", 99, IGolem.class);
+-    }
+-
+-    @Override
+-    public void spawnShop(Location loc, String name1, List<Player> players, IArena arena) {
+-        Location l = loc.clone();
+-
+-        Villager vlg = (Villager) loc.getWorld().spawnEntity(loc, EntityType.VILLAGER);
+-        vlg.setAI(false);
+-        vlg.setRemoveWhenFarAway(false);
+-        vlg.setCollidable(false);
+-        vlg.setInvulnerable(true);
+-        vlg.setSilent(true);
+-
+-        for (Player p : players) {
+-            String[] nume = Language.getMsg(p, name1).split(",");
+-            if (nume.length == 1) {
+-                ArmorStand a = createArmorStand(nume[0], l.clone().add(0, 1.85, 0));
+-                new ShopHolo(Language.getPlayerLanguage(p).getIso(), a, null, l, arena);
+-            } else {
+-                ArmorStand a = createArmorStand(nume[0], l.clone().add(0, 2.1, 0));
+-                ArmorStand b = createArmorStand(nume[1], l.clone().add(0, 1.85, 0));
+-                new ShopHolo(Language.getPlayerLanguage(p).getIso(), a, b, l, arena);
+-            }
+-        }
+-        for (ShopHolo sh : ShopHolo.getShopHolo()) {
+-            if (sh.getA() == arena) {
+-                sh.update();
+-            }
+-        }
+-    }
+-
+-    @Override
+-    public double getDamage(org.bukkit.inventory.ItemStack i) {
+-        net.minecraft.server.v1_12_R1.ItemStack nmsStack = CraftItemStack.asNMSCopy(i);
+-        NBTTagCompound compound = (nmsStack.hasTag()) ? nmsStack.getTag() : new NBTTagCompound();
+-        //noinspection ConstantConditions
+-        return compound.getDouble("generic.attackDamage");
+-    }
+-
+-    private static ArmorStand createArmorStand(String name, Location loc) {
+-        ArmorStand a = loc.getWorld().spawn(loc, ArmorStand.class);
+-        a.setGravity(false);
+-        a.setVisible(false);
+-        a.setCustomNameVisible(true);
+-        a.setCustomName(name);
+-        return a;
+-    }
+-
+-
+-    @SuppressWarnings({"unchecked", "rawtypes"})
+-    private void registerEntity(String name, int id, Class customClass) {
+-        EntityTypes.b.a(id, new MinecraftKey(name), customClass);
+-    }
+-
+-    /**
+-     * Spawn shop npc
+-     */
+-    private void spawnVillager(Location loc) {
+-        Villager vlg = (Villager) loc.getWorld().spawnEntity(loc, EntityType.VILLAGER);
+-        vlg.setAI(false);
+-        vlg.setRemoveWhenFarAway(false);
+-        vlg.setCollidable(false);
+-        vlg.setInvulnerable(true);
+-        vlg.setSilent(true);
+-    }
+-
+-    @Override
+-    public void voidKill(Player p) {
+-        ((CraftPlayer) p).getHandle().damageEntity(DamageSource.OUT_OF_WORLD, 1000);
+-    }
+-
+-    @Override
+-    public void hideArmor(Player victim, Player receiver) {
+-        PacketPlayOutEntityEquipment hand1 = new PacketPlayOutEntityEquipment(victim.getEntityId(), EnumItemSlot.MAINHAND, new ItemStack(Item.getById(0)));
+-        PacketPlayOutEntityEquipment hand2 = new PacketPlayOutEntityEquipment(victim.getEntityId(), EnumItemSlot.OFFHAND, new ItemStack(Item.getById(0)));
+-        PacketPlayOutEntityEquipment helmet = new PacketPlayOutEntityEquipment(victim.getEntityId(), EnumItemSlot.HEAD, new ItemStack(Item.getById(0)));
+-        PacketPlayOutEntityEquipment chest = new PacketPlayOutEntityEquipment(victim.getEntityId(), EnumItemSlot.CHEST, new ItemStack(Item.getById(0)));
+-        PacketPlayOutEntityEquipment pants = new PacketPlayOutEntityEquipment(victim.getEntityId(), EnumItemSlot.LEGS, new ItemStack(Item.getById(0)));
+-        PacketPlayOutEntityEquipment boots = new PacketPlayOutEntityEquipment(victim.getEntityId(), EnumItemSlot.FEET, new ItemStack(Item.getById(0)));
+-        EntityPlayer pc = ((CraftPlayer) receiver).getHandle();
+-        if (victim != receiver) {
+-            pc.playerConnection.sendPacket(hand1);
+-            pc.playerConnection.sendPacket(hand2);
+-        }
+-        pc.playerConnection.sendPacket(helmet);
+-        pc.playerConnection.sendPacket(chest);
+-        pc.playerConnection.sendPacket(pants);
+-        pc.playerConnection.sendPacket(boots);
+-    }
+-
+-    @Override
+-    public void showArmor(Player victim, Player receiver) {
+-        PacketPlayOutEntityEquipment hand1 = new PacketPlayOutEntityEquipment(victim.getEntityId(), EnumItemSlot.MAINHAND, CraftItemStack.asNMSCopy(victim.getInventory().getItemInMainHand()));
+-        PacketPlayOutEntityEquipment hand2 = new PacketPlayOutEntityEquipment(victim.getEntityId(), EnumItemSlot.OFFHAND, CraftItemStack.asNMSCopy(victim.getInventory().getItemInOffHand()));
+-        PacketPlayOutEntityEquipment helmet = new PacketPlayOutEntityEquipment(victim.getEntityId(), EnumItemSlot.HEAD, CraftItemStack.asNMSCopy(victim.getInventory().getHelmet()));
+-        PacketPlayOutEntityEquipment chest = new PacketPlayOutEntityEquipment(victim.getEntityId(), EnumItemSlot.CHEST, CraftItemStack.asNMSCopy(victim.getInventory().getChestplate()));
+-        PacketPlayOutEntityEquipment pants = new PacketPlayOutEntityEquipment(victim.getEntityId(), EnumItemSlot.LEGS, CraftItemStack.asNMSCopy(victim.getInventory().getLeggings()));
+-        PacketPlayOutEntityEquipment boots = new PacketPlayOutEntityEquipment(victim.getEntityId(), EnumItemSlot.FEET, CraftItemStack.asNMSCopy(victim.getInventory().getBoots()));
+-        EntityPlayer pc = ((CraftPlayer) receiver).getHandle();
+-        if (victim != receiver) {
+-            pc.playerConnection.sendPacket(hand1);
+-            pc.playerConnection.sendPacket(hand2);
+-        }
+-        pc.playerConnection.sendPacket(helmet);
+-        pc.playerConnection.sendPacket(chest);
+-        pc.playerConnection.sendPacket(pants);
+-        pc.playerConnection.sendPacket(boots);
+-    }
+-
+-    @Override
+-    public void spawnDragon(Location l, ITeam bwt) {
+-        if (l == null || l.getWorld() == null) {
+-            getPlugin().getLogger().log(Level.WARNING, "Could not spawn Dragon. Location is null");
+-            return;
+-        }
+-        EnderDragon ed = (EnderDragon) l.getWorld().spawnEntity(l, EntityType.ENDER_DRAGON);
+-        ed.setPhase(EnderDragon.Phase.CIRCLING);
+-    }
+-
+-    @Override
+-    public void colorBed(ITeam bwt) {
+-        for (int x = -1; x <= 1; x++) {
+-            for (int z = -1; z <= 1; z++) {
+-                BlockState bed = bwt.getBed().clone().add(x, 0, z).getBlock().getState();
+-                if (bed instanceof Bed) {
+-                    ((Bed) bed).setColor(bwt.getColor().dye());
+-                    bed.update();
+-                }
+-            }
+-        }
+-    }
+-
+-    @Override
+-    public void registerTntWhitelist() {
+-        try {
+-            Field field = Block.class.getDeclaredField("durability");
+-            field.setAccessible(true);
+-            field.set(Block.getByName("glass"), 300f);
+-            field.set(Block.getByName("stained_glass"), 300f);
+-            field.set(Block.getByName("end_stone"), 69f);
+-        } catch (NoSuchFieldException | IllegalAccessException e) {
+-            e.printStackTrace();
+-        }
+-    }
+-
+-    @Override
+-    @SuppressWarnings("deprecation")
+-    public void setBlockTeamColor(org.bukkit.block.Block block, TeamColor teamColor) {
+-        block.setData(teamColor.itemByte());
+-    }
+-
+-    @Override
+-    public void setCollide(Player p, IArena a, boolean value) {
+-        p.setCollidable(value);
+-        if (a == null) return;
+-        a.updateSpectatorCollideRule(p, value);
+-    }
+-
+-    @Override
+-    public org.bukkit.inventory.ItemStack addCustomData(org.bukkit.inventory.ItemStack i, String data) {
+-        ItemStack itemStack = CraftItemStack.asNMSCopy(i);
+-        NBTTagCompound tag = itemStack.getTag();
+-        if (tag == null) {
+-            tag = new NBTTagCompound();
+-            itemStack.setTag(tag);
+-        }
+-
+-        tag.setString("BedWars1058", data);
+-        return CraftItemStack.asBukkitCopy(itemStack);
+-    }
+-
+-    @Override
+-    public org.bukkit.inventory.ItemStack setTag(org.bukkit.inventory.ItemStack i, String key, String value) {
+-        ItemStack itemStack = CraftItemStack.asNMSCopy(i);
+-        NBTTagCompound tag = itemStack.getTag();
+-        if (tag == null) {
+-            tag = new NBTTagCompound();
+-            itemStack.setTag(tag);
+-        }
+-
+-        tag.setString(key, value);
+-        return CraftItemStack.asBukkitCopy(itemStack);
+-    }
+-
+-    @Override
+-    public boolean isCustomBedWarsItem(org.bukkit.inventory.ItemStack i) {
+-        ItemStack itemStack = CraftItemStack.asNMSCopy(i);
+-        NBTTagCompound tag = itemStack.getTag();
+-        if (tag == null) return false;
+-        return tag.hasKey("BedWars1058");
+-    }
+-
+-    @Override
+-    public String getCustomData(org.bukkit.inventory.ItemStack i) {
+-        ItemStack itemStack = CraftItemStack.asNMSCopy(i);
+-        NBTTagCompound tag = itemStack.getTag();
+-        if (tag == null) return "";
+-        return tag.getString("BedWars1058");
+-    }
+-
+-    @Override
+-    public org.bukkit.inventory.ItemStack colourItem(org.bukkit.inventory.ItemStack itemStack, ITeam bedWarsTeam) {
+-        if (itemStack == null) return null;
+-        switch (itemStack.getType().toString()) {
+-            default:
+-                return itemStack;
+-            case "WOOL":
+-            case "STAINED_CLAY":
+-            case "STAINED_GLASS":
+-                return new org.bukkit.inventory.ItemStack(itemStack.getType(), itemStack.getAmount(), bedWarsTeam.getColor().itemByte());
+-            case "GLASS":
+-                return new org.bukkit.inventory.ItemStack(org.bukkit.Material.STAINED_GLASS, itemStack.getAmount(), bedWarsTeam.getColor().itemByte());
+-        }
+-    }
+-
+-    @Override
+-    public org.bukkit.inventory.ItemStack createItemStack(String material, int amount, short data) {
+-        org.bukkit.inventory.ItemStack i;
+-        try {
+-            i = new org.bukkit.inventory.ItemStack(org.bukkit.Material.valueOf(material), amount, data);
+-        } catch (Exception ex) {
+-            getPlugin().getLogger().severe(material + " is not a valid " + getVersion() + " material!");
+-            i = new org.bukkit.inventory.ItemStack(org.bukkit.Material.BEDROCK);
+-        }
+-        return i;
+-    }
+-
+-    @Override
+-    public void teamCollideRule(Team team) {
+-        team.setOption(Team.Option.COLLISION_RULE, Team.OptionStatus.NEVER);
+-        team.setCanSeeFriendlyInvisibles(true);
+-    }
+-
+-    @Override
+-    public boolean isPlayerHead(String material, int data) {
+-        return material.equals("SKULL_ITEM") && data == 3;
+-    }
+-
+-    @Override
+-    public org.bukkit.Material materialFireball() {
+-        return org.bukkit.Material.FIREBALL;
+-    }
+-
+-    @Override
+-    public org.bukkit.Material materialPlayerHead() {
+-        return org.bukkit.Material.SKULL_ITEM;
+-    }
+-
+-    @Override
+-    public org.bukkit.Material materialSnowball() {
+-        return org.bukkit.Material.SNOW_BALL;
+-    }
+-
+-    @Override
+-    public org.bukkit.Material materialGoldenHelmet() {
+-        return org.bukkit.Material.GOLD_HELMET;
+-    }
+-
+-    @Override
+-    public org.bukkit.Material materialGoldenChestPlate() {
+-        return org.bukkit.Material.GOLD_CHESTPLATE;
+-    }
+-
+-    @Override
+-    public org.bukkit.Material materialGoldenLeggings() {
+-        return org.bukkit.Material.GOLD_LEGGINGS;
+-    }
+-
+-    @Override
+-    public org.bukkit.Material materialCake() {
+-        return org.bukkit.Material.CAKE_BLOCK;
+-    }
+-
+-    @Override
+-    public org.bukkit.Material materialCraftingTable() {
+-        return org.bukkit.Material.WORKBENCH;
+-    }
+-
+-    @Override
+-    public org.bukkit.Material materialEnchantingTable() {
+-        return org.bukkit.Material.ENCHANTMENT_TABLE;
+-    }
+-
+-    @Override
+-    public boolean isBed(org.bukkit.Material material) {
+-        return material == org.bukkit.Material.BED_BLOCK || material == org.bukkit.Material.BED;
+-    }
+-
+-    @SuppressWarnings("deprecation")
+-    @Override
+-    public boolean itemStackDataCompare(org.bukkit.inventory.ItemStack i, short data) {
+-        return i.getData().getData() == data;
+-    }
+-
+-    @SuppressWarnings("deprecation")
+-    @Override
+-    public void setJoinSignBackgroundBlockData(BlockState block, byte data) {
+-        block.getBlock().getRelative(((org.bukkit.material.Sign) block.getData()).getAttachedFace()).setData(data, true);
+-    }
+-
+-    @Override
+-    public org.bukkit.Material woolMaterial() {
+-        return org.bukkit.Material.WOOL;
+-    }
+-
+-    @Override
+-    public String getShopUpgradeIdentifier(org.bukkit.inventory.ItemStack itemStack) {
+-        ItemStack i = CraftItemStack.asNMSCopy(itemStack);
+-        NBTTagCompound tag = i.getTag();
+-        return tag == null ? "" : tag.hasKey("tierIdentifier") ? tag.getString("tierIdentifier") : "";
+-    }
+-
+-    @Override
+-    public org.bukkit.inventory.ItemStack setShopUpgradeIdentifier(org.bukkit.inventory.ItemStack itemStack, String identifier) {
+-        ItemStack i = CraftItemStack.asNMSCopy(itemStack);
+-        NBTTagCompound tag = i.getTag();
+-        if (tag == null) {
+-            tag = new NBTTagCompound();
+-            i.setTag(tag);
+-        }
+-        tag.setString("tierIdentifier", identifier);
+-        return CraftItemStack.asBukkitCopy(i);
+-    }
+-
+-    @Override
+-    public org.bukkit.inventory.ItemStack getPlayerHead(Player player, org.bukkit.inventory.ItemStack copyTagFrom) {
+-        org.bukkit.inventory.ItemStack head = new org.bukkit.inventory.ItemStack(org.bukkit.Material.SKULL_ITEM, 1, (short) 3);
+-
+-        if (copyTagFrom != null) {
+-            ItemStack i = CraftItemStack.asNMSCopy(head);
+-            i.setTag(CraftItemStack.asNMSCopy(copyTagFrom).getTag());
+-            head = CraftItemStack.asBukkitCopy(i);
+-        }
+-
+-        SkullMeta headMeta = (SkullMeta) head.getItemMeta();
+-        Field profileField;
+-        try {
+-            profileField = headMeta.getClass().getDeclaredField("profile");
+-            profileField.setAccessible(true);
+-            profileField.set(headMeta, ((CraftPlayer) player).getProfile());
+-        } catch (NoSuchFieldException | IllegalArgumentException | IllegalAccessException e1) {
+-            e1.printStackTrace();
+-        }
+-        head.setItemMeta(headMeta);
+-        return head;
+-    }
+-
+-    @Override
+-    public void sendPlayerSpawnPackets(Player respawned, IArena arena) {
+-        if (respawned == null) return;
+-        if (arena == null) return;
+-        if (!arena.isPlayer(respawned)) return;
+-
+-        // if method was used when the player was still in re-spawning screen
+-        if (arena.isReSpawning(respawned)) return;
+-
+-        EntityPlayer entityPlayer = ((CraftPlayer) respawned).getHandle();
+-        PacketPlayOutNamedEntitySpawn show = new PacketPlayOutNamedEntitySpawn(entityPlayer);
+-        PacketPlayOutEntityVelocity playerVelocity = new PacketPlayOutEntityVelocity(entityPlayer);
+-        PacketPlayOutEntityHeadRotation head = new PacketPlayOutEntityHeadRotation(entityPlayer, getCompressedAngle(entityPlayer.yaw));
+-
+-        PacketPlayOutEntityEquipment hand1 = new PacketPlayOutEntityEquipment(entityPlayer.getId(), EnumItemSlot.MAINHAND, entityPlayer.inventory.getItemInHand());
+-        PacketPlayOutEntityEquipment hand2 = new PacketPlayOutEntityEquipment(entityPlayer.getId(), EnumItemSlot.OFFHAND, entityPlayer.getItemInOffHand());
+-        PacketPlayOutEntityEquipment helmet = new PacketPlayOutEntityEquipment(entityPlayer.getId(), EnumItemSlot.HEAD, entityPlayer.inventory.getArmorContents().get(3));
+-        PacketPlayOutEntityEquipment chest = new PacketPlayOutEntityEquipment(entityPlayer.getId(), EnumItemSlot.CHEST, entityPlayer.inventory.getArmorContents().get(2));
+-        PacketPlayOutEntityEquipment pants = new PacketPlayOutEntityEquipment(entityPlayer.getId(), EnumItemSlot.LEGS, entityPlayer.inventory.getArmorContents().get(1));
+-        PacketPlayOutEntityEquipment boots = new PacketPlayOutEntityEquipment(entityPlayer.getId(), EnumItemSlot.FEET, entityPlayer.inventory.getArmorContents().get(0));
+-
+-        for (Player p : arena.getPlayers()) {
+-            if (p == null) continue;
+-            if (p.equals(respawned)) continue;
+-            // if p is in re-spawning screen continue
+-            if (arena.isReSpawning(p)) continue;
+-
+-            EntityPlayer boundTo = ((CraftPlayer) p).getHandle();
+-            if (p.getWorld().equals(respawned.getWorld())) {
+-                if (respawned.getLocation().distance(p.getLocation()) <= arena.getRenderDistance()) {
+-
+-                    // send respawned player to regular players
+-                    boundTo.playerConnection.sendPacket(show);
+-                    boundTo.playerConnection.sendPacket(playerVelocity);
+-                    for (Packet<?> packet : new Packet[]{hand1, helmet, chest, pants, boots, hand2, head}) {
+-                        boundTo.playerConnection.sendPacket(packet);
+-                    }
+-
+-                    // send nearby players to respawned player
+-                    // if the player has invisibility hide armor
+-                    if (p.hasPotionEffect(PotionEffectType.INVISIBILITY)) {
+-                        hideArmor(p, respawned);
+-                    } else {
+-                        PacketPlayOutNamedEntitySpawn show2 = new PacketPlayOutNamedEntitySpawn(boundTo);
+-                        PacketPlayOutEntityVelocity playerVelocity2 = new PacketPlayOutEntityVelocity(boundTo);
+-                        PacketPlayOutEntityHeadRotation head2 = new PacketPlayOutEntityHeadRotation(boundTo, getCompressedAngle(boundTo.yaw));
+-                        entityPlayer.playerConnection.sendPacket(show2);
+-                        entityPlayer.playerConnection.sendPacket(playerVelocity2);
+-                        entityPlayer.playerConnection.sendPacket(head2);
+-                        showArmor(p, respawned);
+-                    }
+-                }
+-            }
+-        }
+-
+-        for (Player spectator : arena.getSpectators()) {
+-            if (spectator == null) continue;
+-            if (spectator.equals(respawned)) continue;
+-            EntityPlayer boundTo = ((CraftPlayer) spectator).getHandle();
+-            respawned.hidePlayer(getPlugin(), spectator);
+-            if (spectator.getWorld().equals(respawned.getWorld())) {
+-                if (respawned.getLocation().distance(spectator.getLocation()) <= arena.getRenderDistance()) {
+-
+-                    // send respawned player to spectator
+-                    boundTo.playerConnection.sendPacket(show);
+-                    boundTo.playerConnection.sendPacket(playerVelocity);
+-                    boundTo.playerConnection.sendPacket(new PacketPlayOutEntityHeadRotation(entityPlayer, getCompressedAngle(entityPlayer.yaw)));
+-                    for (Packet<?> packet : new Packet[]{hand1, helmet, chest, pants, boots, hand2}) {
+-                        boundTo.playerConnection.sendPacket(packet);
+-                    }
+-                }
+-            }
+-        }
+-    }
+-
+-    @Override
+-    public String getInventoryName(InventoryEvent e) {
+-        return e.getInventory().getName();
+-    }
+-
+-    @Override
+-    public void setUnbreakable(ItemMeta itemMeta) {
+-        itemMeta.setUnbreakable(true);
+-    }
+-
+-    @Override
+-    public String getMainLevel() {
+-        //noinspection deprecation
+-        return ((DedicatedServer) MinecraftServer.getServer()).propertyManager.properties.getProperty("level-name");
+-    }
+-
+-    @Override
+-    public int getVersion() {
+-        return 5;
+-    }
+-
+-    @Override
+-    public void setJoinSignBackground(org.bukkit.block.BlockState b, org.bukkit.Material material) {
+-        b.getLocation().getBlock().getRelative(((org.bukkit.material.Sign) b.getData()).getAttachedFace()).setType(material);
+-    }
+-
+-    @Override
+-    public void spigotShowPlayer(Player victim, Player receiver) {
+-        receiver.showPlayer(getPlugin(), victim);
+-    }
+-
+-    @Override
+-    public void spigotHidePlayer(Player victim, Player receiver) {
+-        receiver.hidePlayer(getPlugin(), victim);
+-    }
+-
+-    @Override
+-    public Fireball setFireballDirection(Fireball fireball, Vector vector) {
+-        EntityFireball fb = ((CraftFireball) fireball).getHandle();
+-        fb.dirX = vector.getX() * 0.1D;
+-        fb.dirY = vector.getY() * 0.1D;
+-        fb.dirZ = vector.getZ() * 0.1D;
+-        return (Fireball) fb.getBukkitEntity();
+-    }
+-
+-    @Override
+-    public void playRedStoneDot(Player player) {
+-        Color color = Color.RED;
+-        PacketPlayOutWorldParticles particlePacket = new PacketPlayOutWorldParticles(EnumParticle.REDSTONE, true, (float) player.getLocation().getX(),
+-                (float) (player.getLocation().getY() + 2.6), (float) player.getLocation().getZ(), color.getRed(), color.getRed(), color.getRed(), 0, 0);
+-        for (Player inWorld : player.getWorld().getPlayers()) {
+-            if (inWorld.equals(player)) continue;
+-            ((CraftPlayer) inWorld).getHandle().playerConnection.sendPacket(particlePacket);
+-        }
+-    }
+-
+-    @Override
+-    public void clearArrowsFromPlayerBody(Player player) {
+-        ((CraftLivingEntity)player).getHandle().getDataWatcher().set(new DataWatcherObject<>(10, DataWatcherRegistry.b),-1);
+-    }
+-}
+diff --git a/versionsupport_1_8_R3/pom.xml b/versionsupport_1_8_R3/pom.xml
+deleted file mode 100644
+index 4e9bfcc8..00000000
+--- a/versionsupport_1_8_R3/pom.xml
++++ /dev/null
+@@ -1,49 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project xmlns="http://maven.apache.org/POM/4.0.0"
+-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+-    <modelVersion>4.0.0</modelVersion>
+-
+-    <parent>
+-        <artifactId>BedWars1058</artifactId>
+-        <groupId>com.andrei1058.bedwars</groupId>
+-        <version>22.3-SNAPSHOT</version>
+-    </parent>
+-
+-    <artifactId>versionsupport_1_8_R3</artifactId>
+-    <version>${project.parent.version}</version>
+-
+-    <dependencies>
+-        <dependency>
+-            <groupId>com.andrei1058.bedwars</groupId>
+-            <artifactId>bedwars-api</artifactId>
+-            <version>${project.version}</version>
+-            <type>jar</type>
+-            <scope>provided</scope>
+-        </dependency>
+-        <dependency>
+-            <groupId>org.spigotmc</groupId>
+-            <artifactId>spigot</artifactId>
+-            <version>1.8.8-R0.1-SNAPSHOT</version>
+-            <type>jar</type>
+-            <scope>provided</scope>
+-        </dependency>
+-        <dependency>
+-            <groupId>com.andrei1058.bedwars</groupId>
+-            <artifactId>versionsupport-common</artifactId>
+-            <version>${parent.version}</version>
+-            <scope>provided</scope>
+-        </dependency>
+-    </dependencies>
+-
+-    <build>
+-        <plugins>
+-            <plugin>
+-                <artifactId>maven-deploy-plugin</artifactId>
+-                <configuration>
+-                    <skip>true</skip>
+-                </configuration>
+-            </plugin>
+-        </plugins>
+-    </build>
+-</project>
+\ No newline at end of file
+diff --git a/versionsupport_1_8_R3/src/main/java/com/andrei1058/bedwars/support/version/v1_8_R3/IGolem.java b/versionsupport_1_8_R3/src/main/java/com/andrei1058/bedwars/support/version/v1_8_R3/IGolem.java
+deleted file mode 100644
+index 3af3d149..00000000
+--- a/versionsupport_1_8_R3/src/main/java/com/andrei1058/bedwars/support/version/v1_8_R3/IGolem.java
++++ /dev/null
+@@ -1,120 +0,0 @@
+-/*
+- * BedWars1058 - A bed wars mini-game.
+- * Copyright (C) 2021 Andrei Dascălu
+- *
+- * This program is free software: you can redistribute it and/or modify
+- * it under the terms of the GNU General Public License as published by
+- * the Free Software Foundation, either version 3 of the License, or
+- * (at your option) any later version.
+- *
+- * This program is distributed in the hope that it will be useful,
+- * but WITHOUT ANY WARRANTY; without even the implied warranty of
+- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- * GNU General Public License for more details.
+- *
+- * You should have received a copy of the GNU General Public License
+- * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+- *
+- * Contact e-mail: andrew.dascalu@gmail.com
+- */
+-
+-package com.andrei1058.bedwars.support.version.v1_8_R3;
+-
+-import com.andrei1058.bedwars.api.arena.team.ITeam;
+-import com.andrei1058.bedwars.api.language.Language;
+-import com.andrei1058.bedwars.api.language.Messages;
+-import com.andrei1058.bedwars.support.version.common.VersionCommon;
+-import net.minecraft.server.v1_8_R3.*;
+-import org.apache.commons.lang3.StringUtils;
+-import org.bukkit.Location;
+-import org.bukkit.craftbukkit.v1_8_R3.CraftWorld;
+-import org.bukkit.craftbukkit.v1_8_R3.entity.CraftLivingEntity;
+-import org.bukkit.craftbukkit.v1_8_R3.util.UnsafeList;
+-import org.bukkit.entity.LivingEntity;
+-import org.bukkit.event.entity.CreatureSpawnEvent;
+-
+-import java.lang.reflect.Field;
+-
+-@SuppressWarnings("ALL")
+-public class IGolem extends EntityIronGolem {
+-
+-    private ITeam team;
+-
+-    private IGolem(World world, ITeam team) {
+-        super(world);
+-        this.team = team;
+-        try {
+-            Field bField = PathfinderGoalSelector.class.getDeclaredField("b");
+-            bField.setAccessible(true);
+-            Field cField = PathfinderGoalSelector.class.getDeclaredField("c");
+-            cField.setAccessible(true);
+-            bField.set(this.goalSelector, new UnsafeList());
+-            bField.set(this.targetSelector, new UnsafeList());
+-            cField.set(this.goalSelector, new UnsafeList());
+-            cField.set(this.targetSelector, new UnsafeList());
+-        } catch (IllegalAccessException | NoSuchFieldException e1) {
+-            e1.printStackTrace();
+-        }
+-        this.setSize(1.4F, 2.9F);
+-        ((Navigation) this.getNavigation()).a(true);
+-        this.goalSelector.a(1, new PathfinderGoalFloat(this));
+-        this.goalSelector.a(2, new PathfinderGoalMeleeAttack(this, 1.5D, false));
+-        this.targetSelector.a(1, new PathfinderGoalHurtByTarget(this, true));
+-        this.goalSelector.a(3, new PathfinderGoalRandomStroll(this, 1D));
+-        this.goalSelector.a(4, new PathfinderGoalRandomLookaround(this));
+-        this.targetSelector.a(2, new PathfinderGoalNearestAttackableTarget(this, EntityHuman.class, 20, true, false, player -> {
+-            if (player == null) return false;
+-            return ((EntityHuman)player).isAlive() && !team.wasMember(((EntityHuman)player).getUniqueID()) && !team.getArena().isReSpawning(((EntityHuman)player).getUniqueID())
+-                    && !team.getArena().isSpectator(((EntityHuman)player).getUniqueID());
+-        }));
+-        this.targetSelector.a(3, new PathfinderGoalNearestAttackableTarget(this, IGolem.class, 20, true, false, golem -> {
+-            if (golem == null) return false;
+-            return ((IGolem)golem).getTeam() != team;
+-        }));
+-        this.targetSelector.a(4, new PathfinderGoalNearestAttackableTarget(this, Silverfish.class, 20, true, false, sf -> {
+-            if (sf == null) return false;
+-            return ((Silverfish)sf).getTeam() != team;
+-        }));
+-    }
+-
+-    public ITeam getTeam() {
+-        return team;
+-    }
+-
+-    public static LivingEntity spawn(Location loc, ITeam bedWarsTeam, double speed, double health, int despawn) {
+-        WorldServer mcWorld = ((CraftWorld) loc.getWorld()).getHandle();
+-        IGolem customEnt = new IGolem(mcWorld, bedWarsTeam);
+-
+-        customEnt.getAttributeInstance(GenericAttributes.maxHealth).setValue(health);
+-        customEnt.getAttributeInstance(GenericAttributes.MOVEMENT_SPEED).setValue(speed);
+-        customEnt.setLocation(loc.getX(), loc.getY(), loc.getZ(), loc.getYaw(), loc.getPitch());
+-        ((CraftLivingEntity) customEnt.getBukkitEntity()).setRemoveWhenFarAway(false);
+-        customEnt.setCustomNameVisible(true);
+-
+-        customEnt.setCustomName(Language.getDefaultLanguage().m(Messages.SHOP_UTILITY_NPC_IRON_GOLEM_NAME)
+-                .replace("{despawn}", String.valueOf(despawn))
+-                .replace("{health}", StringUtils.repeat(Language.getDefaultLanguage().m(Messages.FORMATTING_DESPAWNABLE_UTILITY_NPC_HEALTH) + " ", 10))
+-                .replace("{TeamColor}", bedWarsTeam.getColor().chat().toString()));
+-        mcWorld.addEntity(customEnt, CreatureSpawnEvent.SpawnReason.CUSTOM);
+-        return (LivingEntity) customEnt.getBukkitEntity();
+-    }
+-
+-    @Override
+-    protected void dropDeathLoot(boolean flag, int i) {
+-
+-    }
+-
+-    @Override
+-    public void die() {
+-        super.die();
+-        team = null;
+-        VersionCommon.api.getVersionSupport().getDespawnablesList().remove(this.getUniqueID());
+-    }
+-
+-    @Override
+-    public void die(DamageSource damagesource) {
+-        super.die(damagesource);
+-        team = null;
+-        VersionCommon.api.getVersionSupport().getDespawnablesList().remove(this.getUniqueID());
+-    }
+-}
+diff --git a/versionsupport_1_8_R3/src/main/java/com/andrei1058/bedwars/support/version/v1_8_R3/Silverfish.java b/versionsupport_1_8_R3/src/main/java/com/andrei1058/bedwars/support/version/v1_8_R3/Silverfish.java
+deleted file mode 100644
+index 19ff5ddb..00000000
+--- a/versionsupport_1_8_R3/src/main/java/com/andrei1058/bedwars/support/version/v1_8_R3/Silverfish.java
++++ /dev/null
+@@ -1,112 +0,0 @@
+-/*
+- * BedWars1058 - A bed wars mini-game.
+- * Copyright (C) 2021 Andrei Dascălu
+- *
+- * This program is free software: you can redistribute it and/or modify
+- * it under the terms of the GNU General Public License as published by
+- * the Free Software Foundation, either version 3 of the License, or
+- * (at your option) any later version.
+- *
+- * This program is distributed in the hope that it will be useful,
+- * but WITHOUT ANY WARRANTY; without even the implied warranty of
+- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- * GNU General Public License for more details.
+- *
+- * You should have received a copy of the GNU General Public License
+- * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+- *
+- * Contact e-mail: andrew.dascalu@gmail.com
+- */
+-
+-package com.andrei1058.bedwars.support.version.v1_8_R3;
+-
+-import com.andrei1058.bedwars.api.arena.team.ITeam;
+-import com.andrei1058.bedwars.api.language.Language;
+-import com.andrei1058.bedwars.api.language.Messages;
+-import com.andrei1058.bedwars.support.version.common.VersionCommon;
+-import net.minecraft.server.v1_8_R3.*;
+-import org.apache.commons.lang3.StringUtils;
+-import org.bukkit.Location;
+-import org.bukkit.craftbukkit.v1_8_R3.CraftWorld;
+-import org.bukkit.craftbukkit.v1_8_R3.entity.CraftLivingEntity;
+-import org.bukkit.craftbukkit.v1_8_R3.util.UnsafeList;
+-import org.bukkit.entity.LivingEntity;
+-import org.bukkit.event.entity.CreatureSpawnEvent;
+-
+-import java.lang.reflect.Field;
+-
+-@SuppressWarnings("ALL")
+-public class Silverfish extends EntitySilverfish {
+-
+-    private ITeam team;
+-
+-    public Silverfish(World world, ITeam bedWarsTeam) {
+-        super(world);
+-        if (bedWarsTeam == null) return;
+-        try {
+-            Field bField = PathfinderGoalSelector.class.getDeclaredField("b");
+-            bField.setAccessible(true);
+-            Field cField = PathfinderGoalSelector.class.getDeclaredField("c");
+-            cField.setAccessible(true);
+-            bField.set(this.goalSelector, new UnsafeList());
+-            bField.set(this.targetSelector, new UnsafeList());
+-            cField.set(this.goalSelector, new UnsafeList());
+-            cField.set(this.targetSelector, new UnsafeList());
+-        } catch (IllegalAccessException | NoSuchFieldException e1) {
+-            e1.printStackTrace();
+-        }
+-        this.team = bedWarsTeam;
+-        this.goalSelector.a(1, new PathfinderGoalFloat(this));
+-        this.goalSelector.a(2, new PathfinderGoalMeleeAttack(this,1.9D, false));
+-        this.targetSelector.a(1, new PathfinderGoalHurtByTarget(this, true));
+-        this.goalSelector.a(3, new PathfinderGoalRandomStroll(this, 2D));
+-        this.targetSelector.a(2, new PathfinderGoalNearestAttackableTarget(this, EntityHuman.class, 20, true, false, player -> {
+-            if (player == null) return false;
+-            return ((EntityHuman)player).isAlive() && !team.wasMember(((EntityHuman)player).getUniqueID()) && !team.getArena().isReSpawning(((EntityHuman)player).getUniqueID())
+-                    && !team.getArena().isSpectator(((EntityHuman)player).getUniqueID());
+-        }));
+-        this.targetSelector.a(3, new PathfinderGoalNearestAttackableTarget(this, IGolem.class, 20, true, false, golem -> {
+-            if (golem == null) return false;
+-            return ((IGolem)golem).getTeam() != team;
+-        }));
+-        this.targetSelector.a(4, new PathfinderGoalNearestAttackableTarget(this, Silverfish.class, 20, true, false, sf -> {
+-            if (sf == null) return false;
+-            return ((Silverfish)sf).getTeam() != team;
+-        }));
+-    }
+-
+-    public ITeam getTeam() {
+-        return team;
+-    }
+-
+-    public static LivingEntity spawn(Location loc, ITeam team, double speed, double health, int despawn, double damage) {
+-        WorldServer mcWorld = ((CraftWorld)loc.getWorld()).getHandle();
+-        Silverfish customEnt = new Silverfish(mcWorld, team);
+-        customEnt.setLocation(loc.getX(), loc.getY(), loc.getZ(), loc.getYaw(), loc.getPitch());
+-        customEnt.getAttributeInstance(GenericAttributes.maxHealth).setValue(health);
+-        customEnt.getAttributeInstance(GenericAttributes.MOVEMENT_SPEED).setValue(speed);
+-        customEnt.getAttributeInstance(GenericAttributes.ATTACK_DAMAGE).setValue(damage);
+-        ((CraftLivingEntity)customEnt.getBukkitEntity()).setRemoveWhenFarAway(false);
+-        customEnt.setCustomName(Language.getDefaultLanguage().m(Messages.SHOP_UTILITY_NPC_IRON_GOLEM_NAME)
+-                .replace("{despawn}", String.valueOf(despawn)
+-                        .replace("{health}", StringUtils.repeat(Language.getDefaultLanguage().m(Messages.FORMATTING_DESPAWNABLE_UTILITY_NPC_HEALTH)+" ", 10))
+-                        .replace("{TeamColor}", team.getColor().chat().toString())));
+-        customEnt.setCustomNameVisible(true);
+-        mcWorld.addEntity(customEnt, CreatureSpawnEvent.SpawnReason.CUSTOM);
+-        return (LivingEntity) customEnt.getBukkitEntity();
+-    }
+-
+-    @Override
+-    public void die(DamageSource damagesource) {
+-        super.die(damagesource);
+-        team = null;
+-        VersionCommon.api.getVersionSupport().getDespawnablesList().remove(this.getUniqueID());
+-    }
+-
+-    @Override
+-    public void die() {
+-        super.die();
+-        team = null;
+-        VersionCommon.api.getVersionSupport().getDespawnablesList().remove(this.getUniqueID());
+-    }
+-}
+diff --git a/versionsupport_1_8_R3/src/main/java/com/andrei1058/bedwars/support/version/v1_8_R3/v1_8_R3.java b/versionsupport_1_8_R3/src/main/java/com/andrei1058/bedwars/support/version/v1_8_R3/v1_8_R3.java
+deleted file mode 100644
+index f2c8cf4d..00000000
+--- a/versionsupport_1_8_R3/src/main/java/com/andrei1058/bedwars/support/version/v1_8_R3/v1_8_R3.java
++++ /dev/null
+@@ -1,738 +0,0 @@
+-/*
+- * BedWars1058 - A bed wars mini-game.
+- * Copyright (C) 2021 Andrei Dascălu
+- *
+- * This program is free software: you can redistribute it and/or modify
+- * it under the terms of the GNU General Public License as published by
+- * the Free Software Foundation, either version 3 of the License, or
+- * (at your option) any later version.
+- *
+- * This program is distributed in the hope that it will be useful,
+- * but WITHOUT ANY WARRANTY; without even the implied warranty of
+- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- * GNU General Public License for more details.
+- *
+- * You should have received a copy of the GNU General Public License
+- * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+- *
+- * Contact e-mail: andrew.dascalu@gmail.com
+- */
+-
+-package com.andrei1058.bedwars.support.version.v1_8_R3;
+-
+-import com.andrei1058.bedwars.api.arena.IArena;
+-import com.andrei1058.bedwars.api.arena.shop.ShopHolo;
+-import com.andrei1058.bedwars.api.arena.team.ITeam;
+-import com.andrei1058.bedwars.api.arena.team.TeamColor;
+-import com.andrei1058.bedwars.api.entity.Despawnable;
+-import com.andrei1058.bedwars.api.events.player.PlayerKillEvent;
+-import com.andrei1058.bedwars.api.exceptions.InvalidEffectException;
+-import com.andrei1058.bedwars.api.language.Language;
+-import com.andrei1058.bedwars.api.language.Messages;
+-import com.andrei1058.bedwars.api.server.VersionSupport;
+-import com.andrei1058.bedwars.support.version.common.VersionCommon;
+-import net.minecraft.server.v1_8_R3.*;
+-import org.bukkit.Color;
+-import org.bukkit.Location;
+-import org.bukkit.command.Command;
+-import org.bukkit.craftbukkit.v1_8_R3.CraftServer;
+-import org.bukkit.craftbukkit.v1_8_R3.CraftWorld;
+-import org.bukkit.craftbukkit.v1_8_R3.entity.*;
+-import org.bukkit.craftbukkit.v1_8_R3.inventory.CraftItemStack;
+-import org.bukkit.craftbukkit.v1_8_R3.util.UnsafeList;
+-import org.bukkit.entity.*;
+-import org.bukkit.event.entity.CreatureSpawnEvent;
+-import org.bukkit.event.inventory.InventoryEvent;
+-import org.bukkit.inventory.ItemStack;
+-import org.bukkit.inventory.meta.ItemMeta;
+-import org.bukkit.inventory.meta.SkullMeta;
+-import org.bukkit.plugin.Plugin;
+-import org.bukkit.potion.PotionEffectType;
+-import org.bukkit.scoreboard.Team;
+-import org.bukkit.util.Vector;
+-
+-import java.lang.reflect.Field;
+-import java.lang.reflect.Method;
+-import java.util.ArrayList;
+-import java.util.List;
+-import java.util.Map;
+-import java.util.logging.Level;
+-
+-import static com.andrei1058.bedwars.api.language.Language.getMsg;
+-
+-@SuppressWarnings("unused")
+-public class v1_8_R3 extends VersionSupport {
+-
+-    public v1_8_R3(Plugin pl, String name) {
+-        super(pl, name);
+-        try {
+-            setEggBridgeEffect("MOBSPAWNER_FLAMES");
+-        } catch (InvalidEffectException e) {
+-            e.printStackTrace();
+-        }
+-    }
+-
+-    public void spawnSilverfish(Location loc, ITeam bedWarsTeam, double speed, double health, int despawn, double damage) {
+-        new Despawnable(Silverfish.spawn(loc, bedWarsTeam, speed, health, despawn, damage), bedWarsTeam, despawn,
+-                Messages.SHOP_UTILITY_NPC_SILVERFISH_NAME, PlayerKillEvent.PlayerKillCause.SILVERFISH_FINAL_KILL, PlayerKillEvent.PlayerKillCause.SILVERFISH);
+-    }
+-
+-    @Override
+-    public void spawnIronGolem(Location loc, ITeam bedWarsTeam, double speed, double health, int despawn) {
+-        new Despawnable(IGolem.spawn(loc, bedWarsTeam, speed, health, despawn), bedWarsTeam, despawn, Messages.SHOP_UTILITY_NPC_IRON_GOLEM_NAME,
+-                PlayerKillEvent.PlayerKillCause.IRON_GOLEM_FINAL_KILL, PlayerKillEvent.PlayerKillCause.IRON_GOLEM);
+-    }
+-
+-    @Override
+-    public void registerCommand(String name, Command clasa) {
+-        ((CraftServer) getPlugin().getServer()).getCommandMap().register(name, clasa);
+-    }
+-
+-    @Override
+-    public void sendTitle(Player p, String title, String subtitle, int fadeIn, int stay, int fadeOut) {
+-        if (title != null) {
+-            if (!title.isEmpty()) {
+-                IChatBaseComponent bc = IChatBaseComponent.ChatSerializer.a("{\"text\": \"" + title + "\"}");
+-                PacketPlayOutTitle tit = new PacketPlayOutTitle(PacketPlayOutTitle.EnumTitleAction.TITLE, bc);
+-                PacketPlayOutTitle length = new PacketPlayOutTitle(fadeIn, stay, fadeOut);
+-                ((CraftPlayer) p).getHandle().playerConnection.sendPacket(tit);
+-                ((CraftPlayer) p).getHandle().playerConnection.sendPacket(length);
+-            }
+-        }
+-        if (subtitle != null) {
+-            IChatBaseComponent bc = IChatBaseComponent.ChatSerializer.a("{\"text\": \"" + subtitle + "\"}");
+-            PacketPlayOutTitle tit = new PacketPlayOutTitle(PacketPlayOutTitle.EnumTitleAction.SUBTITLE, bc);
+-            PacketPlayOutTitle length = new PacketPlayOutTitle(fadeIn, stay, fadeOut);
+-            ((CraftPlayer) p).getHandle().playerConnection.sendPacket(tit);
+-            ((CraftPlayer) p).getHandle().playerConnection.sendPacket(length);
+-        }
+-    }
+-
+-    @Override
+-    public void playAction(Player p, String text) {
+-        CraftPlayer cPlayer = (CraftPlayer) p;
+-        IChatBaseComponent cbc = IChatBaseComponent.ChatSerializer.a("{\"text\": \"" + text + "\"}");
+-        PacketPlayOutChat ppoc = new PacketPlayOutChat(cbc, (byte) 2);
+-        cPlayer.getHandle().playerConnection.sendPacket(ppoc);
+-    }
+-
+-    @Override
+-    public boolean isBukkitCommandRegistered(String name) {
+-        return ((CraftServer) getPlugin().getServer()).getCommandMap().getCommand(name) != null;
+-    }
+-
+-    @Override
+-    public ItemStack getItemInHand(Player p) {
+-        return p.getItemInHand();
+-    }
+-
+-    @Override
+-    public void hideEntity(org.bukkit.entity.Entity e, Player p) {
+-        PacketPlayOutEntityDestroy packet = new PacketPlayOutEntityDestroy(e.getEntityId());
+-        ((CraftPlayer) p).getHandle().playerConnection.sendPacket(packet);
+-
+-    }
+-
+-    @Override
+-    public boolean isArmor(ItemStack itemStack) {
+-        if (CraftItemStack.asNMSCopy(itemStack) == null) return false;
+-        if (CraftItemStack.asNMSCopy(itemStack).getItem() == null) return false;
+-        return CraftItemStack.asNMSCopy(itemStack).getItem() instanceof ItemArmor;
+-    }
+-
+-    @Override
+-    public boolean isTool(ItemStack itemStack) {
+-        if (CraftItemStack.asNMSCopy(itemStack) == null) return false;
+-        if (CraftItemStack.asNMSCopy(itemStack).getItem() == null) return false;
+-        return CraftItemStack.asNMSCopy(itemStack).getItem() instanceof ItemTool;
+-    }
+-
+-    @Override
+-    public boolean isSword(ItemStack itemStack) {
+-        if (CraftItemStack.asNMSCopy(itemStack).getItem() == null) return false;
+-        return CraftItemStack.asNMSCopy(itemStack).getItem() instanceof ItemSword;
+-    }
+-
+-    @Override
+-    public boolean isAxe(ItemStack itemStack) {
+-        if (CraftItemStack.asNMSCopy(itemStack).getItem() == null) return false;
+-        return CraftItemStack.asNMSCopy(itemStack).getItem() instanceof ItemAxe;
+-    }
+-
+-    @Override
+-    public boolean isBow(ItemStack itemStack) {
+-        if (CraftItemStack.asNMSCopy(itemStack) == null) return false;
+-        if (CraftItemStack.asNMSCopy(itemStack).getItem() == null) return false;
+-        return CraftItemStack.asNMSCopy(itemStack).getItem() instanceof ItemBow;
+-    }
+-
+-    @Override
+-    public boolean isProjectile(org.bukkit.inventory.ItemStack itemStack) {
+-        if (CraftItemStack.asNMSCopy(itemStack) == null) return false;
+-        if (CraftItemStack.asNMSCopy(itemStack).getItem() == null) return false;
+-        return CraftItemStack.asNMSCopy(itemStack).getItem() instanceof IProjectile;
+-    }
+-
+-    @Override
+-    public boolean isInvisibilityPotion(org.bukkit.inventory.ItemStack itemStack) {
+-        if (!itemStack.getType().equals(org.bukkit.Material.POTION)) return false;
+-
+-        org.bukkit.inventory.meta.PotionMeta pm = (org.bukkit.inventory.meta.PotionMeta) itemStack.getItemMeta();
+-
+-        if (pm != null && pm.hasCustomEffects()) {
+-            return pm.hasCustomEffect(org.bukkit.potion.PotionEffectType.INVISIBILITY);
+-        }
+-
+-        org.bukkit.potion.Potion potion = org.bukkit.potion.Potion.fromItemStack(itemStack);
+-        org.bukkit.potion.PotionType type = potion.getType();
+-
+-        return type.getEffectType().equals(org.bukkit.potion.PotionEffectType.INVISIBILITY);
+-    }
+-
+-    @Override
+-    public void registerEntities() {
+-        registerEntity("Silverfish2", 60, Silverfish.class);
+-        registerEntity("IGolem", 99, IGolem.class);
+-        registerEntity("BwVilager", 120, VillagerShop.class);
+-    }
+-
+-    @Override
+-    public void setCollide(Player p, IArena a, boolean value) {
+-        p.spigot().setCollidesWithEntities(value);
+-    }
+-
+-    @Override
+-    public void minusAmount(Player p, ItemStack i, int amount) {
+-        if (i.getAmount() - amount <= 0) {
+-            p.getInventory().removeItem(i);
+-            return;
+-        }
+-        i.setAmount(i.getAmount() - amount);
+-        p.updateInventory();
+-    }
+-
+-    public static class VillagerShop extends EntityVillager {
+-        @SuppressWarnings("rawtypes")
+-        VillagerShop(Location loc) {
+-            super(((CraftWorld) loc.getWorld()).getHandle());
+-            try {
+-                Field bField = PathfinderGoalSelector.class.getDeclaredField("b");
+-                bField.setAccessible(true);
+-                Field cField = PathfinderGoalSelector.class.getDeclaredField("c");
+-                cField.setAccessible(true);
+-                bField.set(this.goalSelector, new UnsafeList());
+-                bField.set(this.targetSelector, new UnsafeList());
+-                cField.set(this.goalSelector, new UnsafeList());
+-                cField.set(this.targetSelector, new UnsafeList());
+-            } catch (Exception ignored) {
+-            }
+-            this.setLocation(loc.getX(), loc.getY(), loc.getZ(), loc.getYaw(), loc.getPitch());
+-            this.setPositionRotation(loc.getX(), loc.getY(), loc.getZ(), loc.getYaw(), loc.getPitch());
+-            (((CraftWorld) loc.getWorld()).getHandle()).addEntity(this, CreatureSpawnEvent.SpawnReason.CUSTOM);
+-            persistent = true;
+-        }
+-
+-        public void move(double d0, double d1, double d2) {
+-        }
+-
+-        public void collide(net.minecraft.server.v1_8_R3.Entity entity) {
+-        }
+-
+-        public boolean damageEntity(DamageSource damagesource, float f) {
+-            return false;
+-        }
+-
+-        public void g(double d0, double d1, double d2) {
+-        }
+-
+-        public void makeSound(String s, float f, float f1) {
+-
+-        }
+-
+-        protected void initAttributes() {
+-            super.initAttributes();
+-            this.getAttributeInstance(GenericAttributes.MOVEMENT_SPEED).setValue(0.0D);
+-        }
+-    }
+-
+-    private void spawnVillager(Location loc) {
+-        VillagerShop nmsEntity = new VillagerShop(loc);
+-        NBTTagCompound tag = nmsEntity.getNBTTag();
+-        if (tag == null) {
+-            tag = new NBTTagCompound();
+-        }
+-        nmsEntity.c(tag);
+-        tag.setInt("NoAI", 1);
+-        nmsEntity.f(tag);
+-        ((CraftLivingEntity) nmsEntity.getBukkitEntity()).setRemoveWhenFarAway(false);
+-    }
+-
+-    @Override
+-    public void spawnShop(Location loc, String name1, List<Player> players, IArena arena) {
+-        Location l = loc.clone();
+-
+-        spawnVillager(l);
+-
+-        for (Player p : players) {
+-            String[] nume = getMsg(p, name1).split(",");
+-            if (nume.length == 1) {
+-                ArmorStand a = createArmorStand(nume[0], l.clone().add(0, 1.85, 0));
+-                new ShopHolo(Language.getPlayerLanguage(p).getIso(), a, null, l, arena);
+-            } else {
+-                ArmorStand a = createArmorStand(nume[0], l.clone().add(0, 2.1, 0));
+-                ArmorStand b = createArmorStand(nume[1], l.clone().add(0, 1.85, 0));
+-                new ShopHolo(Language.getPlayerLanguage(p).getIso(), a, b, l, arena);
+-            }
+-        }
+-        for (ShopHolo sh : ShopHolo.getShopHolo()) {
+-            if (sh.getA() == arena) {
+-                sh.update();
+-            }
+-        }
+-    }
+-
+-    @Override
+-    public double getDamage(ItemStack i) {
+-        net.minecraft.server.v1_8_R3.ItemStack nmsStack = CraftItemStack.asNMSCopy(i);
+-        NBTTagCompound compound = (nmsStack.hasTag()) ? nmsStack.getTag() : new NBTTagCompound();
+-        return compound.getDouble("generic.attackDamage");
+-    }
+-
+-    private static ArmorStand createArmorStand(String name, Location loc) {
+-        ArmorStand a = loc.getWorld().spawn(loc, ArmorStand.class);
+-        a.setGravity(false);
+-        a.setVisible(false);
+-        a.setCustomNameVisible(true);
+-        a.setCustomName(name);
+-        return a;
+-    }
+-
+-
+-    @SuppressWarnings("rawtypes")
+-    private void registerEntity(String name, int id, Class customClass) {
+-        try {
+-            ArrayList<Map> dataMap = new ArrayList<>();
+-            for (Field f : EntityTypes.class.getDeclaredFields()) {
+-                if (!f.getType().getSimpleName().equals(Map.class.getSimpleName())) continue;
+-                f.setAccessible(true);
+-                dataMap.add((Map) f.get(null));
+-            }
+-            if (dataMap.get(2).containsKey(id)) {
+-                dataMap.get(0).remove(name);
+-                dataMap.get(2).remove(id);
+-            }
+-            Method method = EntityTypes.class.getDeclaredMethod("a", Class.class, String.class, Integer.TYPE);
+-            method.setAccessible(true);
+-            method.invoke(null, customClass, name, id);
+-        } catch (Exception e) {
+-            e.printStackTrace();
+-        }
+-    }
+-
+-    @Override
+-    public void setSource(TNTPrimed tnt, Player owner) {
+-        EntityLiving nmsEntityLiving = (((CraftLivingEntity) owner).getHandle());
+-        EntityTNTPrimed nmsTNT = (((CraftTNTPrimed) tnt).getHandle());
+-        try {
+-            Field sourceField = EntityTNTPrimed.class.getDeclaredField("source");
+-            sourceField.setAccessible(true);
+-            sourceField.set(nmsTNT, nmsEntityLiving);
+-        } catch (Exception ex) {
+-            ex.printStackTrace();
+-        }
+-    }
+-
+-    @Override
+-    public void voidKill(Player p) {
+-        ((CraftPlayer) p).getHandle().damageEntity(DamageSource.OUT_OF_WORLD, 1000);
+-    }
+-
+-    @Override
+-    public void hideArmor(Player victim, Player receiver) {
+-        if (victim.equals(receiver)) return;
+-        PacketPlayOutEntityEquipment hand = new PacketPlayOutEntityEquipment(victim.getEntityId(), 0, CraftItemStack.asNMSCopy(new ItemStack(org.bukkit.Material.AIR)));
+-        PacketPlayOutEntityEquipment helmet = new PacketPlayOutEntityEquipment(victim.getEntityId(), 1, CraftItemStack.asNMSCopy(new ItemStack(org.bukkit.Material.AIR)));
+-        PacketPlayOutEntityEquipment chest = new PacketPlayOutEntityEquipment(victim.getEntityId(), 2, CraftItemStack.asNMSCopy(new ItemStack(org.bukkit.Material.AIR)));
+-        PacketPlayOutEntityEquipment pants = new PacketPlayOutEntityEquipment(victim.getEntityId(), 3, CraftItemStack.asNMSCopy(new ItemStack(org.bukkit.Material.AIR)));
+-        PacketPlayOutEntityEquipment boots = new PacketPlayOutEntityEquipment(victim.getEntityId(), 4, CraftItemStack.asNMSCopy(new ItemStack(org.bukkit.Material.AIR)));
+-        PlayerConnection boundTo = ((CraftPlayer) receiver).getHandle().playerConnection;
+-        boundTo.sendPacket(hand);
+-        boundTo.sendPacket(helmet);
+-        boundTo.sendPacket(chest);
+-        boundTo.sendPacket(pants);
+-        boundTo.sendPacket(boots);
+-    }
+-
+-    @Override
+-    public void showArmor(Player victim, Player receiver) {
+-        if (victim.equals(receiver)) return;
+-        EntityPlayer entityPlayer = ((CraftPlayer) victim).getHandle();
+-        PacketPlayOutEntityEquipment hand1 = new PacketPlayOutEntityEquipment(entityPlayer.getId(), 0, entityPlayer.inventory.getItemInHand());
+-        PacketPlayOutEntityEquipment helmet = new PacketPlayOutEntityEquipment(entityPlayer.getId(), 4, entityPlayer.inventory.getArmorContents()[3]);
+-        PacketPlayOutEntityEquipment chest = new PacketPlayOutEntityEquipment(entityPlayer.getId(), 3, entityPlayer.inventory.getArmorContents()[2]);
+-        PacketPlayOutEntityEquipment pants = new PacketPlayOutEntityEquipment(entityPlayer.getId(), 2, entityPlayer.inventory.getArmorContents()[1]);
+-        PacketPlayOutEntityEquipment boots = new PacketPlayOutEntityEquipment(entityPlayer.getId(), 1, entityPlayer.inventory.getArmorContents()[0]);
+-        EntityPlayer boundTo = ((CraftPlayer) receiver).getHandle();
+-        if (victim != receiver) {
+-            boundTo.playerConnection.sendPacket(hand1);
+-        }
+-        boundTo.playerConnection.sendPacket(helmet);
+-        boundTo.playerConnection.sendPacket(chest);
+-        boundTo.playerConnection.sendPacket(pants);
+-        boundTo.playerConnection.sendPacket(boots);
+-    }
+-
+-    @Override
+-    public void spawnDragon(Location l, ITeam bwt) {
+-        l.getWorld().spawnEntity(l, EntityType.ENDER_DRAGON);
+-    }
+-
+-    @Override
+-    public void colorBed(ITeam bwt) {
+-
+-    }
+-
+-    @Override
+-    public void registerTntWhitelist() {
+-        try {
+-            Field field = Block.class.getDeclaredField("durability");
+-            field.setAccessible(true);
+-            field.set(Block.getByName("glass"), 300f);
+-            field.set(Block.getByName("stained_glass"), 300f);
+-            field.set(Block.getByName("end_stone"), 69f);
+-        } catch (NoSuchFieldException | IllegalAccessException e) {
+-            e.printStackTrace();
+-        }
+-    }
+-
+-    @Override
+-    @SuppressWarnings("deprecation")
+-    public void setBlockTeamColor(org.bukkit.block.Block block, TeamColor teamColor) {
+-        block.setData(teamColor.itemByte());
+-    }
+-
+-    @Override
+-    public org.bukkit.inventory.ItemStack addCustomData(org.bukkit.inventory.ItemStack i, String data) {
+-        net.minecraft.server.v1_8_R3.ItemStack itemStack = CraftItemStack.asNMSCopy(i);
+-        NBTTagCompound tag = itemStack.getTag();
+-        if (tag == null) {
+-            tag = new NBTTagCompound();
+-            itemStack.setTag(tag);
+-        }
+-
+-        tag.setString("BedWars1058", data);
+-        return CraftItemStack.asBukkitCopy(itemStack);
+-    }
+-
+-    @Override
+-    public ItemStack setTag(ItemStack itemStack, String key, String value) {
+-        net.minecraft.server.v1_8_R3.ItemStack is = CraftItemStack.asNMSCopy(itemStack);
+-        NBTTagCompound tag = is.getTag();
+-        if (tag == null) {
+-            tag = new NBTTagCompound();
+-            is.setTag(tag);
+-        }
+-
+-        tag.setString(key, value);
+-        return CraftItemStack.asBukkitCopy(is);
+-    }
+-
+-    @Override
+-    public String getTag(ItemStack itemStack, String key) {
+-        net.minecraft.server.v1_8_R3.ItemStack i = CraftItemStack.asNMSCopy(itemStack);
+-        NBTTagCompound tag = i.getTag();
+-        return tag == null ? null : tag.hasKey(key) ? tag.getString(key) : null;
+-    }
+-
+-    @Override
+-    public boolean isCustomBedWarsItem(org.bukkit.inventory.ItemStack i) {
+-        net.minecraft.server.v1_8_R3.ItemStack itemStack = CraftItemStack.asNMSCopy(i);
+-        if (itemStack == null) return false;
+-        NBTTagCompound tag = itemStack.getTag();
+-        if (tag == null) return false;
+-        return tag.hasKey("BedWars1058");
+-    }
+-
+-    @Override
+-    public String getCustomData(org.bukkit.inventory.ItemStack i) {
+-        net.minecraft.server.v1_8_R3.ItemStack itemStack = CraftItemStack.asNMSCopy(i);
+-        NBTTagCompound tag = itemStack.getTag();
+-        if (tag == null) return "";
+-        return tag.getString("BedWars1058");
+-    }
+-
+-    @Override
+-    public ItemStack colourItem(ItemStack itemStack, ITeam bedWarsTeam) {
+-        if (itemStack == null) return null;
+-        switch (itemStack.getType().toString()) {
+-            default:
+-                return itemStack;
+-            case "WOOL":
+-            case "STAINED_CLAY":
+-            case "STAINED_GLASS":
+-                return new ItemStack(itemStack.getType(), itemStack.getAmount(), bedWarsTeam.getColor().itemByte());
+-            case "GLASS":
+-                return new ItemStack(org.bukkit.Material.STAINED_GLASS, itemStack.getAmount(), bedWarsTeam.getColor().itemByte());
+-        }
+-    }
+-
+-    @Override
+-    public org.bukkit.inventory.ItemStack createItemStack(String material, int amount, short data) {
+-        org.bukkit.inventory.ItemStack i;
+-        try {
+-            i = new org.bukkit.inventory.ItemStack(org.bukkit.Material.valueOf(material), amount, data);
+-        } catch (Exception ex) {
+-            getPlugin().getLogger().log(Level.WARNING, material + " is not a valid " + getName() + " material!");
+-            i = new org.bukkit.inventory.ItemStack(org.bukkit.Material.BEDROCK);
+-        }
+-        return i;
+-    }
+-
+-    @Override
+-    public void teamCollideRule(Team team) {
+-
+-    }
+-
+-    @Override
+-    public boolean isPlayerHead(String material, int data) {
+-        return material.equals("SKULL_ITEM") && data == 3;
+-    }
+-
+-    @Override
+-    public org.bukkit.Material materialFireball() {
+-        return org.bukkit.Material.FIREBALL;
+-    }
+-
+-    @Override
+-    public org.bukkit.Material materialPlayerHead() {
+-        return org.bukkit.Material.SKULL_ITEM;
+-    }
+-
+-    @Override
+-    public org.bukkit.Material materialSnowball() {
+-        return org.bukkit.Material.SNOW_BALL;
+-    }
+-
+-    @Override
+-    public org.bukkit.Material materialGoldenHelmet() {
+-        return org.bukkit.Material.GOLD_HELMET;
+-    }
+-
+-    @Override
+-    public org.bukkit.Material materialGoldenChestPlate() {
+-        return org.bukkit.Material.GOLD_CHESTPLATE;
+-    }
+-
+-    @Override
+-    public org.bukkit.Material materialGoldenLeggings() {
+-        return org.bukkit.Material.GOLD_LEGGINGS;
+-    }
+-
+-    @Override
+-    public org.bukkit.Material materialCake() {
+-        return org.bukkit.Material.CAKE_BLOCK;
+-    }
+-
+-    @Override
+-    public org.bukkit.Material materialCraftingTable() {
+-        return org.bukkit.Material.WORKBENCH;
+-    }
+-
+-    @Override
+-    public org.bukkit.Material materialEnchantingTable() {
+-        return org.bukkit.Material.ENCHANTMENT_TABLE;
+-    }
+-
+-    @Override
+-    public boolean isBed(org.bukkit.Material material) {
+-        return material == org.bukkit.Material.BED_BLOCK || material == org.bukkit.Material.BED;
+-    }
+-
+-    @SuppressWarnings("deprecation")
+-    @Override
+-    public boolean itemStackDataCompare(ItemStack i, short data) {
+-        return i.getData().getData() == data;
+-    }
+-
+-    @SuppressWarnings("deprecation")
+-    @Override
+-    public void setJoinSignBackgroundBlockData(org.bukkit.block.BlockState block, byte data) {
+-        block.getBlock().getRelative(((org.bukkit.material.Sign) block.getData()).getAttachedFace()).setData(data, true);
+-    }
+-
+-    @Override
+-    public void setJoinSignBackground(org.bukkit.block.BlockState b, org.bukkit.Material material) {
+-        b.getLocation().getBlock().getRelative(((org.bukkit.material.Sign) b.getData()).getAttachedFace()).setType(material);
+-    }
+-
+-    @Override
+-    public org.bukkit.Material woolMaterial() {
+-        return org.bukkit.Material.WOOL;
+-    }
+-
+-    @Override
+-    public String getShopUpgradeIdentifier(org.bukkit.inventory.ItemStack itemStack) {
+-        net.minecraft.server.v1_8_R3.ItemStack i = CraftItemStack.asNMSCopy(itemStack);
+-        NBTTagCompound tag = i.getTag();
+-        return tag == null ? "" : tag.hasKey("tierIdentifier") ? tag.getString("tierIdentifier") : "";
+-    }
+-
+-    @Override
+-    public org.bukkit.inventory.ItemStack setShopUpgradeIdentifier(org.bukkit.inventory.ItemStack itemStack, String identifier) {
+-        net.minecraft.server.v1_8_R3.ItemStack i = CraftItemStack.asNMSCopy(itemStack);
+-        NBTTagCompound tag = i.getTag();
+-        if (tag == null) {
+-            tag = new NBTTagCompound();
+-            i.setTag(tag);
+-        }
+-        tag.setString("tierIdentifier", identifier);
+-        return CraftItemStack.asBukkitCopy(i);
+-    }
+-
+-    @Override
+-    public ItemStack getPlayerHead(Player player, ItemStack copyTagFrom) {
+-        ItemStack head = new ItemStack(org.bukkit.Material.SKULL_ITEM, 1, (short) 3);
+-
+-        if (copyTagFrom != null) {
+-            net.minecraft.server.v1_8_R3.ItemStack i = CraftItemStack.asNMSCopy(head);
+-            i.setTag(CraftItemStack.asNMSCopy(copyTagFrom).getTag());
+-            head = CraftItemStack.asBukkitCopy(i);
+-        }
+-
+-        SkullMeta headMeta = (SkullMeta) head.getItemMeta();
+-        Field profileField;
+-        try {
+-            profileField = headMeta.getClass().getDeclaredField("profile");
+-            profileField.setAccessible(true);
+-            profileField.set(headMeta, ((CraftPlayer) player).getProfile());
+-        } catch (NoSuchFieldException | IllegalArgumentException | IllegalAccessException e1) {
+-            e1.printStackTrace();
+-        }
+-        head.setItemMeta(headMeta);
+-        return head;
+-    }
+-
+-    @Override
+-    public void sendPlayerSpawnPackets(Player respawned, IArena arena) {
+-
+-        if (respawned == null) return;
+-        if (arena == null) return;
+-        if (!arena.isPlayer(respawned)) return;
+-
+-        // if method was used when the player was still in re-spawning screen
+-        if (arena.getRespawnSessions().containsKey(respawned)) return;
+-
+-        EntityPlayer entityPlayer = ((CraftPlayer) respawned).getHandle();
+-        PacketPlayOutNamedEntitySpawn show = new PacketPlayOutNamedEntitySpawn(entityPlayer);
+-        PacketPlayOutEntityVelocity playerVelocity = new PacketPlayOutEntityVelocity(entityPlayer);
+-        PacketPlayOutEntityHeadRotation head = new PacketPlayOutEntityHeadRotation(entityPlayer, getCompressedAngle(entityPlayer.yaw));
+-
+-        PacketPlayOutEntityEquipment hand1 = new PacketPlayOutEntityEquipment(entityPlayer.getId(), 0, entityPlayer.inventory.getItemInHand());
+-        PacketPlayOutEntityEquipment helmet = new PacketPlayOutEntityEquipment(entityPlayer.getId(), 4, entityPlayer.inventory.getArmorContents()[3]);
+-        PacketPlayOutEntityEquipment chest = new PacketPlayOutEntityEquipment(entityPlayer.getId(), 3, entityPlayer.inventory.getArmorContents()[2]);
+-        PacketPlayOutEntityEquipment pants = new PacketPlayOutEntityEquipment(entityPlayer.getId(), 2, entityPlayer.inventory.getArmorContents()[1]);
+-        PacketPlayOutEntityEquipment boots = new PacketPlayOutEntityEquipment(entityPlayer.getId(), 1, entityPlayer.inventory.getArmorContents()[0]);
+-
+-        for (Player p : arena.getPlayers()) {
+-            if (p == null) continue;
+-            if (p.equals(respawned)) continue;
+-            // if p is in re-spawning screen continue
+-            if (arena.getRespawnSessions().containsKey(p)) continue;
+-
+-            EntityPlayer boundTo = ((CraftPlayer) p).getHandle();
+-            if (p.getWorld().equals(respawned.getWorld())) {
+-                if (respawned.getLocation().distance(p.getLocation()) <= arena.getRenderDistance()) {
+-
+-                    // send respawned player to regular players
+-                    boundTo.playerConnection.sendPacket(show);
+-                    boundTo.playerConnection.sendPacket(playerVelocity);
+-                    for (Packet<?> packet : new Packet[]{hand1, helmet, chest, pants, boots, head}) {
+-                        boundTo.playerConnection.sendPacket(packet);
+-                    }
+-
+-                    // send nearby players to respawned player
+-                    // if the player has invisibility hide armor
+-                    if (p.hasPotionEffect(PotionEffectType.INVISIBILITY)) {
+-                        hideArmor(p, respawned);
+-                    } else {
+-                        PacketPlayOutNamedEntitySpawn show2 = new PacketPlayOutNamedEntitySpawn(boundTo);
+-                        PacketPlayOutEntityVelocity playerVelocity2 = new PacketPlayOutEntityVelocity(boundTo);
+-                        PacketPlayOutEntityHeadRotation head2 = new PacketPlayOutEntityHeadRotation(boundTo, getCompressedAngle(boundTo.yaw));
+-                        entityPlayer.playerConnection.sendPacket(show2);
+-                        entityPlayer.playerConnection.sendPacket(playerVelocity2);
+-                        entityPlayer.playerConnection.sendPacket(head2);
+-                        showArmor(p, respawned);
+-                    }
+-                }
+-            }
+-        }
+-
+-        for (Player spectator : arena.getSpectators()) {
+-            if (spectator == null) continue;
+-            if (spectator.equals(respawned)) continue;
+-            EntityPlayer boundTo = ((CraftPlayer) spectator).getHandle();
+-            respawned.hidePlayer(spectator);
+-            if (spectator.getWorld().equals(respawned.getWorld())) {
+-                if (respawned.getLocation().distance(spectator.getLocation()) <= arena.getRenderDistance()) {
+-
+-                    // send respawned player to spectator
+-                    boundTo.playerConnection.sendPacket(show);
+-                    boundTo.playerConnection.sendPacket(playerVelocity);
+-                    boundTo.playerConnection.sendPacket(new PacketPlayOutEntityHeadRotation(entityPlayer, getCompressedAngle(entityPlayer.yaw)));
+-                    for (Packet<?> packet : new Packet[]{hand1, helmet, chest, pants, boots}) {
+-                        boundTo.playerConnection.sendPacket(packet);
+-                    }
+-                }
+-            }
+-        }
+-    }
+-
+-    @Override
+-    public String getInventoryName(InventoryEvent e) {
+-        return e.getInventory().getName();
+-    }
+-
+-    @Override
+-    public void setUnbreakable(ItemMeta itemMeta) {
+-        itemMeta.spigot().setUnbreakable(true);
+-    }
+-
+-    @Override
+-    public int getVersion() {
+-        return 0;
+-    }
+-
+-    @Override
+-    public void registerVersionListeners() {
+-        new VersionCommon(this);
+-    }
+-
+-    @Override
+-    public String getMainLevel() {
+-        return ((DedicatedServer) MinecraftServer.getServer()).propertyManager.properties.getProperty("level-name");
+-    }
+-
+-    @Override
+-    public Fireball setFireballDirection(Fireball fireball, Vector vector) {
+-        EntityFireball fb = ((CraftFireball) fireball).getHandle();
+-        fb.dirX = vector.getX() * 0.1D;
+-        fb.dirY = vector.getY() * 0.1D;
+-        fb.dirZ = vector.getZ() * 0.1D;
+-        return (Fireball) fb.getBukkitEntity();
+-    }
+-
+-    @Override
+-    public void playRedStoneDot(Player player) {
+-        Color color = Color.RED;
+-        PacketPlayOutWorldParticles particlePacket = new PacketPlayOutWorldParticles(EnumParticle.REDSTONE, true, (float) player.getLocation().getX(),
+-                (float) (player.getLocation().getY() + 2.6), (float) player.getLocation().getZ(), color.getRed(), color.getRed(), color.getRed(), 0, 0);
+-        for (Player inWorld : player.getWorld().getPlayers()) {
+-            if (inWorld.equals(player)) continue;
+-            ((CraftPlayer) inWorld).getHandle().playerConnection.sendPacket(particlePacket);
+-        }
+-    }
+-    @Override
+-    public void clearArrowsFromPlayerBody(Player player) {
+-        ((CraftLivingEntity)player).getHandle().getDataWatcher().watch(9, (byte)-1);
+-    }
+-}
+diff --git a/versionsupport_v1_17_R1/pom.xml b/versionsupport_v1_17_R1/pom.xml
+deleted file mode 100644
+index bc1184a2..00000000
+--- a/versionsupport_v1_17_R1/pom.xml
++++ /dev/null
+@@ -1,56 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project xmlns="http://maven.apache.org/POM/4.0.0"
+-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+-    <parent>
+-        <artifactId>BedWars1058</artifactId>
+-        <groupId>com.andrei1058.bedwars</groupId>
+-        <version>22.3-SNAPSHOT</version>
+-    </parent>
+-    <modelVersion>4.0.0</modelVersion>
+-
+-    <artifactId>versionsupport_v1_17_R1</artifactId>
+-
+-    <dependencies>
+-        <dependency>
+-            <groupId>com.andrei1058.bedwars</groupId>
+-            <artifactId>bedwars-api</artifactId>
+-            <version>${project.version}</version>
+-            <type>jar</type>
+-            <scope>provided</scope>
+-        </dependency>
+-        <dependency>
+-            <groupId>com.andrei1058.bedwars</groupId>
+-            <artifactId>versionsupport-common</artifactId>
+-            <version>${project.version}</version>
+-            <type>jar</type>
+-            <scope>provided</scope>
+-        </dependency>
+-        <dependency>
+-            <groupId>org.spigotmc</groupId>
+-            <artifactId>spigot</artifactId>
+-            <version>1.17.1-R0.1-SNAPSHOT</version>
+-            <type>jar</type>
+-            <scope>provided</scope>
+-        </dependency>
+-    </dependencies>
+-
+-    <build>
+-        <plugins>
+-            <plugin>
+-                <artifactId>maven-deploy-plugin</artifactId>
+-                <configuration>
+-                    <skip>true</skip>
+-                </configuration>
+-            </plugin>
+-            <plugin>
+-                <groupId>org.apache.maven.plugins</groupId>
+-                <artifactId>maven-compiler-plugin</artifactId>
+-                <configuration>
+-                    <source>17</source>
+-                    <target>17</target>
+-                </configuration>
+-            </plugin>
+-        </plugins>
+-    </build>
+-</project>
+\ No newline at end of file
+diff --git a/versionsupport_v1_17_R1/src/main/java/com/andrei1058/bedwars/support/version/v1_17_R1/IGolem.java b/versionsupport_v1_17_R1/src/main/java/com/andrei1058/bedwars/support/version/v1_17_R1/IGolem.java
+deleted file mode 100644
+index 3afbb67f..00000000
+--- a/versionsupport_v1_17_R1/src/main/java/com/andrei1058/bedwars/support/version/v1_17_R1/IGolem.java
++++ /dev/null
+@@ -1,114 +0,0 @@
+-/*
+- * BedWars1058 - A bed wars mini-game.
+- * Copyright (C) 2021 Andrei Dascălu
+- *
+- * This program is free software: you can redistribute it and/or modify
+- * it under the terms of the GNU General Public License as published by
+- * the Free Software Foundation, either version 3 of the License, or
+- * (at your option) any later version.
+- *
+- * This program is distributed in the hope that it will be useful,
+- * but WITHOUT ANY WARRANTY; without even the implied warranty of
+- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- * GNU General Public License for more details.
+- *
+- * You should have received a copy of the GNU General Public License
+- * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+- *
+- * Contact e-mail: andrew.dascalu@gmail.com
+- */
+-
+-package com.andrei1058.bedwars.support.version.v1_17_R1;
+-
+-import com.andrei1058.bedwars.api.arena.team.ITeam;
+-import com.andrei1058.bedwars.api.language.Language;
+-import com.andrei1058.bedwars.api.language.Messages;
+-import com.andrei1058.bedwars.support.version.common.VersionCommon;
+-import net.minecraft.server.level.WorldServer;
+-import net.minecraft.world.damagesource.DamageSource;
+-import net.minecraft.world.entity.EntityTypes;
+-import net.minecraft.world.entity.ai.attributes.GenericAttributes;
+-import net.minecraft.world.entity.ai.goal.PathfinderGoalFloat;
+-import net.minecraft.world.entity.ai.goal.PathfinderGoalMeleeAttack;
+-import net.minecraft.world.entity.ai.goal.PathfinderGoalRandomLookaround;
+-import net.minecraft.world.entity.ai.goal.PathfinderGoalRandomStroll;
+-import net.minecraft.world.entity.ai.goal.target.PathfinderGoalHurtByTarget;
+-import net.minecraft.world.entity.ai.goal.target.PathfinderGoalNearestAttackableTarget;
+-import net.minecraft.world.entity.animal.EntityIronGolem;
+-import net.minecraft.world.entity.player.EntityHuman;
+-import net.minecraft.world.level.World;
+-import org.apache.commons.lang.StringUtils;
+-import org.bukkit.Location;
+-import org.bukkit.craftbukkit.v1_17_R1.CraftWorld;
+-import org.bukkit.craftbukkit.v1_17_R1.entity.CraftLivingEntity;
+-import org.bukkit.entity.LivingEntity;
+-import org.bukkit.event.entity.CreatureSpawnEvent;
+-
+-import java.util.Objects;
+-
+-@SuppressWarnings("unchecked")
+-public class IGolem extends EntityIronGolem {
+-    private ITeam team;
+-
+-    private IGolem(EntityTypes<? extends EntityIronGolem> entitytypes, World world, ITeam bedWarsTeam) {
+-        super(entitytypes, world);
+-        this.team = bedWarsTeam;
+-    }
+-
+-    public IGolem(EntityTypes entityTypes, World world) {
+-        super(entityTypes, world);
+-    }
+-
+-    @SuppressWarnings("rawtypes")
+-    @Override
+-    protected void initPathfinder() {
+-        this.bP.a(1, new PathfinderGoalFloat(this));
+-        this.bP.a(2, new PathfinderGoalMeleeAttack(this, 1.5D, false));
+-        this.bQ.a(1, new PathfinderGoalHurtByTarget(this));
+-        this.bP.a(3, new PathfinderGoalRandomStroll(this, 1D));
+-        this.bP.a(4, new PathfinderGoalRandomLookaround(this));
+-        this.bQ.a(2, new PathfinderGoalNearestAttackableTarget(
+-                this, EntityHuman.class, 20, true, false,
+-                player -> ((EntityHuman)player).isAlive() &&
+-                        !team.wasMember(((EntityHuman)player).getUniqueID()) &&
+-                        !team.getArena().isReSpawning(((EntityHuman)player).getUniqueID())
+-                && !team.getArena().isSpectator(((EntityHuman)player).getUniqueID()))
+-        );
+-        this.bQ.a(3, new PathfinderGoalNearestAttackableTarget(
+-                this, IGolem.class, 20, true, false,
+-                golem -> ((IGolem)golem).getTeam() != team)
+-        );
+-        this.bQ.a(4, new PathfinderGoalNearestAttackableTarget(
+-                this, Silverfish.class, 20, true, false,
+-                sf -> ((Silverfish)sf).getTeam() != team)
+-        );
+-    }
+-
+-    public ITeam getTeam() {
+-        return team;
+-    }
+-
+-    public static LivingEntity spawn(Location loc, ITeam bedWarsTeam, double speed, double health, int despawn) {
+-        WorldServer mcWorld = ((CraftWorld) Objects.requireNonNull(loc.getWorld())).getHandle();
+-        IGolem customEnt = new IGolem(EntityTypes.P, mcWorld, bedWarsTeam);
+-        customEnt.setLocation(loc.getX(), loc.getY(), loc.getZ(), loc.getYaw(), loc.getPitch());
+-        ((CraftLivingEntity) customEnt.getBukkitEntity()).setRemoveWhenFarAway(false);
+-        customEnt.setCustomNameVisible(true);
+-        customEnt.setPersistent();
+-        Objects.requireNonNull(customEnt.getAttributeInstance(GenericAttributes.a)).setValue(health);
+-        Objects.requireNonNull(customEnt.getAttributeInstance(GenericAttributes.d)).setValue(speed);
+-        mcWorld.addEntity(customEnt, CreatureSpawnEvent.SpawnReason.CUSTOM);
+-        customEnt.getBukkitEntity().setCustomName(Language.getDefaultLanguage().m(Messages.SHOP_UTILITY_NPC_IRON_GOLEM_NAME)
+-                .replace("{despawn}", String.valueOf(despawn)
+-                        .replace("{health}", StringUtils.repeat(Language.getDefaultLanguage().m(Messages.FORMATTING_DESPAWNABLE_UTILITY_NPC_HEALTH) + " ", 10))
+-                        .replace("{TeamColor}", bedWarsTeam.getColor().chat().toString())));
+-        return (LivingEntity) customEnt.getBukkitEntity();
+-    }
+-
+-    @Override
+-    public void die(DamageSource damagesource) {
+-        super.die(damagesource);
+-        team = null;
+-        VersionCommon.api.getVersionSupport().getDespawnablesList().remove(this.getUniqueID());
+-    }
+-}
+diff --git a/versionsupport_v1_17_R1/src/main/java/com/andrei1058/bedwars/support/version/v1_17_R1/Silverfish.java b/versionsupport_v1_17_R1/src/main/java/com/andrei1058/bedwars/support/version/v1_17_R1/Silverfish.java
+deleted file mode 100644
+index f11cf0ee..00000000
+--- a/versionsupport_v1_17_R1/src/main/java/com/andrei1058/bedwars/support/version/v1_17_R1/Silverfish.java
++++ /dev/null
+@@ -1,106 +0,0 @@
+-/*
+- * BedWars1058 - A bed wars mini-game.
+- * Copyright (C) 2021 Andrei Dascălu
+- *
+- * This program is free software: you can redistribute it and/or modify
+- * it under the terms of the GNU General Public License as published by
+- * the Free Software Foundation, either version 3 of the License, or
+- * (at your option) any later version.
+- *
+- * This program is distributed in the hope that it will be useful,
+- * but WITHOUT ANY WARRANTY; without even the implied warranty of
+- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- * GNU General Public License for more details.
+- *
+- * You should have received a copy of the GNU General Public License
+- * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+- *
+- * Contact e-mail: andrew.dascalu@gmail.com
+- */
+-
+-package com.andrei1058.bedwars.support.version.v1_17_R1;
+-import com.andrei1058.bedwars.api.arena.team.ITeam;
+-import com.andrei1058.bedwars.api.language.Language;
+-import com.andrei1058.bedwars.api.language.Messages;
+-import com.andrei1058.bedwars.support.version.common.VersionCommon;
+-import net.minecraft.server.level.WorldServer;
+-import net.minecraft.world.damagesource.DamageSource;
+-import net.minecraft.world.entity.EntityTypes;
+-import net.minecraft.world.entity.ai.attributes.GenericAttributes;
+-import net.minecraft.world.entity.ai.goal.PathfinderGoalFloat;
+-import net.minecraft.world.entity.ai.goal.PathfinderGoalMeleeAttack;
+-import net.minecraft.world.entity.ai.goal.PathfinderGoalRandomStroll;
+-import net.minecraft.world.entity.ai.goal.target.PathfinderGoalHurtByTarget;
+-import net.minecraft.world.entity.ai.goal.target.PathfinderGoalNearestAttackableTarget;
+-import net.minecraft.world.entity.monster.EntitySilverfish;
+-import net.minecraft.world.entity.player.EntityHuman;
+-import net.minecraft.world.level.World;
+-import org.apache.commons.lang.StringUtils;
+-import org.bukkit.Location;
+-import org.bukkit.craftbukkit.v1_17_R1.CraftWorld;
+-import org.bukkit.craftbukkit.v1_17_R1.entity.CraftLivingEntity;
+-import org.bukkit.entity.LivingEntity;
+-import org.bukkit.event.entity.CreatureSpawnEvent;
+-
+-@SuppressWarnings("ALL")
+-public class Silverfish extends EntitySilverfish {
+-
+-    private ITeam team;
+-
+-    private Silverfish(EntityTypes<? extends EntitySilverfish> entitytypes, World world, ITeam bedWarsTeam) {
+-        super(entitytypes, world);
+-        this.team = bedWarsTeam;
+-    }
+-
+-    @SuppressWarnings("unchecked")
+-    public Silverfish(EntityTypes entityTypes, World world) {
+-        super(entityTypes, world);
+-    }
+-
+-    @Override
+-    protected void initPathfinder() {
+-        this.bP.a(1, new PathfinderGoalFloat(this));
+-        this.bP.a(2, new PathfinderGoalMeleeAttack(this,1.9D, false));
+-        this.bQ.a(1, new PathfinderGoalHurtByTarget(this));
+-        this.bP.a(3, new PathfinderGoalRandomStroll(this, 2D));
+-        this.bQ.a(2, new PathfinderGoalNearestAttackableTarget(this, EntityHuman.class, 20, true, false, player -> {
+-            return ((EntityHuman)player).isAlive() && !team.wasMember(((EntityHuman)player).getUniqueID()) && !team.getArena().isReSpawning(((EntityHuman)player).getUniqueID())
+-                    && !team.getArena().isSpectator(((EntityHuman)player).getUniqueID());
+-        }));
+-        this.bQ.a(3, new PathfinderGoalNearestAttackableTarget(this, IGolem.class, 20, true, false, golem -> {
+-            return ((IGolem)golem).getTeam() != team;
+-        }));
+-        this.bQ.a(4, new PathfinderGoalNearestAttackableTarget(this, Silverfish.class, 20, true, false, sf -> {
+-            return ((Silverfish)sf).getTeam() != team;
+-        }));
+-    }
+-
+-    public ITeam getTeam() {
+-        return team;
+-    }
+-
+-    public static LivingEntity spawn(Location loc, ITeam team, double speed, double health, int despawn, double damage) {
+-        WorldServer mcWorld = ((CraftWorld)loc.getWorld()).getHandle();
+-        Silverfish customEnt = new Silverfish(EntityTypes.aA, mcWorld, team);
+-        customEnt.setLocation(loc.getX(), loc.getY(), loc.getZ(), loc.getYaw(), loc.getPitch());
+-        customEnt.getAttributeInstance(GenericAttributes.a).setValue(health);
+-        customEnt.getAttributeInstance(GenericAttributes.d).setValue(speed);
+-        customEnt.getAttributeInstance(GenericAttributes.f).setValue(damage);
+-        customEnt.setPersistent();
+-        ((CraftLivingEntity)customEnt.getBukkitEntity()).setRemoveWhenFarAway(false);
+-        customEnt.setCustomNameVisible(true);
+-        mcWorld.addEntity(customEnt, CreatureSpawnEvent.SpawnReason.CUSTOM);
+-        customEnt.getBukkitEntity().setCustomName(Language.getDefaultLanguage().m(Messages.SHOP_UTILITY_NPC_IRON_GOLEM_NAME)
+-                .replace("{despawn}", String.valueOf(despawn)
+-                        .replace("{health}", StringUtils.repeat(Language.getDefaultLanguage().m(Messages.FORMATTING_DESPAWNABLE_UTILITY_NPC_HEALTH)+" ", 10))
+-                        .replace("{TeamColor}", team.getColor().chat().toString())));
+-        return (LivingEntity) customEnt.getBukkitEntity();
+-    }
+-
+-    @Override
+-    public void die(DamageSource damagesource) {
+-        super.die(damagesource);
+-        team = null;
+-        VersionCommon.api.getVersionSupport().getDespawnablesList().remove(this.getUniqueID());
+-    }
+-}
+diff --git a/versionsupport_v1_17_R1/src/main/java/com/andrei1058/bedwars/support/version/v1_17_R1/v1_17_R1.java b/versionsupport_v1_17_R1/src/main/java/com/andrei1058/bedwars/support/version/v1_17_R1/v1_17_R1.java
+deleted file mode 100644
+index fa81ca9c..00000000
+--- a/versionsupport_v1_17_R1/src/main/java/com/andrei1058/bedwars/support/version/v1_17_R1/v1_17_R1.java
++++ /dev/null
+@@ -1,712 +0,0 @@
+-/*
+- * BedWars1058 - A bed wars mini-game.
+- * Copyright (C) 2021 Andrei Dascălu
+- *
+- * This program is free software: you can redistribute it and/or modify
+- * it under the terms of the GNU General Public License as published by
+- * the Free Software Foundation, either version 3 of the License, or
+- * (at your option) any later version.
+- *
+- * This program is distributed in the hope that it will be useful,
+- * but WITHOUT ANY WARRANTY; without even the implied warranty of
+- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- * GNU General Public License for more details.
+- *
+- * You should have received a copy of the GNU General Public License
+- * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+- *
+- * Contact e-mail: andrew.dascalu@gmail.com
+- */
+-
+-package com.andrei1058.bedwars.support.version.v1_17_R1;
+-
+-import com.andrei1058.bedwars.api.arena.IArena;
+-import com.andrei1058.bedwars.api.arena.shop.ShopHolo;
+-import com.andrei1058.bedwars.api.arena.team.ITeam;
+-import com.andrei1058.bedwars.api.arena.team.TeamColor;
+-import com.andrei1058.bedwars.api.entity.Despawnable;
+-import com.andrei1058.bedwars.api.events.player.PlayerKillEvent;
+-import com.andrei1058.bedwars.api.language.Language;
+-import com.andrei1058.bedwars.api.language.Messages;
+-import com.andrei1058.bedwars.api.server.VersionSupport;
+-import com.andrei1058.bedwars.support.version.common.VersionCommon;
+-import com.mojang.datafixers.DataFixUtils;
+-import com.mojang.datafixers.types.Type;
+-import com.mojang.datafixers.util.Pair;
+-import com.mojang.math.Vector3fa;
+-import net.minecraft.SharedConstants;
+-import net.minecraft.core.particles.ParticleParamRedstone;
+-import net.minecraft.nbt.NBTTagCompound;
+-import net.minecraft.network.chat.ChatMessageType;
+-import net.minecraft.network.chat.IChatBaseComponent;
+-import net.minecraft.network.protocol.game.*;
+-import net.minecraft.network.syncher.DataWatcherObject;
+-import net.minecraft.network.syncher.DataWatcherRegistry;
+-import net.minecraft.server.MinecraftServer;
+-import net.minecraft.server.dedicated.DedicatedServer;
+-import net.minecraft.server.level.EntityPlayer;
+-import net.minecraft.util.datafix.DataConverterRegistry;
+-import net.minecraft.util.datafix.fixes.DataConverterTypes;
+-import net.minecraft.world.damagesource.DamageSource;
+-import net.minecraft.world.entity.EntityLiving;
+-import net.minecraft.world.entity.EntityTypes;
+-import net.minecraft.world.entity.EnumCreatureType;
+-import net.minecraft.world.entity.EnumItemSlot;
+-import net.minecraft.world.entity.item.EntityTNTPrimed;
+-import net.minecraft.world.entity.projectile.EntityFireball;
+-import net.minecraft.world.entity.projectile.IProjectile;
+-import net.minecraft.world.item.*;
+-import net.minecraft.world.item.Item;
+-import net.minecraft.world.level.block.Blocks;
+-import net.minecraft.world.level.block.state.BlockBase;
+-import org.bukkit.Color;
+-import org.bukkit.Location;
+-import org.bukkit.block.Block;
+-import org.bukkit.block.BlockState;
+-import org.bukkit.block.data.type.Bed;
+-import org.bukkit.block.data.type.WallSign;
+-import org.bukkit.command.Command;
+-import org.bukkit.craftbukkit.v1_17_R1.CraftServer;
+-import org.bukkit.craftbukkit.v1_17_R1.entity.CraftFireball;
+-import org.bukkit.craftbukkit.v1_17_R1.entity.CraftLivingEntity;
+-import org.bukkit.craftbukkit.v1_17_R1.entity.CraftPlayer;
+-import org.bukkit.craftbukkit.v1_17_R1.entity.CraftTNTPrimed;
+-import org.bukkit.craftbukkit.v1_17_R1.inventory.CraftItemStack;
+-import org.bukkit.entity.Entity;
+-import org.bukkit.entity.*;
+-import org.bukkit.event.inventory.InventoryEvent;
+-import org.bukkit.inventory.meta.ItemMeta;
+-import org.bukkit.inventory.meta.SkullMeta;
+-import org.bukkit.plugin.Plugin;
+-import org.bukkit.potion.PotionEffectType;
+-import org.bukkit.scoreboard.Team;
+-import org.bukkit.util.Vector;
+-
+-import java.lang.reflect.Field;
+-import java.util.ArrayList;
+-import java.util.List;
+-import java.util.Map;
+-import java.util.UUID;
+-import java.util.logging.Level;
+-
+-@SuppressWarnings("unused")
+-public class v1_17_R1 extends VersionSupport {
+-
+-    private static final UUID chatUUID = new UUID(0L, 0L);
+-
+-    public v1_17_R1(Plugin plugin, String name) {
+-        super(plugin, name);
+-        loadDefaultEffects();
+-    }
+-
+-    @Override
+-    public void registerVersionListeners() {
+-        new VersionCommon(this);
+-    }
+-
+-    @Override
+-    public void registerCommand(String name, Command clasa) {
+-        ((CraftServer) getPlugin().getServer()).getCommandMap().register(name, clasa);
+-    }
+-
+-    @Override
+-    public String getTag(org.bukkit.inventory.ItemStack itemStack, String key) {
+-        ItemStack i = CraftItemStack.asNMSCopy(itemStack);
+-        NBTTagCompound tag = i.getTag();
+-        return tag == null ? null : tag.hasKey(key) ? tag.getString(key) : null;
+-    }
+-
+-    @Override
+-    public void sendTitle(Player p, String title, String subtitle, int fadeIn, int stay, int fadeOut) {
+-        p.sendTitle(title == null ? " " : title, subtitle == null ? " " : subtitle, fadeIn, stay, fadeOut);
+-    }
+-
+-    public void spawnSilverfish(Location loc, ITeam bedWarsTeam, double speed, double health, int despawn, double damage) {
+-        new Despawnable(Silverfish.spawn(loc, bedWarsTeam, speed, health, despawn, damage), bedWarsTeam, despawn,
+-                Messages.SHOP_UTILITY_NPC_SILVERFISH_NAME, PlayerKillEvent.PlayerKillCause.SILVERFISH_FINAL_KILL, PlayerKillEvent.PlayerKillCause.SILVERFISH);
+-    }
+-
+-    @Override
+-    public void spawnIronGolem(Location loc, ITeam bedWarsTeam, double speed, double health, int despawn) {
+-        new Despawnable(IGolem.spawn(loc, bedWarsTeam, speed, health, despawn), bedWarsTeam, despawn, Messages.SHOP_UTILITY_NPC_IRON_GOLEM_NAME,
+-                PlayerKillEvent.PlayerKillCause.IRON_GOLEM_FINAL_KILL, PlayerKillEvent.PlayerKillCause.IRON_GOLEM);
+-    }
+-
+-    @Override
+-    public void playAction(Player p, String text) {
+-        CraftPlayer cPlayer = (CraftPlayer) p;
+-        IChatBaseComponent cbc = IChatBaseComponent.ChatSerializer.a("{\"text\": \"" + text + "\"}");
+-        PacketPlayOutChat ppoc = new PacketPlayOutChat(cbc, ChatMessageType.c, chatUUID);
+-        cPlayer.getHandle().b.sendPacket(ppoc);
+-    }
+-
+-    @Override
+-    public boolean isBukkitCommandRegistered(String name) {
+-        return ((CraftServer) getPlugin().getServer()).getCommandMap().getCommand(name) != null;
+-    }
+-
+-    @Override
+-    public org.bukkit.inventory.ItemStack getItemInHand(Player p) {
+-        return p.getInventory().getItemInMainHand();
+-    }
+-
+-    @Override
+-    public void hideEntity(Entity e, Player p) {
+-        PacketPlayOutEntityDestroy packet = new PacketPlayOutEntityDestroy(e.getEntityId());
+-        ((CraftPlayer) p).getHandle().b.sendPacket(packet);
+-
+-    }
+-
+-    @Override
+-    public void minusAmount(Player p, org.bukkit.inventory.ItemStack i, int amount) {
+-        if (i.getAmount() - amount <= 0) {
+-            if(p.getInventory().getItemInOffHand().equals(i)) {
+-                p.getInventory().setItemInOffHand(null);
+-            } else {
+-                p.getInventory().removeItem(i);
+-            }
+-            return;
+-        }
+-        i.setAmount(i.getAmount() - amount);
+-        p.updateInventory();
+-    }
+-
+-    @Override
+-    public void setSource(TNTPrimed tnt, Player owner) {
+-        EntityLiving nmsEntityLiving = (((CraftLivingEntity) owner).getHandle());
+-        EntityTNTPrimed nmsTNT = (((CraftTNTPrimed) tnt).getHandle());
+-        try {
+-            //noinspection JavaReflectionMemberAccess
+-            Field sourceField = EntityTNTPrimed.class.getDeclaredField("source");
+-            sourceField.setAccessible(true);
+-            sourceField.set(nmsTNT, nmsEntityLiving);
+-        } catch (Exception ex) {
+-            ex.printStackTrace();
+-        }
+-    }
+-
+-    @Override
+-    public boolean isArmor(org.bukkit.inventory.ItemStack itemStack) {
+-        if (CraftItemStack.asNMSCopy(itemStack) == null) return false;
+-        if (CraftItemStack.asNMSCopy(itemStack).getItem() == null) return false;
+-        return CraftItemStack.asNMSCopy(itemStack).getItem() instanceof ItemArmor;
+-    }
+-
+-    @Override
+-    public boolean isTool(org.bukkit.inventory.ItemStack itemStack) {
+-        if (CraftItemStack.asNMSCopy(itemStack) == null) return false;
+-        if (CraftItemStack.asNMSCopy(itemStack).getItem() == null) return false;
+-        return CraftItemStack.asNMSCopy(itemStack).getItem() instanceof ItemTool;
+-    }
+-
+-    @Override
+-    public boolean isSword(org.bukkit.inventory.ItemStack itemStack) {
+-        if (CraftItemStack.asNMSCopy(itemStack) == null) return false;
+-        if (CraftItemStack.asNMSCopy(itemStack).getItem() == null) return false;
+-        return CraftItemStack.asNMSCopy(itemStack).getItem() instanceof ItemSword;
+-    }
+-
+-    @Override
+-    public boolean isAxe(org.bukkit.inventory.ItemStack itemStack) {
+-        if (CraftItemStack.asNMSCopy(itemStack).getItem() == null) return false;
+-        return CraftItemStack.asNMSCopy(itemStack).getItem() instanceof ItemAxe;
+-    }
+-
+-    @Override
+-    public boolean isBow(org.bukkit.inventory.ItemStack itemStack) {
+-        if (CraftItemStack.asNMSCopy(itemStack) == null) return false;
+-        if (CraftItemStack.asNMSCopy(itemStack).getItem() == null) return false;
+-        return CraftItemStack.asNMSCopy(itemStack).getItem() instanceof ItemBow;
+-    }
+-
+-    @Override
+-    public boolean isProjectile(org.bukkit.inventory.ItemStack itemStack) {
+-        if (CraftItemStack.asNMSCopy(itemStack) == null) return false;
+-        if (CraftItemStack.asNMSCopy(itemStack).E() == null) return false;
+-        return CraftItemStack.asNMSCopy(itemStack).E() instanceof IProjectile;
+-    }
+-
+-    @Override
+-    public boolean isInvisibilityPotion(org.bukkit.inventory.ItemStack itemStack) {
+-        if (!itemStack.getType().equals(org.bukkit.Material.POTION)) return false;
+-
+-        org.bukkit.inventory.meta.PotionMeta pm = (org.bukkit.inventory.meta.PotionMeta) itemStack.getItemMeta();
+-
+-        return pm != null && pm.hasCustomEffects() && pm.hasCustomEffect(org.bukkit.potion.PotionEffectType.INVISIBILITY);
+-    }
+-
+-    @SuppressWarnings({"unchecked"})
+-    @Override
+-    public void registerEntities() {
+-        Map<String, Type<?>> types = (Map<String, Type<?>>) DataConverterRegistry.a().getSchema(
+-                DataFixUtils.makeKey(SharedConstants.getGameVersion().getWorldVersion())
+-        ).findChoiceType(DataConverterTypes.q).types();
+-
+-        types.put("minecraft:bwsilverfish", types.get("minecraft:silverfish"));
+-        EntityTypes.Builder.a(Silverfish::new, EnumCreatureType.a).a("bwsilverfish");
+-
+-        types.put("minecraft:bwgolem", types.get("minecraft:iron_golem"));
+-        EntityTypes.Builder.a(IGolem::new, EnumCreatureType.a).a("bwgolem");
+-    }
+-
+-    @Override
+-    public void spawnShop(Location loc, String name1, List<Player> players, IArena arena) {
+-        Location l = loc.clone();
+-
+-        if (l.getWorld() == null) return;
+-        Villager vlg = (Villager) l.getWorld().spawnEntity(loc, EntityType.VILLAGER);
+-        vlg.setAI(false);
+-        vlg.setRemoveWhenFarAway(false);
+-        vlg.setCollidable(false);
+-        vlg.setInvulnerable(true);
+-        vlg.setSilent(true);
+-
+-        for (Player p : players) {
+-            String[] nume = Language.getMsg(p, name1).split(",");
+-            if (nume.length == 1) {
+-                ArmorStand a = createArmorStand(nume[0], l.clone().add(0, 1.85, 0));
+-                new ShopHolo(Language.getPlayerLanguage(p).getIso(), a, null, l, arena);
+-            } else {
+-                ArmorStand a = createArmorStand(nume[0], l.clone().add(0, 2.1, 0));
+-                ArmorStand b = createArmorStand(nume[1], l.clone().add(0, 1.85, 0));
+-                new ShopHolo(Language.getPlayerLanguage(p).getIso(), a, b, l, arena);
+-            }
+-        }
+-        for (ShopHolo sh : ShopHolo.getShopHolo()) {
+-            if (sh.getA() == arena) {
+-                sh.update();
+-            }
+-        }
+-    }
+-
+-    @Override
+-    public double getDamage(org.bukkit.inventory.ItemStack i) {
+-        ItemStack nmsStack = CraftItemStack.asNMSCopy(i);
+-        NBTTagCompound compound = (nmsStack.hasTag()) ? nmsStack.getTag() : new NBTTagCompound();
+-        //noinspection ConstantConditions
+-        return compound.getDouble("generic.attackDamage");
+-    }
+-
+-    private static ArmorStand createArmorStand(String name, Location loc) {
+-        if (loc == null) return null;
+-        if (loc.getWorld() == null) return null;
+-        ArmorStand a = loc.getWorld().spawn(loc, ArmorStand.class);
+-        a.setGravity(false);
+-        a.setVisible(false);
+-        a.setCustomNameVisible(true);
+-        a.setCustomName(name);
+-        return a;
+-    }
+-
+-    @Override
+-    public void voidKill(Player p) {
+-        ((CraftPlayer) p).getHandle().damageEntity(DamageSource.m, 1000);
+-    }
+-
+-    @Override
+-    public void hideArmor(Player victim, Player receiver) {
+-        List<Pair<EnumItemSlot, ItemStack>> items = new ArrayList<>();
+-        List<Pair<EnumItemSlot, ItemStack>> hands = new ArrayList<>();
+-        hands.add(new Pair<>(EnumItemSlot.a, new ItemStack(Item.getById(0))));
+-        hands.add(new Pair<>(EnumItemSlot.b, new ItemStack(Item.getById(0))));
+-
+-        items.add(new Pair<>(EnumItemSlot.f, new ItemStack(Item.getById(0))));
+-        items.add(new Pair<>(EnumItemSlot.e, new ItemStack(Item.getById(0))));
+-        items.add(new Pair<>(EnumItemSlot.d, new ItemStack(Item.getById(0))));
+-        items.add(new Pair<>(EnumItemSlot.c, new ItemStack(Item.getById(0))));
+-        PacketPlayOutEntityEquipment packet1 = new PacketPlayOutEntityEquipment(victim.getEntityId(), items);
+-        PacketPlayOutEntityEquipment packet2 = new PacketPlayOutEntityEquipment(victim.getEntityId(), hands);
+-        EntityPlayer pc = ((CraftPlayer) receiver).getHandle();
+-        if (victim != receiver) {
+-            pc.b.sendPacket(packet2);
+-        }
+-        pc.b.sendPacket(packet1);
+-    }
+-
+-    @Override
+-    public void showArmor(Player victim, Player receiver) {
+-        List<Pair<EnumItemSlot, ItemStack>> items = new ArrayList<>();
+-        List<Pair<EnumItemSlot, ItemStack>> hands = new ArrayList<>();
+-
+-        hands.add(new Pair<>(EnumItemSlot.a, CraftItemStack.asNMSCopy(victim.getInventory().getItemInMainHand())));
+-        hands.add(new Pair<>(EnumItemSlot.b, CraftItemStack.asNMSCopy(victim.getInventory().getItemInOffHand())));
+-
+-        items.add(new Pair<>(EnumItemSlot.f, CraftItemStack.asNMSCopy(victim.getInventory().getHelmet())));
+-        items.add(new Pair<>(EnumItemSlot.e, CraftItemStack.asNMSCopy(victim.getInventory().getChestplate())));
+-        items.add(new Pair<>(EnumItemSlot.d, CraftItemStack.asNMSCopy(victim.getInventory().getLeggings())));
+-        items.add(new Pair<>(EnumItemSlot.c, CraftItemStack.asNMSCopy(victim.getInventory().getBoots())));
+-        PacketPlayOutEntityEquipment packet1 = new PacketPlayOutEntityEquipment(victim.getEntityId(), items);
+-        PacketPlayOutEntityEquipment packet2 = new PacketPlayOutEntityEquipment(victim.getEntityId(), hands);
+-        EntityPlayer pc = ((CraftPlayer) receiver).getHandle();
+-        if (victim != receiver) {
+-            pc.b.sendPacket(packet2);
+-        }
+-        pc.b.sendPacket(packet1);
+-    }
+-
+-    @Override
+-    public void spawnDragon(Location l, ITeam bwt) {
+-        if (l == null || l.getWorld() == null) {
+-            getPlugin().getLogger().log(Level.WARNING, "Could not spawn Dragon. Location is null");
+-            return;
+-        }
+-        EnderDragon ed = (EnderDragon) l.getWorld().spawnEntity(l, EntityType.ENDER_DRAGON);
+-        ed.setPhase(EnderDragon.Phase.CIRCLING);
+-    }
+-
+-    @Override
+-    public void colorBed(ITeam bwt) {
+-        for (int x = -1; x <= 1; x++) {
+-            for (int z = -1; z <= 1; z++) {
+-                BlockState bed = bwt.getBed().clone().add(x, 0, z).getBlock().getState();
+-                if (bed instanceof Bed) {
+-                    bed.setType(bwt.getColor().bedMaterial());
+-                    bed.update();
+-                }
+-            }
+-        }
+-    }
+-
+-    @Override
+-    public void registerTntWhitelist() {
+-        try {
+-            Field field = BlockBase.class.getDeclaredField("aI");
+-            field.setAccessible(true);
+-            field.set(Blocks.eq, 12f);
+-            field.set(Blocks.au, 300f);
+-        } catch (NoSuchFieldException | IllegalAccessException e) {
+-            e.printStackTrace();
+-        }
+-    }
+-
+-    @Override
+-    public void setBlockTeamColor(Block block, TeamColor teamColor) {
+-        if (block.getType().toString().contains("STAINED_GLASS") || block.getType().toString().equals("GLASS")) {
+-            block.setType(teamColor.glassMaterial());
+-        } else if (block.getType().toString().contains("_TERRACOTTA")) {
+-            block.setType(teamColor.glazedTerracottaMaterial());
+-        } else if (block.getType().toString().contains("_WOOL")) {
+-            block.setType(teamColor.woolMaterial());
+-        }
+-    }
+-
+-    @Override
+-    public void setCollide(Player p, IArena a, boolean value) {
+-        p.setCollidable(value);
+-        if (a == null) return;
+-        a.updateSpectatorCollideRule(p, value);
+-    }
+-
+-    @Override
+-    public org.bukkit.inventory.ItemStack addCustomData(org.bukkit.inventory.ItemStack i, String data) {
+-        ItemStack itemStack = CraftItemStack.asNMSCopy(i);
+-        NBTTagCompound tag = itemStack.getTag();
+-        if (tag == null) {
+-            tag = new NBTTagCompound();
+-            itemStack.setTag(tag);
+-        }
+-
+-        tag.setString("BedWars1058", data);
+-        return CraftItemStack.asBukkitCopy(itemStack);
+-    }
+-
+-    @Override
+-    public org.bukkit.inventory.ItemStack setTag(org.bukkit.inventory.ItemStack itemStack, String key, String value) {
+-        ItemStack is = CraftItemStack.asNMSCopy(itemStack);
+-        NBTTagCompound tag = is.getTag();
+-        if (tag == null) {
+-            tag = new NBTTagCompound();
+-            is.setTag(tag);
+-        }
+-
+-        tag.setString(key, value);
+-        return CraftItemStack.asBukkitCopy(is);
+-    }
+-
+-    @Override
+-    public boolean isCustomBedWarsItem(org.bukkit.inventory.ItemStack i) {
+-        ItemStack itemStack = CraftItemStack.asNMSCopy(i);
+-        NBTTagCompound tag = itemStack.getTag();
+-        if (tag == null) return false;
+-        return tag.hasKey("BedWars1058");
+-    }
+-
+-    @Override
+-    public String getCustomData(org.bukkit.inventory.ItemStack i) {
+-        ItemStack itemStack = CraftItemStack.asNMSCopy(i);
+-        NBTTagCompound tag = itemStack.getTag();
+-        if (tag == null) return "";
+-        return tag.getString("BedWars1058");
+-    }
+-
+-    @Override
+-    public org.bukkit.inventory.ItemStack colourItem(org.bukkit.inventory.ItemStack itemStack, ITeam bedWarsTeam) {
+-        if (itemStack == null) return null;
+-        String type = itemStack.getType().toString();
+-        if (type.contains("_BED")) {
+-            return new org.bukkit.inventory.ItemStack(bedWarsTeam.getColor().bedMaterial(), itemStack.getAmount());
+-        } else if (type.contains("_STAINED_GLASS_PANE")) {
+-            return new org.bukkit.inventory.ItemStack(bedWarsTeam.getColor().glassPaneMaterial(), itemStack.getAmount());
+-        } else if (type.contains("STAINED_GLASS") || type.equals("GLASS")) {
+-            return new org.bukkit.inventory.ItemStack(bedWarsTeam.getColor().glassMaterial(), itemStack.getAmount());
+-        } else if (type.contains("_TERRACOTTA")) {
+-            return new org.bukkit.inventory.ItemStack(bedWarsTeam.getColor().glazedTerracottaMaterial(), itemStack.getAmount());
+-        } else if (type.contains("_WOOL")) {
+-            return new org.bukkit.inventory.ItemStack(bedWarsTeam.getColor().woolMaterial(), itemStack.getAmount());
+-        }
+-        return itemStack;
+-    }
+-
+-    @Override
+-    public org.bukkit.inventory.ItemStack createItemStack(String material, int amount, short data) {
+-        org.bukkit.inventory.ItemStack i;
+-        try {
+-            i = new org.bukkit.inventory.ItemStack(org.bukkit.Material.valueOf(material), amount);
+-        } catch (Exception ex) {
+-            getPlugin().getLogger().log(Level.WARNING, material + " is not a valid " + getName() + " material!");
+-            i = new org.bukkit.inventory.ItemStack(org.bukkit.Material.BEDROCK);
+-        }
+-        return i;
+-    }
+-
+-    @Override
+-    public void teamCollideRule(Team team) {
+-        team.setOption(Team.Option.COLLISION_RULE, Team.OptionStatus.NEVER);
+-        team.setCanSeeFriendlyInvisibles(true);
+-    }
+-
+-    @Override
+-    public org.bukkit.Material materialFireball() {
+-        return org.bukkit.Material.FIRE_CHARGE;
+-    }
+-
+-    @Override
+-    public org.bukkit.Material materialPlayerHead() {
+-        return org.bukkit.Material.PLAYER_HEAD;
+-    }
+-
+-    @Override
+-    public org.bukkit.Material materialSnowball() {
+-        return org.bukkit.Material.SNOWBALL;
+-    }
+-
+-    @Override
+-    public org.bukkit.Material materialGoldenHelmet() {
+-        return org.bukkit.Material.GOLDEN_HELMET;
+-    }
+-
+-    @Override
+-    public org.bukkit.Material materialGoldenChestPlate() {
+-        return org.bukkit.Material.GOLDEN_CHESTPLATE;
+-    }
+-
+-    @Override
+-    public org.bukkit.Material materialGoldenLeggings() {
+-        return org.bukkit.Material.GOLDEN_LEGGINGS;
+-    }
+-
+-    @Override
+-    public org.bukkit.Material materialCake() {
+-        return org.bukkit.Material.CAKE;
+-    }
+-
+-    @Override
+-    public org.bukkit.Material materialCraftingTable() {
+-        return org.bukkit.Material.CRAFTING_TABLE;
+-    }
+-
+-    @Override
+-    public org.bukkit.Material materialEnchantingTable() {
+-        return org.bukkit.Material.ENCHANTING_TABLE;
+-    }
+-
+-    @Override
+-    public org.bukkit.Material woolMaterial() {
+-        return org.bukkit.Material.WHITE_WOOL;
+-    }
+-
+-    @Override
+-    public String getShopUpgradeIdentifier(org.bukkit.inventory.ItemStack itemStack) {
+-        ItemStack i = CraftItemStack.asNMSCopy(itemStack);
+-        NBTTagCompound tag = i.getTag();
+-        return tag == null ? "null" : tag.hasKey("tierIdentifier") ? tag.getString("tierIdentifier") : "null";
+-    }
+-
+-    @Override
+-    public org.bukkit.inventory.ItemStack setShopUpgradeIdentifier(org.bukkit.inventory.ItemStack itemStack, String identifier) {
+-        ItemStack i = CraftItemStack.asNMSCopy(itemStack);
+-        NBTTagCompound tag = i.getTag();
+-        if (tag == null) {
+-            tag = new NBTTagCompound();
+-            i.setTag(tag);
+-        }
+-        tag.setString("tierIdentifier", identifier);
+-        return CraftItemStack.asBukkitCopy(i);
+-    }
+-
+-    @Override
+-    public org.bukkit.inventory.ItemStack getPlayerHead(Player player, org.bukkit.inventory.ItemStack copyTagFrom) {
+-        org.bukkit.inventory.ItemStack head = new org.bukkit.inventory.ItemStack(materialPlayerHead());
+-
+-        if (copyTagFrom != null) {
+-            ItemStack i = CraftItemStack.asNMSCopy(head);
+-            i.setTag(CraftItemStack.asNMSCopy(copyTagFrom).getTag());
+-            head = CraftItemStack.asBukkitCopy(i);
+-        }
+-
+-        SkullMeta headMeta = (SkullMeta) head.getItemMeta();
+-//        FIXME: current hotfix will get rate limited! how the hell do we set head texture now?
+-//        wtf is this: SkullOwner:{Id:[I;-1344581477,-1919271229,-1306015584,-647763423],Name:"andrei1058"}
+-//        Field profileField;
+-//        try {
+-//            //noinspection ConstantConditions
+-//            profileField = headMeta.getClass().getDeclaredField("profile");
+-//            profileField.setAccessible(true);
+-//            profileField.set(headMeta, ((CraftPlayer) player).getProfile());
+-//        } catch (NoSuchFieldException | IllegalArgumentException | IllegalAccessException e1) {
+-//            e1.printStackTrace();
+-//        }
+-        assert headMeta != null;
+-        headMeta.setOwningPlayer(player);
+-        head.setItemMeta(headMeta);
+-
+-        return head;
+-    }
+-
+-    @Override
+-    public void sendPlayerSpawnPackets(Player respawned, IArena arena) {
+-        if (respawned == null) return;
+-        if (arena == null) return;
+-        if (!arena.isPlayer(respawned)) return;
+-
+-        // if method was used when the player was still in re-spawning screen
+-        if (arena.getRespawnSessions().containsKey(respawned)) return;
+-
+-        EntityPlayer entityPlayer = ((CraftPlayer) respawned).getHandle();
+-        PacketPlayOutNamedEntitySpawn show = new PacketPlayOutNamedEntitySpawn(entityPlayer);
+-        PacketPlayOutEntityVelocity playerVelocity = new PacketPlayOutEntityVelocity(entityPlayer);
+-        PacketPlayOutEntityHeadRotation head = new PacketPlayOutEntityHeadRotation(entityPlayer, getCompressedAngle(entityPlayer.getBukkitYaw()));
+-
+-        List<Pair<EnumItemSlot, ItemStack>> list = new ArrayList<>();
+-        list.add(new Pair<>(EnumItemSlot.a, entityPlayer.getItemInMainHand()));
+-        list.add(new Pair<>(EnumItemSlot.b, entityPlayer.getItemInOffHand()));
+-        list.add(new Pair<>(EnumItemSlot.f, entityPlayer.getInventory().getArmorContents().get(3)));
+-        list.add(new Pair<>(EnumItemSlot.e, entityPlayer.getInventory().getArmorContents().get(2)));
+-        list.add(new Pair<>(EnumItemSlot.d, entityPlayer.getInventory().getArmorContents().get(1)));
+-        list.add(new Pair<>(EnumItemSlot.c, entityPlayer.getInventory().getArmorContents().get(0)));
+-
+-
+-        for (Player p : arena.getPlayers()) {
+-            if (p == null) continue;
+-            if (p.equals(respawned)) continue;
+-            // if p is in re-spawning screen continue
+-            if (arena.getRespawnSessions().containsKey(p)) continue;
+-
+-            EntityPlayer boundTo = ((CraftPlayer) p).getHandle();
+-            if (p.getWorld().equals(respawned.getWorld())) {
+-                if (respawned.getLocation().distance(p.getLocation()) <= arena.getRenderDistance()) {
+-
+-                    // send respawned player to regular players
+-                    boundTo.b.sendPacket(show);
+-                    boundTo.b.sendPacket(head);
+-                    boundTo.b.sendPacket(playerVelocity);
+-                    boundTo.b.sendPacket(new PacketPlayOutEntityEquipment(entityPlayer.getId(), list));
+-
+-                    // send nearby players to respawned player
+-                    // if the player has invisibility hide armor
+-                    if (p.hasPotionEffect(PotionEffectType.INVISIBILITY)) {
+-                        hideArmor(p, respawned);
+-                    } else {
+-                        PacketPlayOutNamedEntitySpawn show2 = new PacketPlayOutNamedEntitySpawn(boundTo);
+-                        PacketPlayOutEntityVelocity playerVelocity2 = new PacketPlayOutEntityVelocity(boundTo);
+-                        PacketPlayOutEntityHeadRotation head2 = new PacketPlayOutEntityHeadRotation(boundTo, getCompressedAngle(boundTo.getBukkitYaw()));
+-                        entityPlayer.b.sendPacket(show2);
+-                        entityPlayer.b.sendPacket(playerVelocity2);
+-                        entityPlayer.b.sendPacket(head2);
+-                        showArmor(p, respawned);
+-                    }
+-                }
+-            }
+-        }
+-
+-        for (Player spectator : arena.getSpectators()) {
+-            if (spectator == null) continue;
+-            if (spectator.equals(respawned)) continue;
+-            EntityPlayer boundTo = ((CraftPlayer) spectator).getHandle();
+-            respawned.hidePlayer(getPlugin(), spectator);
+-            if (spectator.getWorld().equals(respawned.getWorld())) {
+-                if (respawned.getLocation().distance(spectator.getLocation()) <= arena.getRenderDistance()) {
+-
+-                    // send respawned player to spectator
+-                    boundTo.b.sendPacket(show);
+-                    boundTo.b.sendPacket(playerVelocity);
+-                    boundTo.b.sendPacket(new PacketPlayOutEntityEquipment(entityPlayer.getId(), list));
+-                    boundTo.b.sendPacket(new PacketPlayOutEntityHeadRotation(entityPlayer, getCompressedAngle(entityPlayer.getBukkitYaw())));
+-                }
+-            }
+-        }
+-    }
+-
+-    @Override
+-    public String getInventoryName(InventoryEvent e) {
+-        return e.getView().getTitle();
+-    }
+-
+-    @Override
+-    public void setUnbreakable(ItemMeta itemMeta) {
+-        itemMeta.setUnbreakable(true);
+-    }
+-
+-    @Override
+-    public String getMainLevel() {
+-        //noinspection deprecation
+-        return ((DedicatedServer) MinecraftServer.getServer()).getWorld();
+-    }
+-
+-    @Override
+-    public int getVersion() {
+-        return 8;
+-    }
+-
+-    @Override
+-    public void setJoinSignBackground(BlockState b, org.bukkit.Material material) {
+-        if (b.getBlockData() instanceof WallSign) {
+-            b.getBlock().getRelative(((WallSign) b.getBlockData()).getFacing().getOppositeFace()).setType(material);
+-        }
+-    }
+-
+-    @Override
+-    public void spigotShowPlayer(Player victim, Player receiver) {
+-        receiver.showPlayer(getPlugin(), victim);
+-    }
+-
+-    @Override
+-    public void spigotHidePlayer(Player victim, Player receiver) {
+-        receiver.hidePlayer(getPlugin(), victim);
+-    }
+-
+-    @Override
+-    public Fireball setFireballDirection(Fireball fireball, Vector vector) {
+-        EntityFireball fb = ((CraftFireball) fireball).getHandle();
+-        fb.b = vector.getX() * 0.1D;
+-        fb.c = vector.getY() * 0.1D;
+-        fb.d = vector.getZ() * 0.1D;
+-        return (Fireball) fb.getBukkitEntity();
+-    }
+-
+-    @Override
+-    public void playRedStoneDot(Player player) {
+-        Color color = Color.RED;
+-        PacketPlayOutWorldParticles particlePacket = new PacketPlayOutWorldParticles(new ParticleParamRedstone(new Vector3fa((float) color.getRed(), (float) color.getGreen(), (float) color.getBlue()), (float) 1),
+-                true, player.getLocation().getX(), player.getLocation().getY() + 2.6, player.getLocation().getZ(), 0, 0, 0, 0, 0);
+-        for (Player inWorld : player.getWorld().getPlayers()) {
+-            if (inWorld.equals(player)) continue;
+-            ((CraftPlayer) inWorld).getHandle().b.sendPacket(particlePacket);
+-        }
+-    }
+-
+-    @Override
+-    public void clearArrowsFromPlayerBody(Player player) {
+-        ((CraftLivingEntity)player).getHandle().getDataWatcher().set(new DataWatcherObject<>(12, DataWatcherRegistry.b),-1);
+-    }
+-}
+diff --git a/versionsupport_v1_18_R1/pom.xml b/versionsupport_v1_18_R1/pom.xml
+deleted file mode 100644
+index ed312421..00000000
+--- a/versionsupport_v1_18_R1/pom.xml
++++ /dev/null
+@@ -1,56 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project xmlns="http://maven.apache.org/POM/4.0.0"
+-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+-    <parent>
+-        <artifactId>BedWars1058</artifactId>
+-        <groupId>com.andrei1058.bedwars</groupId>
+-        <version>22.3-SNAPSHOT</version>
+-    </parent>
+-    <modelVersion>4.0.0</modelVersion>
+-
+-    <artifactId>versionsupport_v1_18_R1</artifactId>
+-
+-    <dependencies>
+-        <dependency>
+-            <groupId>com.andrei1058.bedwars</groupId>
+-            <artifactId>bedwars-api</artifactId>
+-            <version>${project.version}</version>
+-            <type>jar</type>
+-            <scope>provided</scope>
+-        </dependency>
+-        <dependency>
+-            <groupId>com.andrei1058.bedwars</groupId>
+-            <artifactId>versionsupport-common</artifactId>
+-            <version>${project.version}</version>
+-            <type>jar</type>
+-            <scope>provided</scope>
+-        </dependency>
+-        <dependency>
+-            <groupId>org.spigotmc</groupId>
+-            <artifactId>spigot</artifactId>
+-            <version>1.18.1-R0.1-SNAPSHOT</version>
+-            <type>jar</type>
+-            <scope>provided</scope>
+-        </dependency>
+-    </dependencies>
+-
+-    <build>
+-        <plugins>
+-            <plugin>
+-                <artifactId>maven-deploy-plugin</artifactId>
+-                <configuration>
+-                    <skip>true</skip>
+-                </configuration>
+-            </plugin>
+-            <plugin>
+-                <groupId>org.apache.maven.plugins</groupId>
+-                <artifactId>maven-compiler-plugin</artifactId>
+-                <configuration>
+-                    <source>17</source>
+-                    <target>17</target>
+-                </configuration>
+-            </plugin>
+-        </plugins>
+-    </build>
+-</project>
+\ No newline at end of file
+diff --git a/versionsupport_v1_18_R1/src/main/java/com/andrei1058/bedwars/support/version/v1_18_R1/IGolem.java b/versionsupport_v1_18_R1/src/main/java/com/andrei1058/bedwars/support/version/v1_18_R1/IGolem.java
+deleted file mode 100644
+index aabf4f22..00000000
+--- a/versionsupport_v1_18_R1/src/main/java/com/andrei1058/bedwars/support/version/v1_18_R1/IGolem.java
++++ /dev/null
+@@ -1,125 +0,0 @@
+-/*
+- * BedWars1058 - A bed wars mini-game.
+- * Copyright (C) 2021 Andrei Dascălu
+- *
+- * This program is free software: you can redistribute it and/or modify
+- * it under the terms of the GNU General Public License as published by
+- * the Free Software Foundation, either version 3 of the License, or
+- * (at your option) any later version.
+- *
+- * This program is distributed in the hope that it will be useful,
+- * but WITHOUT ANY WARRANTY; without even the implied warranty of
+- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- * GNU General Public License for more details.
+- *
+- * You should have received a copy of the GNU General Public License
+- * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+- *
+- * Contact e-mail: andrew.dascalu@gmail.com
+- */
+-
+-package com.andrei1058.bedwars.support.version.v1_18_R1;
+-
+-import com.andrei1058.bedwars.api.arena.team.ITeam;
+-import com.andrei1058.bedwars.api.language.Language;
+-import com.andrei1058.bedwars.api.language.Messages;
+-import com.andrei1058.bedwars.support.version.common.VersionCommon;
+-import net.minecraft.server.level.WorldServer;
+-import net.minecraft.world.damagesource.DamageSource;
+-import net.minecraft.world.entity.EntityTypes;
+-import net.minecraft.world.entity.ai.attributes.GenericAttributes;
+-import net.minecraft.world.entity.ai.goal.PathfinderGoalFloat;
+-import net.minecraft.world.entity.ai.goal.PathfinderGoalMeleeAttack;
+-import net.minecraft.world.entity.ai.goal.PathfinderGoalRandomLookaround;
+-import net.minecraft.world.entity.ai.goal.PathfinderGoalRandomStroll;
+-import net.minecraft.world.entity.ai.goal.target.PathfinderGoalHurtByTarget;
+-import net.minecraft.world.entity.ai.goal.target.PathfinderGoalNearestAttackableTarget;
+-import net.minecraft.world.entity.animal.EntityIronGolem;
+-import net.minecraft.world.entity.player.EntityHuman;
+-import net.minecraft.world.level.World;
+-import org.apache.commons.lang.StringUtils;
+-import org.bukkit.Location;
+-import org.bukkit.craftbukkit.v1_18_R1.CraftWorld;
+-import org.bukkit.craftbukkit.v1_18_R1.entity.CraftLivingEntity;
+-import org.bukkit.craftbukkit.v1_18_R1.event.CraftEventFactory;
+-import org.bukkit.entity.LivingEntity;
+-import org.bukkit.event.entity.CreatureSpawnEvent;
+-
+-import java.util.Objects;
+-
+-@SuppressWarnings("unchecked")
+-public class IGolem extends EntityIronGolem {
+-    private ITeam team;
+-
+-    private IGolem(EntityTypes<? extends EntityIronGolem> entitytypes, World world, ITeam bedWarsTeam) {
+-        super(entitytypes, world);
+-        this.team = bedWarsTeam;
+-    }
+-
+-    public IGolem(EntityTypes entityTypes, World world) {
+-        super(entityTypes, world);
+-    }
+-
+-    @SuppressWarnings("rawtypes")
+-    @Override
+-    protected void u() {
+-        this.bR.a(1, new PathfinderGoalFloat(this));
+-        this.bR.a(2, new PathfinderGoalMeleeAttack(this, 1.5D, false));
+-        this.bS.a(3, new PathfinderGoalHurtByTarget(this));
+-        this.bR.a(4, new PathfinderGoalRandomStroll(this, 1D));
+-        this.bR.a(5, new PathfinderGoalRandomLookaround(this));
+-        this.bS.a(6, new PathfinderGoalNearestAttackableTarget(
+-                this, EntityHuman.class, 20, true, false,
+-                player -> !((EntityHuman)player).getBukkitEntity().isDead() &&
+-                        !team.wasMember(((EntityHuman)player).getBukkitEntity().getUniqueId()) &&
+-                        !team.getArena().isReSpawning(((EntityHuman)player).getBukkitEntity().getUniqueId())
+-                && !team.getArena().isSpectator(((EntityHuman)player).getBukkitEntity().getUniqueId()))
+-        );
+-        this.bS.a(7, new PathfinderGoalNearestAttackableTarget(
+-                this, IGolem.class, 20, true, false,
+-                golem -> ((IGolem)golem).getTeam() != team)
+-        );
+-        this.bS.a(8, new PathfinderGoalNearestAttackableTarget(
+-                this, Silverfish.class, 20, true, false,
+-                sf -> ((Silverfish)sf).getTeam() != team)
+-        );
+-    }
+-
+-    public ITeam getTeam() {
+-        return team;
+-    }
+-
+-    public static LivingEntity spawn(Location loc, ITeam bedWarsTeam, double speed, double health, int despawn) {
+-        WorldServer mcWorld = ((CraftWorld) Objects.requireNonNull(loc.getWorld())).getHandle();
+-        IGolem customEnt = new IGolem(EntityTypes.P, mcWorld, bedWarsTeam);
+-        customEnt.a(loc.getX(), loc.getY(), loc.getZ(), loc.getYaw(), loc.getPitch());
+-        ((CraftLivingEntity) customEnt.getBukkitEntity()).setRemoveWhenFarAway(false);
+-        Objects.requireNonNull(customEnt.a(GenericAttributes.a)).a(health);
+-        Objects.requireNonNull(customEnt.a(GenericAttributes.d)).a(speed);
+-
+-        if (!CraftEventFactory.doEntityAddEventCalling(mcWorld, customEnt, CreatureSpawnEvent.SpawnReason.CUSTOM)){
+-            mcWorld.P.a(customEnt);
+-        }
+-
+-        mcWorld.a(customEnt);
+-        customEnt.getBukkitEntity().setPersistent(true);
+-        customEnt.getBukkitEntity().setCustomNameVisible(true);
+-        customEnt.getBukkitEntity().setCustomName(Language.getDefaultLanguage().m(Messages.SHOP_UTILITY_NPC_IRON_GOLEM_NAME)
+-                .replace("{despawn}", String.valueOf(despawn)
+-                        .replace("{health}", StringUtils.repeat(Language.getDefaultLanguage().m(Messages.FORMATTING_DESPAWNABLE_UTILITY_NPC_HEALTH) + " ", 10))
+-                        .replace("{TeamColor}", bedWarsTeam.getColor().chat().toString())));
+-        return (LivingEntity) customEnt.getBukkitEntity();
+-    }
+-
+-    @Override
+-    public void a(DamageSource damagesource) {
+-        super.a(damagesource);
+-        team = null;
+-        VersionCommon.api.getVersionSupport().getDespawnablesList().remove(this.getBukkitEntity().getUniqueId());
+-    }
+-
+-    @Override
+-    public boolean d_() {
+-        return super.d_();
+-    }
+-}
+diff --git a/versionsupport_v1_18_R1/src/main/java/com/andrei1058/bedwars/support/version/v1_18_R1/Silverfish.java b/versionsupport_v1_18_R1/src/main/java/com/andrei1058/bedwars/support/version/v1_18_R1/Silverfish.java
+deleted file mode 100644
+index 0b3d56d6..00000000
+--- a/versionsupport_v1_18_R1/src/main/java/com/andrei1058/bedwars/support/version/v1_18_R1/Silverfish.java
++++ /dev/null
+@@ -1,119 +0,0 @@
+-/*
+- * BedWars1058 - A bed wars mini-game.
+- * Copyright (C) 2021 Andrei Dascălu
+- *
+- * This program is free software: you can redistribute it and/or modify
+- * it under the terms of the GNU General Public License as published by
+- * the Free Software Foundation, either version 3 of the License, or
+- * (at your option) any later version.
+- *
+- * This program is distributed in the hope that it will be useful,
+- * but WITHOUT ANY WARRANTY; without even the implied warranty of
+- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- * GNU General Public License for more details.
+- *
+- * You should have received a copy of the GNU General Public License
+- * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+- *
+- * Contact e-mail: andrew.dascalu@gmail.com
+- */
+-
+-package com.andrei1058.bedwars.support.version.v1_18_R1;
+-
+-import com.andrei1058.bedwars.api.arena.team.ITeam;
+-import com.andrei1058.bedwars.api.language.Language;
+-import com.andrei1058.bedwars.api.language.Messages;
+-import com.andrei1058.bedwars.support.version.common.VersionCommon;
+-import net.minecraft.server.level.WorldServer;
+-import net.minecraft.world.damagesource.DamageSource;
+-import net.minecraft.world.entity.EntityTypes;
+-import net.minecraft.world.entity.ai.attributes.GenericAttributes;
+-import net.minecraft.world.entity.ai.goal.PathfinderGoalFloat;
+-import net.minecraft.world.entity.ai.goal.PathfinderGoalMeleeAttack;
+-import net.minecraft.world.entity.ai.goal.PathfinderGoalRandomStroll;
+-import net.minecraft.world.entity.ai.goal.target.PathfinderGoalHurtByTarget;
+-import net.minecraft.world.entity.ai.goal.target.PathfinderGoalNearestAttackableTarget;
+-import net.minecraft.world.entity.monster.EntitySilverfish;
+-import net.minecraft.world.entity.player.EntityHuman;
+-import net.minecraft.world.level.World;
+-import org.apache.commons.lang.StringUtils;
+-import org.bukkit.Location;
+-import org.bukkit.craftbukkit.v1_18_R1.CraftWorld;
+-import org.bukkit.craftbukkit.v1_18_R1.entity.CraftLivingEntity;
+-import org.bukkit.craftbukkit.v1_18_R1.event.CraftEventFactory;
+-import org.bukkit.entity.LivingEntity;
+-import org.bukkit.event.entity.CreatureSpawnEvent;
+-
+-@SuppressWarnings("ALL")
+-public class Silverfish extends EntitySilverfish {
+-
+-    private ITeam team;
+-
+-    private Silverfish(EntityTypes<? extends EntitySilverfish> entitytypes, World world, ITeam bedWarsTeam) {
+-        super(entitytypes, world);
+-        this.team = bedWarsTeam;
+-    }
+-
+-    @SuppressWarnings("unchecked")
+-    public Silverfish(EntityTypes entityTypes, World world) {
+-        super(entityTypes, world);
+-    }
+-
+-    @Override
+-    protected void u() {
+-        this.bR.a(1, new PathfinderGoalFloat(this));
+-        this.bR.a(2, new PathfinderGoalMeleeAttack(this, 1.9D, false));
+-        this.bS.a(1, new PathfinderGoalHurtByTarget(this));
+-        this.bR.a(3, new PathfinderGoalRandomStroll(this, 2D));
+-        this.bS.a(2, new PathfinderGoalNearestAttackableTarget(this, EntityHuman.class, 20, true, false, player -> {
+-            return (!((EntityHuman) player).getBukkitEntity().isDead()) &&
+-                    (!team.wasMember(((EntityHuman) player).getBukkitEntity().getUniqueId())) &&
+-                    (!team.getArena().isReSpawning(((EntityHuman) player).getBukkitEntity().getUniqueId())) &&
+-                    (!team.getArena().isSpectator(((EntityHuman) player).getBukkitEntity().getUniqueId()));
+-        }));
+-        this.bS.a(3, new PathfinderGoalNearestAttackableTarget(this, IGolem.class, 20, true, false, golem -> {
+-            return ((IGolem) golem).getTeam() != team;
+-        }));
+-        this.bS.a(4, new PathfinderGoalNearestAttackableTarget(this, Silverfish.class, 20, true, false, sf -> {
+-            return ((Silverfish) sf).getTeam() != team;
+-        }));
+-    }
+-
+-    public ITeam getTeam() {
+-        return team;
+-    }
+-
+-    public static LivingEntity spawn(Location loc, ITeam team, double speed, double health, int despawn, double damage) {
+-        WorldServer mcWorld = ((CraftWorld) loc.getWorld()).getHandle();
+-        Silverfish customEnt = new Silverfish(EntityTypes.aA, mcWorld, team);
+-        customEnt.a(loc.getX(), loc.getY(), loc.getZ(), loc.getYaw(), loc.getPitch());
+-        customEnt.a(GenericAttributes.a).a(health);
+-        customEnt.a(GenericAttributes.d).a(speed);
+-        customEnt.a(GenericAttributes.f).a(damage);
+-
+-        if (!CraftEventFactory.doEntityAddEventCalling(mcWorld, customEnt, CreatureSpawnEvent.SpawnReason.CUSTOM)) {
+-            mcWorld.P.a(customEnt);
+-        }
+-        ((CraftLivingEntity) customEnt.getBukkitEntity()).setRemoveWhenFarAway(false);
+-        ((CraftLivingEntity) customEnt.getBukkitEntity()).setRemoveWhenFarAway(true);
+-        ((CraftLivingEntity) customEnt.getBukkitEntity()).setPersistent(true);
+-
+-        customEnt.getBukkitEntity().setCustomName(Language.getDefaultLanguage().m(Messages.SHOP_UTILITY_NPC_IRON_GOLEM_NAME)
+-                .replace("{despawn}", String.valueOf(despawn)
+-                        .replace("{health}", StringUtils.repeat(Language.getDefaultLanguage().m(Messages.FORMATTING_DESPAWNABLE_UTILITY_NPC_HEALTH) + " ", 10))
+-                        .replace("{TeamColor}", team.getColor().chat().toString())));
+-        return (LivingEntity) customEnt.getBukkitEntity();
+-    }
+-
+-    @Override
+-    public void a(DamageSource damagesource) {
+-        super.a(damagesource);
+-        team = null;
+-        VersionCommon.api.getVersionSupport().getDespawnablesList().remove(this.getBukkitEntity().getUniqueId());
+-    }
+-
+-    @Override
+-    public boolean d_() {
+-        return super.d_();
+-    }
+-}
+diff --git a/versionsupport_v1_18_R1/src/main/java/com/andrei1058/bedwars/support/version/v1_18_R1/v1_18_R1.java b/versionsupport_v1_18_R1/src/main/java/com/andrei1058/bedwars/support/version/v1_18_R1/v1_18_R1.java
+deleted file mode 100644
+index 67d3bffd..00000000
+--- a/versionsupport_v1_18_R1/src/main/java/com/andrei1058/bedwars/support/version/v1_18_R1/v1_18_R1.java
++++ /dev/null
+@@ -1,711 +0,0 @@
+-/*
+- * BedWars1058 - A bed wars mini-game.
+- * Copyright (C) 2021 Andrei Dascălu
+- *
+- * This program is free software: you can redistribute it and/or modify
+- * it under the terms of the GNU General Public License as published by
+- * the Free Software Foundation, either version 3 of the License, or
+- * (at your option) any later version.
+- *
+- * This program is distributed in the hope that it will be useful,
+- * but WITHOUT ANY WARRANTY; without even the implied warranty of
+- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- * GNU General Public License for more details.
+- *
+- * You should have received a copy of the GNU General Public License
+- * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+- *
+- * Contact e-mail: andrew.dascalu@gmail.com
+- */
+-
+-package com.andrei1058.bedwars.support.version.v1_18_R1;
+-
+-import com.andrei1058.bedwars.api.arena.IArena;
+-import com.andrei1058.bedwars.api.arena.shop.ShopHolo;
+-import com.andrei1058.bedwars.api.arena.team.ITeam;
+-import com.andrei1058.bedwars.api.arena.team.TeamColor;
+-import com.andrei1058.bedwars.api.entity.Despawnable;
+-import com.andrei1058.bedwars.api.events.player.PlayerKillEvent;
+-import com.andrei1058.bedwars.api.language.Language;
+-import com.andrei1058.bedwars.api.language.Messages;
+-import com.andrei1058.bedwars.api.server.VersionSupport;
+-import com.andrei1058.bedwars.support.version.common.VersionCommon;
+-import com.mojang.datafixers.DataFixUtils;
+-import com.mojang.datafixers.types.Type;
+-import com.mojang.datafixers.util.Pair;
+-import com.mojang.math.Vector3fa;
+-import net.minecraft.SharedConstants;
+-import net.minecraft.core.particles.ParticleParamRedstone;
+-import net.minecraft.nbt.NBTTagCompound;
+-import net.minecraft.network.chat.ChatMessageType;
+-import net.minecraft.network.chat.IChatBaseComponent;
+-import net.minecraft.network.protocol.game.*;
+-import net.minecraft.network.syncher.DataWatcherObject;
+-import net.minecraft.network.syncher.DataWatcherRegistry;
+-import net.minecraft.server.MinecraftServer;
+-import net.minecraft.server.dedicated.DedicatedServer;
+-import net.minecraft.server.level.EntityPlayer;
+-import net.minecraft.util.datafix.DataConverterRegistry;
+-import net.minecraft.util.datafix.fixes.DataConverterTypes;
+-import net.minecraft.world.damagesource.DamageSource;
+-import net.minecraft.world.entity.EntityLiving;
+-import net.minecraft.world.entity.EntityTypes;
+-import net.minecraft.world.entity.EnumCreatureType;
+-import net.minecraft.world.entity.EnumItemSlot;
+-import net.minecraft.world.entity.item.EntityTNTPrimed;
+-import net.minecraft.world.entity.projectile.EntityFireball;
+-import net.minecraft.world.entity.projectile.IProjectile;
+-import net.minecraft.world.item.*;
+-import net.minecraft.world.item.Item;
+-import net.minecraft.world.level.block.Blocks;
+-import net.minecraft.world.level.block.state.BlockBase;
+-import org.bukkit.Color;
+-import org.bukkit.Location;
+-import org.bukkit.block.Block;
+-import org.bukkit.block.BlockState;
+-import org.bukkit.block.data.type.Bed;
+-import org.bukkit.block.data.type.WallSign;
+-import org.bukkit.command.Command;
+-import org.bukkit.craftbukkit.v1_18_R1.CraftServer;
+-import org.bukkit.craftbukkit.v1_18_R1.entity.CraftFireball;
+-import org.bukkit.craftbukkit.v1_18_R1.entity.CraftLivingEntity;
+-import org.bukkit.craftbukkit.v1_18_R1.entity.CraftPlayer;
+-import org.bukkit.craftbukkit.v1_18_R1.entity.CraftTNTPrimed;
+-import org.bukkit.craftbukkit.v1_18_R1.inventory.CraftItemStack;
+-import org.bukkit.entity.Entity;
+-import org.bukkit.entity.*;
+-import org.bukkit.event.inventory.InventoryEvent;
+-import org.bukkit.inventory.meta.ItemMeta;
+-import org.bukkit.plugin.Plugin;
+-import org.bukkit.potion.PotionEffectType;
+-import org.bukkit.scoreboard.Team;
+-import org.bukkit.util.Vector;
+-
+-import java.lang.reflect.Field;
+-import java.util.ArrayList;
+-import java.util.List;
+-import java.util.Map;
+-import java.util.UUID;
+-import java.util.logging.Level;
+-
+-@SuppressWarnings("unused")
+-public class v1_18_R1 extends VersionSupport {
+-
+-    private static final UUID chatUUID = new UUID(0L, 0L);
+-
+-    public v1_18_R1(Plugin plugin, String name) {
+-        super(plugin, name);
+-        loadDefaultEffects();
+-    }
+-
+-    @Override
+-    public void registerVersionListeners() {
+-        new VersionCommon(this);
+-    }
+-
+-    @Override
+-    public void registerCommand(String name, Command clasa) {
+-        ((CraftServer) getPlugin().getServer()).getCommandMap().register(name, clasa);
+-    }
+-
+-    @Override
+-    public String getTag(org.bukkit.inventory.ItemStack itemStack, String key) {
+-        ItemStack i = CraftItemStack.asNMSCopy(itemStack);
+-        NBTTagCompound tag = i.s();
+-        return tag == null ? null : tag.e(key) ? tag.l(key) : null;
+-    }
+-
+-    @Override
+-    public void sendTitle(Player p, String title, String subtitle, int fadeIn, int stay, int fadeOut) {
+-        p.sendTitle(title == null ? " " : title, subtitle == null ? " " : subtitle, fadeIn, stay, fadeOut);
+-    }
+-
+-    public void spawnSilverfish(Location loc, ITeam bedWarsTeam, double speed, double health, int despawn, double damage) {
+-        new Despawnable(Silverfish.spawn(loc, bedWarsTeam, speed, health, despawn, damage), bedWarsTeam, despawn,
+-                Messages.SHOP_UTILITY_NPC_SILVERFISH_NAME, PlayerKillEvent.PlayerKillCause.SILVERFISH_FINAL_KILL, PlayerKillEvent.PlayerKillCause.SILVERFISH);
+-    }
+-
+-    @Override
+-    public void spawnIronGolem(Location loc, ITeam bedWarsTeam, double speed, double health, int despawn) {
+-        new Despawnable(IGolem.spawn(loc, bedWarsTeam, speed, health, despawn), bedWarsTeam, despawn, Messages.SHOP_UTILITY_NPC_IRON_GOLEM_NAME,
+-                PlayerKillEvent.PlayerKillCause.IRON_GOLEM_FINAL_KILL, PlayerKillEvent.PlayerKillCause.IRON_GOLEM);
+-    }
+-
+-    @Override
+-    public void playAction(Player p, String text) {
+-        CraftPlayer cPlayer = (CraftPlayer) p;
+-        IChatBaseComponent cbc = IChatBaseComponent.ChatSerializer.a("{\"text\": \"" + text + "\"}");
+-        PacketPlayOutChat ppoc = new PacketPlayOutChat(cbc, ChatMessageType.c, chatUUID);
+-        cPlayer.getHandle().b.a(ppoc);
+-    }
+-
+-    @Override
+-    public boolean isBukkitCommandRegistered(String name) {
+-        return ((CraftServer) getPlugin().getServer()).getCommandMap().getCommand(name) != null;
+-    }
+-
+-    @Override
+-    public org.bukkit.inventory.ItemStack getItemInHand(Player p) {
+-        return p.getInventory().getItemInMainHand();
+-    }
+-
+-    @Override
+-    public void hideEntity(Entity e, Player p) {
+-        PacketPlayOutEntityDestroy packet = new PacketPlayOutEntityDestroy(e.getEntityId());
+-        ((CraftPlayer) p).getHandle().b.a(packet);
+-
+-    }
+-
+-    @Override
+-    public void minusAmount(Player p, org.bukkit.inventory.ItemStack i, int amount) {
+-        if (i.getAmount() - amount <= 0) {
+-            if (p.getInventory().getItemInOffHand().equals(i)) {
+-                p.getInventory().setItemInOffHand(null);
+-            } else {
+-                p.getInventory().removeItem(i);
+-            }
+-            return;
+-        }
+-        i.setAmount(i.getAmount() - amount);
+-        p.updateInventory();
+-    }
+-
+-    @Override
+-    public void setSource(TNTPrimed tnt, Player owner) {
+-        EntityLiving nmsEntityLiving = (((CraftLivingEntity) owner).getHandle());
+-        EntityTNTPrimed nmsTNT = (((CraftTNTPrimed) tnt).getHandle());
+-        try {
+-            //noinspection JavaReflectionMemberAccess
+-            Field sourceField = EntityTNTPrimed.class.getDeclaredField("source");
+-            sourceField.setAccessible(true);
+-            sourceField.set(nmsTNT, nmsEntityLiving);
+-        } catch (Exception ex) {
+-            ex.printStackTrace();
+-        }
+-    }
+-
+-    @Override
+-    public boolean isArmor(org.bukkit.inventory.ItemStack itemStack) {
+-        if (CraftItemStack.asNMSCopy(itemStack) == null) return false;
+-        if (CraftItemStack.asNMSCopy(itemStack).c() == null) return false;
+-        return CraftItemStack.asNMSCopy(itemStack).c() instanceof ItemArmor;
+-    }
+-
+-    @Override
+-    public boolean isTool(org.bukkit.inventory.ItemStack itemStack) {
+-        if (CraftItemStack.asNMSCopy(itemStack) == null) return false;
+-        if (CraftItemStack.asNMSCopy(itemStack).c() == null) return false;
+-        return CraftItemStack.asNMSCopy(itemStack).c() instanceof ItemTool;
+-    }
+-
+-    @Override
+-    public boolean isSword(org.bukkit.inventory.ItemStack itemStack) {
+-        if (CraftItemStack.asNMSCopy(itemStack) == null) return false;
+-        if (CraftItemStack.asNMSCopy(itemStack).c() == null) return false;
+-        return CraftItemStack.asNMSCopy(itemStack).c() instanceof ItemSword;
+-    }
+-
+-    @Override
+-    public boolean isAxe(org.bukkit.inventory.ItemStack itemStack) {
+-        if (CraftItemStack.asNMSCopy(itemStack).c() == null) return false;
+-        return CraftItemStack.asNMSCopy(itemStack).c() instanceof ItemAxe;
+-    }
+-
+-    @Override
+-    public boolean isBow(org.bukkit.inventory.ItemStack itemStack) {
+-        if (CraftItemStack.asNMSCopy(itemStack) == null) return false;
+-        if (CraftItemStack.asNMSCopy(itemStack).c() == null) return false;
+-        return CraftItemStack.asNMSCopy(itemStack).c() instanceof ItemBow;
+-    }
+-
+-    @Override
+-    public boolean isProjectile(org.bukkit.inventory.ItemStack itemStack) {
+-        if (CraftItemStack.asNMSCopy(itemStack) == null) return false;
+-        if (CraftItemStack.asNMSCopy(itemStack).E() == null) return false;
+-        return CraftItemStack.asNMSCopy(itemStack).E() instanceof IProjectile;
+-    }
+-
+-    @Override
+-    public boolean isInvisibilityPotion(org.bukkit.inventory.ItemStack itemStack) {
+-        if (!itemStack.getType().equals(org.bukkit.Material.POTION)) return false;
+-
+-        org.bukkit.inventory.meta.PotionMeta pm = (org.bukkit.inventory.meta.PotionMeta) itemStack.getItemMeta();
+-
+-        return pm != null && pm.hasCustomEffects() && pm.hasCustomEffect(org.bukkit.potion.PotionEffectType.INVISIBILITY);
+-    }
+-
+-    @SuppressWarnings({"unchecked"})
+-    @Override
+-    public void registerEntities() {
+-        //noinspection deprecation
+-        Map<String, Type<?>> types = (Map<String, Type<?>>) DataConverterRegistry.a().getSchema(
+-                DataFixUtils.makeKey(SharedConstants.b().getWorldVersion())
+-        ).findChoiceType(DataConverterTypes.q).types();
+-
+-        types.put("minecraft:bwsilverfish", types.get("minecraft:silverfish"));
+-        EntityTypes.Builder.a(Silverfish::new, EnumCreatureType.a).a("bwsilverfish");
+-
+-        types.put("minecraft:bwgolem", types.get("minecraft:iron_golem"));
+-        EntityTypes.Builder.a(IGolem::new, EnumCreatureType.a).a("bwgolem");
+-    }
+-
+-    @Override
+-    public void spawnShop(Location loc, String name1, List<Player> players, IArena arena) {
+-        Location l = loc.clone();
+-
+-        if (l.getWorld() == null) return;
+-        Villager vlg = (Villager) l.getWorld().spawnEntity(loc, EntityType.VILLAGER);
+-        vlg.setAI(false);
+-        vlg.setRemoveWhenFarAway(false);
+-        vlg.setCollidable(false);
+-        vlg.setInvulnerable(true);
+-        vlg.setSilent(true);
+-
+-        for (Player p : players) {
+-            String[] nume = Language.getMsg(p, name1).split(",");
+-            if (nume.length == 1) {
+-                ArmorStand a = createArmorStand(nume[0], l.clone().add(0, 1.85, 0));
+-                new ShopHolo(Language.getPlayerLanguage(p).getIso(), a, null, l, arena);
+-            } else {
+-                ArmorStand a = createArmorStand(nume[0], l.clone().add(0, 2.1, 0));
+-                ArmorStand b = createArmorStand(nume[1], l.clone().add(0, 1.85, 0));
+-                new ShopHolo(Language.getPlayerLanguage(p).getIso(), a, b, l, arena);
+-            }
+-        }
+-        for (ShopHolo sh : ShopHolo.getShopHolo()) {
+-            if (sh.getA() == arena) {
+-                sh.update();
+-            }
+-        }
+-    }
+-
+-    @Override
+-    public double getDamage(org.bukkit.inventory.ItemStack i) {
+-        ItemStack nmsStack = CraftItemStack.asNMSCopy(i);
+-        NBTTagCompound compound = (nmsStack.s() != null) ? nmsStack.s() : new NBTTagCompound();
+-        return compound.k("generic.attackDamage");
+-    }
+-
+-    private static ArmorStand createArmorStand(String name, Location loc) {
+-        if (loc == null) return null;
+-        if (loc.getWorld() == null) return null;
+-        ArmorStand a = loc.getWorld().spawn(loc, ArmorStand.class);
+-        a.setGravity(false);
+-        a.setVisible(false);
+-        a.setCustomNameVisible(true);
+-        a.setCustomName(name);
+-        return a;
+-    }
+-
+-    @Override
+-    public void voidKill(Player p) {
+-        ((CraftPlayer) p).getHandle().a(DamageSource.m, 1000);
+-    }
+-
+-    @Override
+-    public void hideArmor(Player victim, Player receiver) {
+-        List<Pair<EnumItemSlot, ItemStack>> items = new ArrayList<>();
+-        List<Pair<EnumItemSlot, ItemStack>> hands = new ArrayList<>();
+-        hands.add(new Pair<>(EnumItemSlot.a, new ItemStack(Item.b(0))));
+-        hands.add(new Pair<>(EnumItemSlot.b, new ItemStack(Item.b(0))));
+-
+-        items.add(new Pair<>(EnumItemSlot.f, new ItemStack(Item.b(0))));
+-        items.add(new Pair<>(EnumItemSlot.e, new ItemStack(Item.b(0))));
+-        items.add(new Pair<>(EnumItemSlot.d, new ItemStack(Item.b(0))));
+-        items.add(new Pair<>(EnumItemSlot.c, new ItemStack(Item.b(0))));
+-        PacketPlayOutEntityEquipment packet1 = new PacketPlayOutEntityEquipment(victim.getEntityId(), items);
+-        PacketPlayOutEntityEquipment packet2 = new PacketPlayOutEntityEquipment(victim.getEntityId(), hands);
+-        EntityPlayer pc = ((CraftPlayer) receiver).getHandle();
+-        if (victim != receiver) {
+-            pc.b.a(packet2);
+-        }
+-        pc.b.a(packet1);
+-    }
+-
+-    @Override
+-    public void showArmor(Player victim, Player receiver) {
+-        List<Pair<EnumItemSlot, ItemStack>> items = new ArrayList<>();
+-        List<Pair<EnumItemSlot, ItemStack>> hands = new ArrayList<>();
+-
+-        hands.add(new Pair<>(EnumItemSlot.a, CraftItemStack.asNMSCopy(victim.getInventory().getItemInMainHand())));
+-        hands.add(new Pair<>(EnumItemSlot.b, CraftItemStack.asNMSCopy(victim.getInventory().getItemInOffHand())));
+-
+-        items.add(new Pair<>(EnumItemSlot.f, CraftItemStack.asNMSCopy(victim.getInventory().getHelmet())));
+-        items.add(new Pair<>(EnumItemSlot.e, CraftItemStack.asNMSCopy(victim.getInventory().getChestplate())));
+-        items.add(new Pair<>(EnumItemSlot.d, CraftItemStack.asNMSCopy(victim.getInventory().getLeggings())));
+-        items.add(new Pair<>(EnumItemSlot.c, CraftItemStack.asNMSCopy(victim.getInventory().getBoots())));
+-        PacketPlayOutEntityEquipment packet1 = new PacketPlayOutEntityEquipment(victim.getEntityId(), items);
+-        PacketPlayOutEntityEquipment packet2 = new PacketPlayOutEntityEquipment(victim.getEntityId(), hands);
+-        EntityPlayer pc = ((CraftPlayer) receiver).getHandle();
+-        if (victim != receiver) {
+-            pc.b.a(packet2);
+-        }
+-        pc.b.a(packet1);
+-    }
+-
+-    @Override
+-    public void spawnDragon(Location l, ITeam bwt) {
+-        if (l == null || l.getWorld() == null) {
+-            getPlugin().getLogger().log(Level.WARNING, "Could not spawn Dragon. Location is null");
+-            return;
+-        }
+-        EnderDragon ed = (EnderDragon) l.getWorld().spawnEntity(l, EntityType.ENDER_DRAGON);
+-        ed.setPhase(EnderDragon.Phase.CIRCLING);
+-    }
+-
+-    @Override
+-    public void colorBed(ITeam bwt) {
+-        for (int x = -1; x <= 1; x++) {
+-            for (int z = -1; z <= 1; z++) {
+-                BlockState bed = bwt.getBed().clone().add(x, 0, z).getBlock().getState();
+-                if (bed instanceof Bed) {
+-                    bed.setType(bwt.getColor().bedMaterial());
+-                    bed.update();
+-                }
+-            }
+-        }
+-    }
+-
+-    @Override
+-    public void registerTntWhitelist() {
+-        try {
+-            Field field = BlockBase.class.getDeclaredField("aI");
+-            field.setAccessible(true);
+-            field.set(Blocks.eq, 12f);
+-            field.set(Blocks.au, 300f);
+-        } catch (NoSuchFieldException | IllegalAccessException e) {
+-            e.printStackTrace();
+-        }
+-    }
+-
+-    @Override
+-    public void setBlockTeamColor(Block block, TeamColor teamColor) {
+-        if (block.getType().toString().contains("STAINED_GLASS") || block.getType().toString().equals("GLASS")) {
+-            block.setType(teamColor.glassMaterial());
+-        } else if (block.getType().toString().contains("_TERRACOTTA")) {
+-            block.setType(teamColor.glazedTerracottaMaterial());
+-        } else if (block.getType().toString().contains("_WOOL")) {
+-            block.setType(teamColor.woolMaterial());
+-        }
+-    }
+-
+-    @Override
+-    public void setCollide(Player p, IArena a, boolean value) {
+-        p.setCollidable(value);
+-        if (a == null) return;
+-        a.updateSpectatorCollideRule(p, value);
+-    }
+-
+-    @Override
+-    public org.bukkit.inventory.ItemStack addCustomData(org.bukkit.inventory.ItemStack i, String data) {
+-        ItemStack itemStack = CraftItemStack.asNMSCopy(i);
+-        NBTTagCompound tag = itemStack.s();
+-        if (tag == null) {
+-            tag = new NBTTagCompound();
+-            itemStack.c(tag);
+-        }
+-
+-        tag.a("BedWars1058", data);
+-        return CraftItemStack.asBukkitCopy(itemStack);
+-    }
+-
+-    @Override
+-    public org.bukkit.inventory.ItemStack setTag(org.bukkit.inventory.ItemStack itemStack, String key, String value) {
+-        ItemStack is = CraftItemStack.asNMSCopy(itemStack);
+-        NBTTagCompound tag = is.s();
+-        if (tag == null) {
+-            tag = new NBTTagCompound();
+-            is.c(tag);
+-        }
+-
+-        tag.a(key, value);
+-        return CraftItemStack.asBukkitCopy(is);
+-    }
+-
+-    @Override
+-    public boolean isCustomBedWarsItem(org.bukkit.inventory.ItemStack i) {
+-        ItemStack itemStack = CraftItemStack.asNMSCopy(i);
+-        NBTTagCompound tag = itemStack.s();
+-        if (tag == null) return false;
+-        return tag.e("BedWars1058");
+-    }
+-
+-    @Override
+-    public String getCustomData(org.bukkit.inventory.ItemStack i) {
+-        ItemStack itemStack = CraftItemStack.asNMSCopy(i);
+-        NBTTagCompound tag = itemStack.s();
+-        if (tag == null) return "";
+-        return tag.l("BedWars1058");
+-    }
+-
+-    @Override
+-    public org.bukkit.inventory.ItemStack colourItem(org.bukkit.inventory.ItemStack itemStack, ITeam bedWarsTeam) {
+-        if (itemStack == null) return null;
+-        String type = itemStack.getType().toString();
+-        if (type.contains("_BED")) {
+-            return new org.bukkit.inventory.ItemStack(bedWarsTeam.getColor().bedMaterial(), itemStack.getAmount());
+-        } else if (type.contains("_STAINED_GLASS_PANE")) {
+-            return new org.bukkit.inventory.ItemStack(bedWarsTeam.getColor().glassPaneMaterial(), itemStack.getAmount());
+-        } else if (type.contains("STAINED_GLASS") || type.equals("GLASS")) {
+-            return new org.bukkit.inventory.ItemStack(bedWarsTeam.getColor().glassMaterial(), itemStack.getAmount());
+-        } else if (type.contains("_TERRACOTTA")) {
+-            return new org.bukkit.inventory.ItemStack(bedWarsTeam.getColor().glazedTerracottaMaterial(), itemStack.getAmount());
+-        } else if (type.contains("_WOOL")) {
+-            return new org.bukkit.inventory.ItemStack(bedWarsTeam.getColor().woolMaterial(), itemStack.getAmount());
+-        }
+-        return itemStack;
+-    }
+-
+-    @Override
+-    public org.bukkit.inventory.ItemStack createItemStack(String material, int amount, short data) {
+-        org.bukkit.inventory.ItemStack i;
+-        try {
+-            i = new org.bukkit.inventory.ItemStack(org.bukkit.Material.valueOf(material), amount);
+-        } catch (Exception ex) {
+-            getPlugin().getLogger().log(Level.WARNING, material + " is not a valid " + getName() + " material!");
+-            i = new org.bukkit.inventory.ItemStack(org.bukkit.Material.BEDROCK);
+-        }
+-        return i;
+-    }
+-
+-    @Override
+-    public void teamCollideRule(Team team) {
+-        team.setOption(Team.Option.COLLISION_RULE, Team.OptionStatus.NEVER);
+-        team.setCanSeeFriendlyInvisibles(true);
+-    }
+-
+-    @Override
+-    public org.bukkit.Material materialFireball() {
+-        return org.bukkit.Material.FIRE_CHARGE;
+-    }
+-
+-    @Override
+-    public org.bukkit.Material materialPlayerHead() {
+-        return org.bukkit.Material.PLAYER_HEAD;
+-    }
+-
+-    @Override
+-    public org.bukkit.Material materialSnowball() {
+-        return org.bukkit.Material.SNOWBALL;
+-    }
+-
+-    @Override
+-    public org.bukkit.Material materialGoldenHelmet() {
+-        return org.bukkit.Material.GOLDEN_HELMET;
+-    }
+-
+-    @Override
+-    public org.bukkit.Material materialGoldenChestPlate() {
+-        return org.bukkit.Material.GOLDEN_CHESTPLATE;
+-    }
+-
+-    @Override
+-    public org.bukkit.Material materialGoldenLeggings() {
+-        return org.bukkit.Material.GOLDEN_LEGGINGS;
+-    }
+-
+-    @Override
+-    public org.bukkit.Material materialCake() {
+-        return org.bukkit.Material.CAKE;
+-    }
+-
+-    @Override
+-    public org.bukkit.Material materialCraftingTable() {
+-        return org.bukkit.Material.CRAFTING_TABLE;
+-    }
+-
+-    @Override
+-    public org.bukkit.Material materialEnchantingTable() {
+-        return org.bukkit.Material.ENCHANTING_TABLE;
+-    }
+-
+-    @Override
+-    public org.bukkit.Material woolMaterial() {
+-        return org.bukkit.Material.WHITE_WOOL;
+-    }
+-
+-    @Override
+-    public String getShopUpgradeIdentifier(org.bukkit.inventory.ItemStack itemStack) {
+-        ItemStack i = CraftItemStack.asNMSCopy(itemStack);
+-        NBTTagCompound tag = i.s();
+-        return tag == null ? "null" : tag.e("tierIdentifier") ? tag.l("tierIdentifier") : "null";
+-    }
+-
+-    @Override
+-    public org.bukkit.inventory.ItemStack setShopUpgradeIdentifier(org.bukkit.inventory.ItemStack itemStack, String identifier) {
+-        ItemStack i = CraftItemStack.asNMSCopy(itemStack);
+-        NBTTagCompound tag = i.s();
+-        if (tag == null) {
+-            tag = new NBTTagCompound();
+-            i.c(tag);
+-        }
+-        tag.a("tierIdentifier", identifier);
+-        return CraftItemStack.asBukkitCopy(i);
+-    }
+-
+-    @Override
+-    public org.bukkit.inventory.ItemStack getPlayerHead(Player player, org.bukkit.inventory.ItemStack copyTagFrom) {
+-        org.bukkit.inventory.ItemStack head = new org.bukkit.inventory.ItemStack(materialPlayerHead());
+-
+-        if (copyTagFrom != null) {
+-            ItemStack i = CraftItemStack.asNMSCopy(head);
+-            i.c(CraftItemStack.asNMSCopy(copyTagFrom).s());
+-            head = CraftItemStack.asBukkitCopy(i);
+-        }
+-
+-//        SkullMeta headMeta = (SkullMeta) head.getItemMeta();
+-//        FIXME: current hotfix will get rate limited! how the hell do we set head texture now?
+-//        wtf is this: SkullOwner:{Id:[I;-1344581477,-1919271229,-1306015584,-647763423],Name:"andrei1058"}
+-//        Field profileField;
+-//        try {
+-//            //noinspection ConstantConditions
+-//            profileField = headMeta.getClass().getDeclaredField("profile");
+-//            profileField.setAccessible(true);
+-//            profileField.set(headMeta, ((CraftPlayer) player).getProfile());
+-//        } catch (NoSuchFieldException | IllegalArgumentException | IllegalAccessException e1) {
+-//            e1.printStackTrace();
+-//        }
+-//        assert headMeta != null;
+-//        headMeta.setOwningPlayer(player);
+-//        head.setItemMeta(headMeta);
+-
+-        return head;
+-    }
+-
+-    @Override
+-    public void sendPlayerSpawnPackets(Player respawned, IArena arena) {
+-        if (respawned == null) return;
+-        if (arena == null) return;
+-        if (!arena.isPlayer(respawned)) return;
+-
+-        // if method was used when the player was still in re-spawning screen
+-        if (arena.getRespawnSessions().containsKey(respawned)) return;
+-
+-        EntityPlayer entityPlayer = ((CraftPlayer) respawned).getHandle();
+-        PacketPlayOutNamedEntitySpawn show = new PacketPlayOutNamedEntitySpawn(entityPlayer);
+-        PacketPlayOutEntityVelocity playerVelocity = new PacketPlayOutEntityVelocity(entityPlayer);
+-        PacketPlayOutEntityHeadRotation head = new PacketPlayOutEntityHeadRotation(entityPlayer, getCompressedAngle(entityPlayer.getBukkitYaw()));
+-
+-        List<Pair<EnumItemSlot, ItemStack>> list = new ArrayList<>();
+-        list.add(new Pair<>(EnumItemSlot.a, entityPlayer.b(EnumItemSlot.a)));
+-        list.add(new Pair<>(EnumItemSlot.b, entityPlayer.b(EnumItemSlot.b)));
+-        list.add(new Pair<>(EnumItemSlot.f, entityPlayer.b(EnumItemSlot.f)));
+-        list.add(new Pair<>(EnumItemSlot.e, entityPlayer.b(EnumItemSlot.e)));
+-        list.add(new Pair<>(EnumItemSlot.d, entityPlayer.b(EnumItemSlot.d)));
+-        list.add(new Pair<>(EnumItemSlot.c, entityPlayer.b(EnumItemSlot.c)));
+-
+-
+-        for (Player p : arena.getPlayers()) {
+-            if (p == null) continue;
+-            if (p.equals(respawned)) continue;
+-            // if p is in re-spawning screen continue
+-            if (arena.getRespawnSessions().containsKey(p)) continue;
+-
+-            EntityPlayer boundTo = ((CraftPlayer) p).getHandle();
+-            if (p.getWorld().equals(respawned.getWorld())) {
+-                if (respawned.getLocation().distance(p.getLocation()) <= arena.getRenderDistance()) {
+-
+-                    // send respawned player to regular players
+-                    boundTo.b.a(show);
+-                    boundTo.b.a(head);
+-                    boundTo.b.a(playerVelocity);
+-                    boundTo.b.a(new PacketPlayOutEntityEquipment(respawned.getEntityId(), list));
+-
+-                    // send nearby players to respawned player
+-                    // if the player has invisibility hide armor
+-                    if (p.hasPotionEffect(PotionEffectType.INVISIBILITY)) {
+-                        hideArmor(p, respawned);
+-                    } else {
+-                        PacketPlayOutNamedEntitySpawn show2 = new PacketPlayOutNamedEntitySpawn(boundTo);
+-                        PacketPlayOutEntityVelocity playerVelocity2 = new PacketPlayOutEntityVelocity(boundTo);
+-                        PacketPlayOutEntityHeadRotation head2 = new PacketPlayOutEntityHeadRotation(boundTo, getCompressedAngle(boundTo.getBukkitYaw()));
+-                        entityPlayer.b.a(show2);
+-                        entityPlayer.b.a(playerVelocity2);
+-                        entityPlayer.b.a(head2);
+-                        showArmor(p, respawned);
+-                    }
+-                }
+-            }
+-        }
+-
+-        for (Player spectator : arena.getSpectators()) {
+-            if (spectator == null) continue;
+-            if (spectator.equals(respawned)) continue;
+-            EntityPlayer boundTo = ((CraftPlayer) spectator).getHandle();
+-            respawned.hidePlayer(getPlugin(), spectator);
+-            if (spectator.getWorld().equals(respawned.getWorld())) {
+-                if (respawned.getLocation().distance(spectator.getLocation()) <= arena.getRenderDistance()) {
+-
+-                    // send respawned player to spectator
+-                    boundTo.b.a(show);
+-                    boundTo.b.a(playerVelocity);
+-                    boundTo.b.a(new PacketPlayOutEntityEquipment(respawned.getEntityId(), list));
+-                    boundTo.b.a(new PacketPlayOutEntityHeadRotation(entityPlayer, getCompressedAngle(entityPlayer.getBukkitYaw())));
+-                }
+-            }
+-        }
+-    }
+-
+-    @Override
+-    public String getInventoryName(InventoryEvent e) {
+-        return e.getView().getTitle();
+-    }
+-
+-    @Override
+-    public void setUnbreakable(ItemMeta itemMeta) {
+-        itemMeta.setUnbreakable(true);
+-    }
+-
+-    @Override
+-    public String getMainLevel() {
+-        //noinspection deprecation
+-        return ((DedicatedServer) MinecraftServer.getServer()).z.a().p;
+-    }
+-
+-    @Override
+-    public int getVersion() {
+-        return 8;
+-    }
+-
+-    @Override
+-    public void setJoinSignBackground(BlockState b, org.bukkit.Material material) {
+-        if (b.getBlockData() instanceof WallSign) {
+-            b.getBlock().getRelative(((WallSign) b.getBlockData()).getFacing().getOppositeFace()).setType(material);
+-        }
+-    }
+-
+-    @Override
+-    public void spigotShowPlayer(Player victim, Player receiver) {
+-        receiver.showPlayer(getPlugin(), victim);
+-    }
+-
+-    @Override
+-    public void spigotHidePlayer(Player victim, Player receiver) {
+-        receiver.hidePlayer(getPlugin(), victim);
+-    }
+-
+-    @Override
+-    public Fireball setFireballDirection(Fireball fireball, Vector vector) {
+-        EntityFireball fb = ((CraftFireball) fireball).getHandle();
+-        fb.b = vector.getX() * 0.1D;
+-        fb.c = vector.getY() * 0.1D;
+-        fb.d = vector.getZ() * 0.1D;
+-        return (Fireball) fb.getBukkitEntity();
+-    }
+-
+-    @Override
+-    public void playRedStoneDot(Player player) {
+-        Color color = Color.RED;
+-        PacketPlayOutWorldParticles particlePacket = new PacketPlayOutWorldParticles(new ParticleParamRedstone(new Vector3fa((float) color.getRed(), (float) color.getGreen(), (float) color.getBlue()), (float) 1),
+-                true, player.getLocation().getX(), player.getLocation().getY() + 2.6, player.getLocation().getZ(), 0, 0, 0, 0, 0);
+-        for (Player inWorld : player.getWorld().getPlayers()) {
+-            if (inWorld.equals(player)) continue;
+-            ((CraftPlayer) inWorld).getHandle().b.a(particlePacket);
+-        }
+-    }
+-
+-    @Override
+-    public void clearArrowsFromPlayerBody(Player player) {
+-        ((CraftLivingEntity)player).getHandle().ai().b(new DataWatcherObject<>(12, DataWatcherRegistry.b),-1);
+-    }
+-}
+-- 
+2.36.2
+

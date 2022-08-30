@@ -1,0 +1,21 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: KurumiFake <kurumiisshidowife@gmail.com>
+Date: Sun, 21 Aug 2022 13:06:51 +0700
+Subject: [PATCH] no ip on scoreboard
+
+
+diff --git a/bedwars-plugin/src/main/java/com/andrei1058/bedwars/sidebar/BedWarsScoreboard.java b/bedwars-plugin/src/main/java/com/andrei1058/bedwars/sidebar/BedWarsScoreboard.java
+index d691e96c..8d5f5b4f 100644
+--- a/bedwars-plugin/src/main/java/com/andrei1058/bedwars/sidebar/BedWarsScoreboard.java
++++ b/bedwars-plugin/src/main/java/com/andrei1058/bedwars/sidebar/BedWarsScoreboard.java
+@@ -285,7 +285,6 @@ public class BedWarsScoreboard {
+ 
+             // General static placeholders
+             current = current
+-                    .replace("{server_ip}", BedWars.config.getString(ConfigPath.GENERAL_CONFIG_PLACEHOLDERS_REPLACEMENTS_SERVER_IP))
+                     .replace("{version}", plugin.getDescription().getVersion())
+                     .replace("{server}", config.getString(ConfigPath.GENERAL_CONFIGURATION_BUNGEE_OPTION_SERVER_ID))
+                     .replace("{playername}", player.getName())
+-- 
+2.36.2
+

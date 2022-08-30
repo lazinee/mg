@@ -1,0 +1,29 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: KurumiFake <kurumiisshidowife@gmail.com>
+Date: Sun, 21 Aug 2022 12:06:50 +0700
+Subject: [PATCH] snap title
+
+
+diff --git a/bedwars-plugin/src/main/java/com/andrei1058/bedwars/sidebar/BedWarsScoreboard.java b/bedwars-plugin/src/main/java/com/andrei1058/bedwars/sidebar/BedWarsScoreboard.java
+index 98dc8acd..d691e96c 100644
+--- a/bedwars-plugin/src/main/java/com/andrei1058/bedwars/sidebar/BedWarsScoreboard.java
++++ b/bedwars-plugin/src/main/java/com/andrei1058/bedwars/sidebar/BedWarsScoreboard.java
+@@ -247,6 +247,7 @@ public class BedWarsScoreboard {
+         });
+         placeholdersToRemove.forEach(placeholder -> handle.removePlaceholder(placeholder));
+ 
++        /*
+         // Set the title
+         String[] title = strings.remove(0).split("[\\n,]");
+         if (title.length == 1) {
+@@ -260,6 +261,7 @@ public class BedWarsScoreboard {
+         } else {
+             handle.setTitle(new SidebarLineAnimated(title));
+         }
++        */
+ 
+         handlePlayerList();
+ 
+-- 
+2.36.2
+
